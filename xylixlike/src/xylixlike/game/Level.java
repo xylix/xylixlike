@@ -16,5 +16,7 @@ public class Level {
         this.gamefloor = new GameFloor(h, w);
     }
     
-    
+    String currentState() {
+        return gamefloor.toString();
+    }
 }

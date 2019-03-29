@@ -21,7 +21,7 @@ public class GameFloor implements Renderable{
         for(int i = 0; i < height; i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < width; j++)
-                sb.append(" ");
+                sb.append("a");
             yAxis.put(i, (sb));
         }
     }
@@ -37,11 +37,12 @@ public class GameFloor implements Renderable{
         yAxis.forEach((k, v) -> column.append(v.charAt(i)));
         return column.toString();
     }
-    
+     
     @Override
     public String toString() {
         StringBuilder toString = new StringBuilder();
-        yAxis.forEach((k, v) -> toString.append(v).append("\n"));
+        yAxis.forEach((k, v) -> toString.append(v.toString()).append("\n"));
+        yAxis.forEach((k, v) -> System.out.println(v.toString()));
         return toString.toString();
     }
     
