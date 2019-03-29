@@ -10,5 +10,5 @@ package xylixlike.game;
  * @author xylix
  */
 public class DefaultJob {
-    
+    asd
 }

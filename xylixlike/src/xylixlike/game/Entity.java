@@ -9,13 +9,18 @@ package xylixlike.game;
  *
  * @author xylix
  */
-public class Item {
-    String name;
-    public Item (String name) {
-        this.name = name;
+public class Entity {
+    private int x;
+    private int y;
+    public Entity (int x, int y) {
+        this.x = x;
+        this.y = y;
     }
-
-    String name() {
-        return name;
-    } 
+    
+    public int yCoord () {
+        return y;
+    }
+    public int xCoord() {
+        return x;
+    }
 }

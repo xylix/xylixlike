@@ -9,13 +9,9 @@ package xylixlike.game;
  *
  * @author xylix
  */
-public class Item {
-    String name;
-    public Item (String name) {
-        this.name = name;
-    }
-
-    String name() {
-        return name;
-    } 
+enum Direction {
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT
 }

@@ -49,4 +49,11 @@ public class GameFloor implements Renderable{
     public void place(Character c, int xCoord, int yCoord) {
         yAxis.get(xCoord).replace(xCoord, xCoord +1, c.toString());
     }
+    
+    public boolean move(Entity e) {
+        int x = e.xCoord();
+        int y = e.yCoord();
+        
+        
+    }
 }

@@ -19,4 +19,9 @@ public class Level {
     String currentState() {
         return gamefloor.toString();
     }
+    
+    boolean moveEntity(Direction direction, Entity entity) {
+        //returns false if entity can't move
+        
+    }
 }

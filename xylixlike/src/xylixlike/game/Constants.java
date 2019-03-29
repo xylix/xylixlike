@@ -5,17 +5,14 @@
  */
 package xylixlike.game;
 
+import java.util.HashMap;
+
 /**
  *
  * @author xylix
  */
-public class Item {
-    String name;
-    public Item (String name) {
-        this.name = name;
+public class Constants {
+    public static HashMap<Character, String> Symset() {
+        
     }
-
-    String name() {
-        return name;
-    } 
 }
