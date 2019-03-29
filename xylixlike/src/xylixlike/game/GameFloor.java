@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package xylixlike.game.rendering;
+package xylixlike.game;
 
+import xylixlike.rendering.Renderable;
 import java.util.HashMap;
 
 
@@ -12,10 +13,10 @@ import java.util.HashMap;
  *
  * @author xylix
  */
-public class VisualStatus implements Renderable{
+public class GameFloor implements Renderable{
     private final HashMap<Integer, StringBuilder> yAxis;
     
-    public VisualStatus(int height, int width) {
+    public GameFloor(int height, int width) {
         yAxis = new HashMap<>();
         for(int i = 0; i < height; i++) {
             StringBuilder sb = new StringBuilder();
