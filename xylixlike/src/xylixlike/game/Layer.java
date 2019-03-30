@@ -31,11 +31,11 @@ import java.util.HashMap;
  *
  * @author xylix
  */
-public class GameFloor implements Renderable{
+public class Layer implements Renderable{
     private final HashMap<Integer, StringBuilder> yAxis;
     public final int height;
     
-    public GameFloor(int height, int width) {
+    public Layer(int height, int width) {
         yAxis = new HashMap<>();
         this.height = height;
         for(int i = 0; i < height; i++) {
@@ -46,7 +46,7 @@ public class GameFloor implements Renderable{
         }
     }
     
-    public GameFloor(String map) {
+    public Layer(String map) {
         yAxis = new HashMap<>();
         String[] osat = map.split("\n");
         this.height = osat.length;
@@ -80,7 +80,7 @@ public class GameFloor implements Renderable{
         return toString.toString();
     }
     
-    public void place(Character c, int xCoord, int yCoord) {
+    public void draw(Character c, int xCoord, int yCoord) {
         yAxis.get(xCoord).replace(xCoord, xCoord +1, c.toString());
     }
     

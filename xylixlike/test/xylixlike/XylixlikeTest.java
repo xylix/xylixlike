@@ -5,10 +5,38 @@
  */
 package xylixlike;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import org.junit.Before;
+import org.junit.Test;
+import xylixlike.game.Level;
+
 /**
  *
  * @author xylix
  */
 public class XylixlikeTest {
+    @Before
+    public void setUp() throws Exception {
+    }
+        
+    @Test
+    public void Level1FileTest() throws FileNotFoundException {
+        File file = new File("Levels/TestLevel1.txt");
+        Scanner fileReader = new Scanner(file);
+        StringBuilder levelString = new StringBuilder(); 
+        while(fileReader.hasNextLine()) {
+            levelString.append(fileReader.nextLine()).append("\n");
+        }
+    }
     
+    public void NewLevelTest() {
+        Level level = new Level(40, 80);
+        
+    }
+    @Test
+    public void GameFloorTest() {
+        
+    }
 }

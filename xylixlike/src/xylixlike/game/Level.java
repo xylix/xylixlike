@@ -30,20 +30,20 @@ import java.util.ArrayList;
  * @author xylix
  */
 public class Level {
-    GameFloor gamefloor;
+    Layer gamefloor;
     private final ArrayList<Entity> entities;
     
-    Level(int h, int w) {
-        this.gamefloor = new GameFloor(h, w);
+    public Level(int h, int w) {
+        this.gamefloor = new Layer(h, w);
         entities = new ArrayList<>();
     }
     
-    Level(String s) {
-        this.gamefloor = new GameFloor(s);
+    public Level(String s) {
+        this.gamefloor = new Layer(s);
         entities = new ArrayList<>();
     }
     
-    String currentState() {
+    public String currentState() {
         return gamefloor.toString();
     }
     
