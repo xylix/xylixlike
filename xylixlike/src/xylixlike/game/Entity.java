@@ -38,21 +38,20 @@ public class Entity {
     public Coordinates coords() {
         return c;
     }
-    //deprecated
-    public int yCoord () {
-        return c.y;
-    }
-    //deprecated
+
     public int xCoord() {
         return c.x;
     }
-    
-    public void setYCoord(int y) {
-        this.c.y = y;
+    public int yCoord () {
+        return c.y;
     }
     
     public void setXCoord(int x) {
         this.c.x = x;
+    }
+    
+    public void setYCoord(int y) {
+        this.c.y = y;
     }
     
     public void setCoords(int x, int y) {

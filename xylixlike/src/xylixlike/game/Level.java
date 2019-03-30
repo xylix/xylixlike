@@ -63,6 +63,10 @@ public class Level {
         entities.add(e);
     }
     
+    public ArrayList<Entity> entities() {
+        return entities;
+    }
+    
     public boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
         return floor.move(direction, entity);

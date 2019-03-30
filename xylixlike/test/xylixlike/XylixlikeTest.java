@@ -10,10 +10,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import xylixlike.game.Coordinates;
 import xylixlike.game.Direction;
+import xylixlike.game.Entity;
 import xylixlike.game.Level;
 import xylixlike.game.mobs.Spider;
 
@@ -43,6 +45,16 @@ public class XylixlikeTest {
     
     @Test
     public void GameFloorTest() {
+    }
+    
+    @Test
+    public void SpawnEntityTest() {
+        Level level = new Level(40, 80);
+        Coordinates c = new Coordinates (1,1);
+        Entity testEntity = new Entity("test", c);
+        level.spawnEntity(testEntity);
+        assertTrue(level.entities().contains(testEntity));
+        assertTrue(testEntity.coords().equals(c));
     }
     
     @Test

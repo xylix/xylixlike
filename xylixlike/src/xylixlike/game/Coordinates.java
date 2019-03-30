@@ -34,4 +34,9 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
+    
+    public void transform(int amountx, int amounty) {
+        this.x += amountx;
+        this.y += amounty;
+    }
 }
