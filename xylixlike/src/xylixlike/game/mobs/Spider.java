@@ -21,15 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package xylixlike.game.mobs;
 
 /**
  *
  * @author xylix
  */
-public class Mob extends Entity {
+public class Spider extends Mob {
     
-    public Mob(int x, int y) {
-        super(x, y);
-    } 
 }

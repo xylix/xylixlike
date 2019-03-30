@@ -21,36 +21,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package xylixlike.game.mobs;
+
+import xylixlike.game.Entity;
 
 /**
  *
  * @author xylix
  */
-public class Entity {
-    private int x, y;
-    public Entity (int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+public class Mob extends Entity {
     
-    public int yCoord () {
-        return y;
-    }
-    public int xCoord() {
-        return x;
-    }
-    
-    public void setYCoord(int y) {
-        this.y = y;
-    }
-    
-    public void setXCoord(int x) {
-        this.x = x;
-    }
-    
-    public void setCoords(int x, int y) {
-        setXCoord(x);
-        setYCoord(y);
-    }
+    public Mob(int x, int y) {
+        super(x, y);
+    } 
 }
