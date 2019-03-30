@@ -27,29 +27,11 @@ package xylixlike.game;
  *
  * @author xylix
  */
-public class Entity {
-    private Coordinates c;
-    public Entity (Coordinates coords) {
-        this.c.x = coords.x;
-        this.c.y = coords.y;
-    }
-    
-    public int yCoord () {
-        return c.y;
-    }
-    public int xCoord() {
-        return c.x;
-    }
-    
-    public void setYCoord(int y) {
-        this.c.y = y;
-    }
-    
-    public void setXCoord(int x) {
-        this.c.x = x;
-    }
-    
-    public void setCoords(int x, int y) {
-        this.c = new Coordinates(x, y);
+public class Coordinates {
+    public int x;
+    public int y;
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }

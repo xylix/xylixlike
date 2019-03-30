@@ -23,10 +23,14 @@
  */
 package xylixlike.game.mobs;
 
+import xylixlike.game.Coordinates;
+
 /**
  *
  * @author xylix
  */
 public class Spider extends Mob {
-    
+    public Spider(Coordinates coords) {
+        super(coords, 4, 1);
+    }
 }

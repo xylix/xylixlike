@@ -31,8 +31,8 @@ package xylixlike.game;
 public class Player extends Entity {
     public Inventory inventory;
     
-    public Player(int x, int y) {
-        super(x, y);
+    public Player(Coordinates coords) {
+        super(coords);
         this.inventory = new Inventory();
     }
 

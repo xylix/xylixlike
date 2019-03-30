@@ -23,6 +23,7 @@
  */
 package xylixlike.game.mobs;
 
+import xylixlike.game.Coordinates;
 import xylixlike.game.Entity;
 
 /**
@@ -30,8 +31,15 @@ import xylixlike.game.Entity;
  * @author xylix
  */
 public class Mob extends Entity {
+    private int hp;
+    private int damage;
+    public Mob(Coordinates coords, int hp, int damage) {
+        super(coords);
+        this.hp = hp;
+        this.damage = damage;
+    }
     
-    public Mob(int x, int y) {
-        super(x, y);
-    } 
+    private boolean isAlive() {
+        return hp > 0;
+    }
 }
