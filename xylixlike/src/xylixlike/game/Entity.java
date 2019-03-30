@@ -29,15 +29,20 @@ package xylixlike.game;
  */
 public class Entity {
     private Coordinates c;
-    private String name;
+    private final String name;
     public Entity (String name, Coordinates coords) {
         this.c = coords;
         this.name = name;
     }
     
+    public Coordinates coords() {
+        return c;
+    }
+    //deprecated
     public int yCoord () {
         return c.y;
     }
+    //deprecated
     public int xCoord() {
         return c.x;
     }
@@ -60,9 +65,5 @@ public class Entity {
     
     public char symbol() {
         return Constants.getSymbol(name);
-    }
-    
-    public boolean move(Direction d) {
-        //todo
     }
 }

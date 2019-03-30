@@ -30,36 +30,54 @@ import java.util.ArrayList;
  * @author xylix
  */
 public class Level {
-    Layer gamefloor;
+    Layer floor;
     private final ArrayList<Entity> entities;
     
     public Level(int h, int w) {
-        this.gamefloor = new Layer(h, w);
+        this.floor = new Layer(h, w);
         entities = new ArrayList<>();
     }
     
+    //Create level from a level file converted to a string. 
+    //Generate an empty entitylist
     public Level(String s) {
-        this.gamefloor = new Layer(s);
+        this.floor = new Layer(s);
         entities = new ArrayList<>();
+    }
+    
+    public Level(String s, ArrayList<Entity> e) {
+        this.floor = new Layer(s);
+        entities = e;
     }
     
     public String currentState() {
-        return gamefloor.toString();
+        return floor.toString();
     }
     
+    public char floorTile(Coordinates c) {
+        return floor.tile(c.x, c.y);
+    }
+    
+    //The entity needs to have a location set before this to not break stuff
     public void spawnEntity(Entity e) {
         entities.add(e);
     }
     
     public boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
-        return gamefloor.move(direction, entity);
+        return floor.move(direction, entity);
     }
     
+    //Starts drawing the room from top left corner
+    public boolean generateRoom(int w, int h, Coordinates c) {
+        //implement functionality using draw line functions in Layer
+    }
+    
+    //Returns stringified version of the floor + entities
     public String render() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < gamefloor.height; i++) {
-            sb.append(gamefloor.row(i));
+        for (int i = 0; i < floor.height; i++) {
+            sb.append(floor.row(i));
             sb.append("\n");
             for (Entity e: entities) {
                 if (e.yCoord() == i) {

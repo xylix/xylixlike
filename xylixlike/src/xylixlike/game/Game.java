@@ -48,7 +48,8 @@ public class Game {
             levelString.append(fileReader.nextLine()).append("\n");
         }
         Level level = new Level(levelString.toString());
-        level.spawnEntity(new Spider(new Coordinates(0, 0)));
+        Spider spider = new Spider(new Coordinates(1, 1));
+        level.spawnEntity(spider);
         System.out.println(level.render());
     }
     

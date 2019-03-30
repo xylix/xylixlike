@@ -84,6 +84,16 @@ public class Layer implements Renderable{
         yAxis.get(xCoord).replace(xCoord, xCoord +1, c.toString());
     }
     
+    public boolean drawHorizontalLine(Coordinates startCoords, int length) {
+        for(int i = 0; i < length; i++) {
+            //implement functionality
+        }
+    }
+    
+    public boolean drawVerticalLine() {
+        //implement functionality
+    }
+    
     public boolean move(Direction d, Entity e) {
         int x = e.xCoord();
         int y = e.yCoord();
