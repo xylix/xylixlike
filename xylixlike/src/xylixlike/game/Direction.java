@@ -9,7 +9,7 @@ package xylixlike.game;
  *
  * @author xylix
  */
-enum Direction {
+public enum Direction {
     UP,
     RIGHT,
     DOWN,

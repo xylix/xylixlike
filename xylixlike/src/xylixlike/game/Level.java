@@ -22,6 +22,6 @@ public class Level {
     
     boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
-        
+        return gamefloor.move(direction, entity);
     }
 }

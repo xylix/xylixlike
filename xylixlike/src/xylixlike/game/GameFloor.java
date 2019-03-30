@@ -20,8 +20,8 @@ public class GameFloor implements Renderable{
         yAxis = new HashMap<>();
         for(int i = 0; i < height; i++) {
             StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < width; j++)
-                sb.append("a");
+            for (int j = 0; j < width; j++)  
+                sb.append(Constants.getSymbol("vwall"));
             yAxis.put(i, (sb));
         }
     }
@@ -50,10 +50,24 @@ public class GameFloor implements Renderable{
         yAxis.get(xCoord).replace(xCoord, xCoord +1, c.toString());
     }
     
-    public boolean move(Entity e) {
+    public boolean move(Direction d, Entity e) {
         int x = e.xCoord();
         int y = e.yCoord();
-        
-        
+        switch (d) {
+            case UP: {
+                
+            } case RIGHT: {
+                
+            } case DOWN: {
+                
+            } case LEFT: {
+                
+            }
+                
+                
+                    
+        }
+            
+        return false;
     }
 }
