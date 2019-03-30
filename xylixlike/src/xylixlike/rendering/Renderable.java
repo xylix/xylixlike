@@ -10,6 +10,7 @@ package xylixlike.rendering;
  * @author xylix
  */
 public interface Renderable {
-    String row(int i);
-    String column(int i);
+    String row(int y);
+    String column(int x);
+    Character tile(int x, int y);
 }

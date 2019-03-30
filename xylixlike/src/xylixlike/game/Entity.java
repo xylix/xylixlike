@@ -23,4 +23,17 @@ public class Entity {
     public int xCoord() {
         return x;
     }
+    
+    public void setYCoord(int y) {
+        this.y = y;
+    }
+    
+    public void setXCoord(int x) {
+        this.x = x;
+    }
+    
+    public void setCoords(int x, int y) {
+        setXCoord(x);
+        setYCoord(y);
+    }
 }

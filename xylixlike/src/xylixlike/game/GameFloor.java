@@ -27,15 +27,20 @@ public class GameFloor implements Renderable{
     }
     
     @Override
-    public String row(int i) {
-        return yAxis.get(i).toString();
+    public String row(int y) {
+        return yAxis.get(y).toString();
     }
     
     @Override
-    public String column(int i) {
+    public String column(int x) {
         StringBuilder column = new StringBuilder();
-        yAxis.forEach((k, v) -> column.append(v.charAt(i)));
+        yAxis.forEach((k, v) -> column.append(v.charAt(x)));
         return column.toString();
+    }
+    
+    @Override
+    public Character tile(int x, int y) {
+        return yAxis.get(x).charAt(y);
     }
      
     @Override
@@ -53,21 +58,35 @@ public class GameFloor implements Renderable{
     public boolean move(Direction d, Entity e) {
         int x = e.xCoord();
         int y = e.yCoord();
+        int xDirection = 0; 
+        int yDirection = 0;
         switch (d) {
-            case UP: {
-                
-            } case RIGHT: {
-                
-            } case DOWN: {
-                
-            } case LEFT: {
-                
-            }
-                
-                
-                    
+            case UP:
+                xDirection = 0;
+                yDirection = 1;
+                break;
+            case RIGHT:
+                xDirection = 1;
+                yDirection = 0;
+                break;
+            case DOWN:
+                xDirection = 0;
+                yDirection = -1;
+                break; 
+            case LEFT:
+                xDirection = -1;
+                yDirection = 0;
+                break;
+            default:
+                break;
         }
-            
-        return false;
+        int nextX = x + xDirection;
+        int nextY = y + yDirection;
+        if (Constants.isPassable(Constants.getName(tile(nextX, nextY)))) {
+            e.setCoords(nextX, nextY);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
