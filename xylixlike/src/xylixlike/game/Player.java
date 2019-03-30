@@ -32,9 +32,7 @@ public class Player extends Entity {
     public Inventory inventory;
     
     public Player(Coordinates coords) {
-        super(coords);
+        super("Player", coords);
         this.inventory = new Inventory();
     }
-
-    
 }

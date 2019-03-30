@@ -23,27 +23,50 @@
  */
 package xylixlike.game;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author xylix
  */
 public class Level {
     GameFloor gamefloor;
+    private final ArrayList<Entity> entities;
     
     Level(int h, int w) {
         this.gamefloor = new GameFloor(h, w);
+        entities = new ArrayList<>();
     }
     
     Level(String s) {
         this.gamefloor = new GameFloor(s);
+        entities = new ArrayList<>();
     }
     
     String currentState() {
         return gamefloor.toString();
     }
     
-    boolean moveEntity(Direction direction, Entity entity) {
+    public void spawnEntity(Entity e) {
+        entities.add(e);
+    }
+    
+    public boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
         return gamefloor.move(direction, entity);
+    }
+    
+    public String render() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < gamefloor.height; i++) {
+            sb.append(gamefloor.row(i));
+            sb.append("\n");
+            for (Entity e: entities) {
+                if (e.yCoord() == i) {
+                    sb.replace(i, i+1, Character.toString(e.symbol()));
+                }
+            }
+        }
+        return sb.toString();
     }
 }

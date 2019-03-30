@@ -33,8 +33,8 @@ import xylixlike.game.Entity;
 public class Mob extends Entity {
     private int hp;
     private int damage;
-    public Mob(Coordinates coords, int hp, int damage) {
-        super(coords);
+    public Mob(String name, Coordinates coords, int hp, int damage) {
+        super(name, coords);
         this.hp = hp;
         this.damage = damage;
     }

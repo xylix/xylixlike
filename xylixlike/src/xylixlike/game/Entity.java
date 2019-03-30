@@ -29,9 +29,11 @@ package xylixlike.game;
  */
 public class Entity {
     private Coordinates c;
-    public Entity (Coordinates coords) {
+    private String name;
+    public Entity (String name, Coordinates coords) {
         this.c.x = coords.x;
         this.c.y = coords.y;
+        this.name = name;
     }
     
     public int yCoord () {
@@ -51,5 +53,17 @@ public class Entity {
     
     public void setCoords(int x, int y) {
         this.c = new Coordinates(x, y);
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public char symbol() {
+        return Constants.getSymbol(name);
+    }
+    
+    public boolean move(Direction d) {
+        
     }
 }

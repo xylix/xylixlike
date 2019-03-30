@@ -31,6 +31,6 @@ import xylixlike.game.Coordinates;
  */
 public class Spider extends Mob {
     public Spider(Coordinates coords) {
-        super(coords, 4, 1);
+        super("spider", coords, 4, 1);
     }
 }

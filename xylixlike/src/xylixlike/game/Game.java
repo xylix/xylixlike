@@ -47,7 +47,8 @@ public class Game {
             levelString.append(fileReader.nextLine()).append("\n");
         }
         Level level = new Level(levelString.toString());
-        System.out.println(level.currentState());
+        
+        System.out.println(level.render());
     }
     
 }

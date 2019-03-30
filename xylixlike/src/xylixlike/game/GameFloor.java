@@ -33,9 +33,11 @@ import java.util.HashMap;
  */
 public class GameFloor implements Renderable{
     private final HashMap<Integer, StringBuilder> yAxis;
+    public final int height;
     
     public GameFloor(int height, int width) {
         yAxis = new HashMap<>();
+        this.height = height;
         for(int i = 0; i < height; i++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < width; j++)  
@@ -47,6 +49,7 @@ public class GameFloor implements Renderable{
     public GameFloor(String map) {
         yAxis = new HashMap<>();
         String[] osat = map.split("\n");
+        this.height = osat.length;
         for (int i = 0; i < osat.length; i++) {
             yAxis.put(i, new StringBuilder(osat[i]));
         }
