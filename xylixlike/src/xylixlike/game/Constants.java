@@ -34,9 +34,10 @@ import org.apache.commons.collections4.bidimap.TreeBidiMap;
 public class Constants {
     static final BidiMap<String, Character> SYMSET = new TreeBidiMap();
     static {
-        SYMSET.put("air", " ".charAt(0));
-        SYMSET.put("vwall", "|".charAt(0));
-        SYMSET.put("hwall", "-".charAt(0));
+        SYMSET.put("air", ' ');
+        SYMSET.put("vwall", '|');
+        SYMSET.put("hwall", '-');
+        SYMSET.put("spider", ':');
     }
     
         

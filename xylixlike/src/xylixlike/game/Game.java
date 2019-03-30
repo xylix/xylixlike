@@ -26,6 +26,7 @@ package xylixlike.game;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import xylixlike.game.mobs.Spider;
 
 /**
  *
@@ -47,7 +48,7 @@ public class Game {
             levelString.append(fileReader.nextLine()).append("\n");
         }
         Level level = new Level(levelString.toString());
-        
+        level.spawnEntity(new Spider(new Coordinates(0, 0)));
         System.out.println(level.render());
     }
     

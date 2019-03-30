@@ -31,8 +31,7 @@ public class Entity {
     private Coordinates c;
     private String name;
     public Entity (String name, Coordinates coords) {
-        this.c.x = coords.x;
-        this.c.y = coords.y;
+        this.c = coords;
         this.name = name;
     }
     
@@ -64,6 +63,6 @@ public class Entity {
     }
     
     public boolean move(Direction d) {
-        
+
     }
 }
