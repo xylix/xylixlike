@@ -23,6 +23,8 @@
  */
 package xylixlike.game;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -36,10 +38,15 @@ public class Game {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        int width = 40;
-        int height = 20;
-        Level level = new Level(width, height);
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("Levels/level1map.txt");
+        
+        Scanner fileReader = new Scanner(file);
+        StringBuilder levelString = new StringBuilder(); 
+        while(fileReader.hasNextLine()) {
+            levelString.append(fileReader.nextLine()).append("\n");
+        }
+        Level level = new Level(levelString.toString());
         System.out.println(level.currentState());
     }
     

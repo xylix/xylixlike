@@ -44,6 +44,14 @@ public class GameFloor implements Renderable{
         }
     }
     
+    public GameFloor(String map) {
+        yAxis = new HashMap<>();
+        String[] osat = map.split("\n");
+        for (int i = 0; i < osat.length; i++) {
+            yAxis.put(i, new StringBuilder(osat[i]));
+        }
+    }
+    
     @Override
     public String row(int y) {
         return yAxis.get(y).toString();
