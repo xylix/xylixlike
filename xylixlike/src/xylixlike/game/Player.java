@@ -10,9 +10,11 @@ package xylixlike.game;
  *
  * @author xylix
  */
-public class Player {
+public class Player extends Entity {
     public Inventory inventory;
-    public Player() {
+    
+    public Player(int x, int y) {
+        super(x, y);
         this.inventory = new Inventory();
     }
 
