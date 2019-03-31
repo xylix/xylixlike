@@ -37,8 +37,6 @@ import static org.junit.Assert.assertTrue;
  * @author xylix
  */
 public class EntityTest {
-    
-        
     @Test
     public void SpawnEntityTest() {
         Level level = new Level(40, 80);
