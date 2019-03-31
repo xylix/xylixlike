@@ -39,4 +39,9 @@ public class Coordinates {
         this.x += amountx;
         this.y += amounty;
     }
+    
+    @Override
+    public String toString() {
+        return x + ", " + y;
+    }
 }

@@ -24,7 +24,6 @@
 package xylixlike.game;
 
 import xylixlike.rendering.Renderable;
-import java.util.HashMap;
 import org.apache.commons.collections4.map.MultiKeyMap;
 
 
@@ -100,7 +99,7 @@ public class Layer implements Renderable{
         grid.put(x, y, c);
     }
     
-    public boolean drawHorizontalLine(Coordinates startCoords, int length) {
+    /*public boolean drawHorizontalLine(Coordinates startCoords, int length) {
         for(int i = 0; i < length; i++) {
             //implement functionality
             
@@ -112,13 +111,11 @@ public class Layer implements Renderable{
         
         }
         //implement functionality
-    }
+    }*/
     
     public boolean move(Direction d, Entity e) {
-        int x = e.xCoord();
-        int y = e.yCoord();
-        int xDirection = 0; 
-        int yDirection = 0;
+        int xDirection; 
+        int yDirection;
         switch (d) {
             case UP:
                 xDirection = 0;
@@ -137,10 +134,10 @@ public class Layer implements Renderable{
                 yDirection = 0;
                 break;
             default:
-                break;
+                return false;
         }
-        int nextX = x + xDirection;
-        int nextY = y + yDirection;
+        int nextX = e.x() + xDirection;
+        int nextY = e.y() + yDirection;
         if (Constants.isPassable(Constants.getName(tile(nextX, nextY)))) {
             e.setCoords(nextX, nextY);
             return true;

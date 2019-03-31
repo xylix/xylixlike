@@ -39,10 +39,10 @@ public class Entity {
         return c;
     }
 
-    public int xCoord() {
+    public int x() {
         return c.x;
     }
-    public int yCoord () {
+    public int y () {
         return c.y;
     }
     

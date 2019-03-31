@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * @author xylix
  */
 public class Level {
-    Layer floor;
+    public Layer floor;
     private final ArrayList<Entity> entities;
     
     public Level(int h, int w) {
@@ -48,10 +48,6 @@ public class Level {
     public Level(String s, ArrayList<Entity> e) {
         this.floor = new Layer(s);
         entities = e;
-    }
-    
-    public String currentState() {
-        return floor.toString();
     }
     
     public char floorTile(Coordinates c) {
@@ -72,19 +68,19 @@ public class Level {
     }
     
     //Starts drawing the room from top left corner
-    public boolean generateRoom(int w, int h, Coordinates c) {
+    /*public boolean generateRoom(int w, int h, Coordinates c) {
         //implement functionality using draw line functions in Layer
-    }
+    }*/
     
     //Returns stringified version of the floor + entities
     public String render() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < floor.height; i++) {
-            sb.append(floor.row(i));
+        for (int y = 0; y < floor.height; y++) {
+            sb.append(floor.row(y));
             sb.append("\n");
             for (Entity e: entities) {
-                if (e.yCoord() == i) {
-                    sb.replace(i, i+1, Character.toString(e.symbol()));
+                if (e.y() == y) {
+                    sb.replace(y, y+1, Character.toString(e.symbol()));
                 }
             }
         }

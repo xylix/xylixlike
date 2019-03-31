@@ -49,10 +49,12 @@ public class Game {
         }
         Level level = new Level(levelString.toString());
         //Level level = new Level(40, 40);
-        Spider spider = new Spider(new Coordinates(0, 0));
+        Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnEntity(spider);
         System.out.println(level.render());
-        //System.out.println(level.floor.row(2));
-        //System.out.println(level.floor.column(2));
+        System.out.println(spider.coords());
+        System.out.println(level.moveEntity(Direction.DOWN, spider));
+        System.out.println(spider.coords());
+        System.out.println(level.render());
     }
 }

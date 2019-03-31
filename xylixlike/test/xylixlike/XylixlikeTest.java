@@ -44,7 +44,10 @@ public class XylixlikeTest {
     }
     
     @Test
-    public void GameFloorTest() {
+    public void LayerTest() {
+        Level level = new Level(40, 80);
+        level.floor.row(2);
+        level.floor.column(2);
     }
     
     @Test
