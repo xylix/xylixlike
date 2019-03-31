@@ -34,12 +34,7 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
-    
-    public void transform(int amountx, int amounty) {
-        this.x += amountx;
-        this.y += amounty;
-    }
-    
+
     public void transform(Coordinates coordinates) {
         this.x += coordinates.x;
         this.y += coordinates.y;
@@ -52,9 +47,7 @@ public class Coordinates {
     
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
+        if (obj == null) return false;
 
         return this.toString().equals(obj.toString());
     }

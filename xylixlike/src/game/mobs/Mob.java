@@ -38,8 +38,8 @@ public class Mob extends Entity {
         this.hp = hp;
         this.damage = damage;
     }
-    
-    private boolean isAlive() {
+
+    public boolean isAlive() {
         return hp > 0;
     }
 }

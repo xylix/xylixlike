@@ -45,21 +45,9 @@ public class Entity {
     public int y () {
         return c.y;
     }
-    
-    public void setXCoord(int x) {
-        this.c.x = x;
-    }
-    
-    public void setYCoord(int y) {
-        this.c.y = y;
-    }
-    
+
     public void setCoords(int x, int y) {
         this.c = new Coordinates(x, y);
-    }
-    
-    public String getName() {
-        return name;
     }
     
     public char symbol() {
