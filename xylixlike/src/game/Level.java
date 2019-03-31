@@ -71,7 +71,7 @@ public class Level {
         return floor.move(direction, entity);
     }
     
-    //Starts drawing the room from top left corner
+    //Starts drawing a room from specified top left corner
     /*public boolean generateRoom(int w, int h, Coordinates c) {
         //implement functionality using draw line functions in Layer
     }*/

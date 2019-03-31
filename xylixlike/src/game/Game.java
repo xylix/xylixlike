@@ -55,10 +55,7 @@ public class Game {
         System.out.println(level.render());
         System.out.println(spider.coords());
         System.out.println(level.moveEntity(Direction.DOWN, spider));
-        System.out.println(spider.coords());
-        System.out.println(level.render());
-        System.out.println(level.moveEntity(Direction.RIGHT, spider));
-        System.out.println(level.moveEntity(Direction.RIGHT, spider));
-        System.out.println(level.render());
+        System.out.println(level.floor.column(0));
+
     }
 }

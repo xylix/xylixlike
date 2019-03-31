@@ -73,7 +73,7 @@ public class Layer implements Renderable{
     @Override
     public String column(int x) {
         StringBuilder column = new StringBuilder();
-        for (int y = 0; y < width; y++) {
+        for (int y = 0; y < height; y++) {
             column.append(tile(x, y));
         }
         return column.toString();
@@ -113,15 +113,24 @@ public class Layer implements Renderable{
         //implement functionality
     }*/
     
-    public boolean move(Direction d, Entity e) {
+    /*public boolean move(Direction d, Entity e) {
         Coordinates transform = d.toVector();
         int nextX = e.x() + transform.x;
         int nextY = e.y() + transform.y;
         if (Constants.isPassable(Constants.getName(tile(nextX, nextY)))) {
-            e.setCoords(nextX, nextY);
+            e.transform(transform);
             return true;
         } else {
             return false;
         }
+
+    }*/
+
+    public boolean move(Direction d, Entity e) {
+        //Lacks legality check
+        Coordinates transformVector = d.toVector();
+        e.transform(transformVector);
+        return true;
+
     }
 }

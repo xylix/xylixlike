@@ -10,6 +10,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+
+import game.mobs.Mob;
+import game.mobs.Spider;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,5 +54,10 @@ public class LevelLayerTest {
         Assert.assertThat(column.length(), is(equalTo(40)));
     }
 
+    @Test
+    public void SpawnEntityLocationTest() {
+        Mob mob = new Spider(new Coordinates(0,0));
+
+    }
     
 }
