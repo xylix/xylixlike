@@ -44,7 +44,7 @@ public class EntityTest {
         Entity testEntity = new Entity("test", c);
         level.spawnEntity(testEntity);
         assertTrue(level.entities().values().contains(testEntity));
-        assertEquals(testEntity.coords(), c);
+        assertEquals(testEntity.coordinates(), c);
     }
     
     @Test
@@ -76,10 +76,10 @@ public class EntityTest {
         Level level = new Level(40, 80);
         Spider testSpider = new Spider(new Coordinates(1, 1));
         level.spawnEntity(testSpider);
-        Coordinates coords = testSpider.coords();
+        Coordinates coords = testSpider.coordinates();
         level.moveEntity(d, testSpider);
         Coordinates transformVector = d.toVector();
         coords.transform(transformVector);
-        Assert.assertThat(testSpider.coords(), is(equalTo(coords))); 
+        Assert.assertThat(testSpider.coordinates(), is(equalTo(coords)));
     }
 }

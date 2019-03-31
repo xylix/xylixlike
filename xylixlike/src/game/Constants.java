@@ -32,7 +32,7 @@ import org.apache.commons.collections4.bidimap.TreeBidiMap;
  * @author xylix
  */
 public class Constants {
-    static final BidiMap<String, Character> SYMSET = new TreeBidiMap();
+    static final private BidiMap<String, Character> SYMSET = new TreeBidiMap();
     static {
         SYMSET.put("air", ' ');
         SYMSET.put("vwall", '|');
@@ -49,7 +49,7 @@ public class Constants {
         return SYMSET.getKey(symbol);
     }
     
-    static final HashMap<String, Boolean> PASSABILITY = new HashMap<>();
+    private static final HashMap<String, Boolean> PASSABILITY = new HashMap<>();
     static {
         PASSABILITY.put("air", Boolean.TRUE);
         PASSABILITY.put("vwall", Boolean.FALSE);

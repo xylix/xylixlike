@@ -53,7 +53,7 @@ public class Game {
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnEntity(spider);
         System.out.println(level.render());
-        System.out.println(spider.coords());
+        System.out.println(spider.coordinates());
         System.out.println(level.moveEntity(Direction.DOWN, spider));
         System.out.println(level.floor.column(0));
 

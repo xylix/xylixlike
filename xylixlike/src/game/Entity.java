@@ -30,12 +30,12 @@ package game;
 public class Entity {
     private final String name;
     private Coordinates c;
-    public Entity (String name, Coordinates coords) {
+    public Entity (String name, Coordinates coordinates) {
         this.name = name;
-        this.c = coords;
+        this.c = coordinates;
     }
     
-    public Coordinates coords() {
+    public Coordinates coordinates() {
         return c;
     }
 
@@ -46,7 +46,7 @@ public class Entity {
         return c.y;
     }
 
-    public void setCoords(int x, int y) {
+    public void setCoordinates(int x, int y) {
         this.c = new Coordinates(x, y);
     }
 

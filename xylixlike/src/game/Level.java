@@ -31,7 +31,7 @@ import org.apache.commons.collections4.map.MultiKeyMap;
  * @author xylix
  */
 public class Level {
-    public Layer floor;
+    public final Layer floor;
     //private final ArrayList<Entity> entities;
     private final MultiKeyMap<Integer, Entity> entities;
     

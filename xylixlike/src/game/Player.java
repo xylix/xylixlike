@@ -29,7 +29,7 @@ package game;
  * @author xylix
  */
 public class Player extends Entity {
-    public Inventory inventory;
+    private Inventory inventory;
     
     public Player(Coordinates coords) {
         super("Player", coords);

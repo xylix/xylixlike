@@ -22,9 +22,9 @@ import org.junit.Test;
  * @author xylix
  */
 public class LevelLayerTest {
-    public Level level;
+    private Level level;
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         level = new Level(40, 80);
     }
         
@@ -36,6 +36,7 @@ public class LevelLayerTest {
         while(fileReader.hasNextLine()) {
             levelString.append(fileReader.nextLine()).append("\n");
         }
+        Assert.assertTrue(levelString.length() > 0);
     }
     
     @Test
