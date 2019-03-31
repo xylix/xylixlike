@@ -31,5 +31,32 @@ public enum Direction {
     UP,
     RIGHT,
     DOWN,
-    LEFT
+    LEFT;
+    public Coordinates toVector() {
+        int x; 
+        int y;
+        switch (this) {
+            case UP:
+                x = 0;
+                y = 1;
+                break;
+            case RIGHT:
+                x = 1;
+                y = 0;
+                break;
+            case DOWN:
+                x = 0;
+                y = -1;
+                break; 
+            case LEFT:
+                x = -1;
+                y = 0;
+                break;
+            default:
+                x = 0;
+                y = 0;
+                break;
+        }
+        return new Coordinates(x, y);
+    }
 }

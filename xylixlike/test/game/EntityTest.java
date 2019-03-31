@@ -21,16 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
 
-import game.Level;
-import game.Coordinates;
-import game.Entity;
-import game.Direction;
-import org.junit.Assert;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
 import game.mobs.Spider;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import org.junit.Assert;
+import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 /**
  *
@@ -51,22 +50,26 @@ public class EntityTest {
     
     @Test
     public void MoveEntityDownTest() {
-        MoveEntityTest(Direction.DOWN);  
+        Direction d = Direction.DOWN;
+        MoveEntityTest(d);  
     }
     
     @Test
     public void MoveEntityRightTest() {
-        MoveEntityTest(Direction.RIGHT);
+        Direction d = Direction.RIGHT;
+        MoveEntityTest(d);
     }
     
     @Test
     public void MoveEntityUpTest() {
-        MoveEntityTest(Direction.UP);
+        Direction d = Direction.UP;
+        MoveEntityTest(d);
     }
     
     @Test
     public void MoveEntityLEFTTest() {
-        MoveEntityTest(Direction.LEFT);
+        Direction d = Direction.LEFT;
+        MoveEntityTest(d);
     }
     
     
@@ -76,6 +79,8 @@ public class EntityTest {
         level.spawnEntity(testSpider);
         Coordinates coords = testSpider.coords();
         level.moveEntity(d, testSpider);
-        Assert.assertFalse((coords.x == testSpider.coords().x)); 
+        Coordinates transformVector = d.toVector();
+        coords.transform(transformVector);
+        Assert.assertThat(testSpider.coords(), is(equalTo(coords))); 
     }
 }

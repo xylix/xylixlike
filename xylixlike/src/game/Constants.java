@@ -54,6 +54,7 @@ public class Constants {
         PASSABILITY.put("air", Boolean.TRUE);
         PASSABILITY.put("vwall", Boolean.FALSE);
         PASSABILITY.put("hwall", Boolean.FALSE);
+        PASSABILITY.put("spider", Boolean.FALSE);
     }
 
     

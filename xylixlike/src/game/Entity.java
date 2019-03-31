@@ -31,8 +31,8 @@ public class Entity {
     private final String name;
     private Coordinates c;
     public Entity (String name, Coordinates coords) {
-        this.c = coords;
         this.name = name;
+        this.c = coords;
     }
     
     public Coordinates coords() {

@@ -40,8 +40,22 @@ public class Coordinates {
         this.y += amounty;
     }
     
+    public void transform(Coordinates coordinates) {
+        this.x += coordinates.x;
+        this.y += coordinates.y;
+    }
+    
     @Override
     public String toString() {
         return x + ", " + y;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        return this.toString().equals(obj.toString());
     }
 }

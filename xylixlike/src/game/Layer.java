@@ -114,30 +114,9 @@ public class Layer implements Renderable{
     }*/
     
     public boolean move(Direction d, Entity e) {
-        int xDirection; 
-        int yDirection;
-        switch (d) {
-            case UP:
-                xDirection = 0;
-                yDirection = 1;
-                break;
-            case RIGHT:
-                xDirection = 1;
-                yDirection = 0;
-                break;
-            case DOWN:
-                xDirection = 0;
-                yDirection = -1;
-                break; 
-            case LEFT:
-                xDirection = -1;
-                yDirection = 0;
-                break;
-            default:
-                return false;
-        }
-        int nextX = e.x() + xDirection;
-        int nextY = e.y() + yDirection;
+        Coordinates transform = d.toVector();
+        int nextX = e.x() + transform.x;
+        int nextY = e.y() + transform.y;
         if (Constants.isPassable(Constants.getName(tile(nextX, nextY)))) {
             e.setCoords(nextX, nextY);
             return true;
