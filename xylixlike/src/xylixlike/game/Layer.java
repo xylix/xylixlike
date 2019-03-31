@@ -54,9 +54,9 @@ public class Layer implements Renderable{
         String[] osat = floorDesign.split("\n");
         this.height = osat.length;
         width = osat[0].length();
-        for (int i = 0; i < osat.length; i++) {
-            for(int j = 0; j < osat[i].length(); j++) {
-                grid.put(i, j, osat[i].charAt(j));
+        for (int y = 0; y < osat.length; y++) {
+            for(int x = 0; x < osat[y].length(); x++) {
+                grid.put(x, y, osat[y].charAt(x));
                 
             }
         }
@@ -66,7 +66,7 @@ public class Layer implements Renderable{
     public String row(int y) {
         StringBuilder row = new StringBuilder();
         for (int x = 0; x < width; x++) {
-            row.append(grid.get(x, y));
+            row.append(tile(x, y));
         }
         return row.toString();
     }
@@ -75,7 +75,7 @@ public class Layer implements Renderable{
     public String column(int x) {
         StringBuilder column = new StringBuilder();
         for (int y = 0; y < width; y++) {
-            
+            column.append(tile(x, y));
         }
         return column.toString();
     }
@@ -90,16 +90,14 @@ public class Layer implements Renderable{
         StringBuilder sb = new StringBuilder();
         for (int x = 0; x < width; x++) {
             for(int y = 0; y < height; y++) {
-                sb.append(grid.get(x, y));
+                sb.append(tile(x, y));
             }
         }
-        //yAxis.forEach((k, v) -> toString.append(v.toString()).append("\n"));
-        //yAxis.forEach((k, v) -> System.out.println(v.toString()));
         return sb.toString();
     }
     
-    public void draw(Character c, int xCoord, int yCoord) {
-        yAxis.get(xCoord).replace(xCoord, xCoord +1, c.toString());
+    public void draw(Character c, int x, int y) {
+        grid.put(x, y, c);
     }
     
     public boolean drawHorizontalLine(Coordinates startCoords, int length) {
