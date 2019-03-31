@@ -24,6 +24,7 @@
 package xylixlike.game;
 
 import java.util.ArrayList;
+import org.apache.commons.collections4.map.MultiKeyMap;
 
 /**
  *
@@ -31,23 +32,26 @@ import java.util.ArrayList;
  */
 public class Level {
     public Layer floor;
-    private final ArrayList<Entity> entities;
+    //private final ArrayList<Entity> entities;
+    private final MultiKeyMap<Integer, Entity> entities;
     
     public Level(int h, int w) {
         this.floor = new Layer(h, w);
-        entities = new ArrayList<>();
+        entities = new MultiKeyMap<>();
     }
     
     //Create levels floor from a level file converted to a string. 
     //Generate an empty entitylist
     public Level(String s) {
         this.floor = new Layer(s);
-        entities = new ArrayList<>();
+        entities = new MultiKeyMap<>();
     }
     
     public Level(String s, ArrayList<Entity> e) {
         this.floor = new Layer(s);
-        entities = e;
+        entities = new MultiKeyMap<>();
+        e.forEach(l ->entities.put(l.x(), l.y(), l));
+        
     }
     
     public char floorTile(Coordinates c) {
@@ -55,10 +59,10 @@ public class Level {
     }
     
     public void spawnEntity(Entity e) {
-        entities.add(e);
+        entities.put(e.x(), e.y(), e);
     }
     
-    public ArrayList<Entity> entities() {
+    public MultiKeyMap<Integer, Entity> entities() {
         return entities;
     }
     
@@ -76,13 +80,14 @@ public class Level {
     public String render() {
         StringBuilder sb = new StringBuilder();
         for (int y = 0; y < floor.height; y++) {
-            sb.append(floor.row(y));
-            sb.append("\n");
-            for (Entity e: entities) {
-                if (e.y() == y) {
-                    sb.replace(y, y+1, Character.toString(e.symbol()));
-                }
+            for (int x = 0; x < floor.width; x++) {
+                if(entities.containsKey(x, y)) {
+                    sb.append(entities.get(x, y).symbol());
+                } else {
+                    sb.append(floor.tile(x, y));
+                }             
             }
+            sb.append("\n");
         }
         return sb.toString();
     }
