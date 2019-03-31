@@ -21,12 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
 
 /**
  *
  * @author xylix
  */
-public class DefaultJob {
-    
+public class Item {
+    String name;
+    public Item (String name) {
+        this.name = name;
+    }
+
+    String name() {
+        return name;
+    } 
 }

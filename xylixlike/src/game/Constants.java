@@ -21,16 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game.mobs;
+package game;
 
-import xylixlike.game.Coordinates;
+import java.util.HashMap;
+import org.apache.commons.collections4.BidiMap;
+import org.apache.commons.collections4.bidimap.TreeBidiMap;
 
 /**
  *
  * @author xylix
  */
-public class Spider extends Mob {
-    public Spider(Coordinates coords) {
-        super("spider", coords, 4, 1);
+public class Constants {
+    static final BidiMap<String, Character> SYMSET = new TreeBidiMap();
+    static {
+        SYMSET.put("air", ' ');
+        SYMSET.put("vwall", '|');
+        SYMSET.put("hwall", '-');
+        SYMSET.put("spider", ':');
     }
+    
+        
+    static char getSymbol(String name) {
+        return SYMSET.get(name);
+    }
+    
+    static String getName(Character symbol) {
+        return SYMSET.getKey(symbol);
+    }
+    
+    static final HashMap<String, Boolean> PASSABILITY = new HashMap<>();
+    static {
+        PASSABILITY.put("air", Boolean.TRUE);
+        PASSABILITY.put("vwall", Boolean.FALSE);
+        PASSABILITY.put("hwall", Boolean.FALSE);
+    }
+
+    
+    static boolean isPassable(String name) {
+        return PASSABILITY.get(name);
+    }
+    
+            
 }

@@ -21,9 +21,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
 
-import xylixlike.rendering.Renderable;
+import game.rendering.Renderable;
 import org.apache.commons.collections4.map.MultiKeyMap;
 
 

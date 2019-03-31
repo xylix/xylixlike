@@ -21,48 +21,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
 
 /**
  *
  * @author xylix
  */
-public class Entity {
-    private final String name;
-    private Coordinates c;
-    public Entity (String name, Coordinates coords) {
-        this.c = coords;
-        this.name = name;
+public class Coordinates {
+    public int x;
+    public int y;
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     
-    public Coordinates coords() {
-        return c;
-    }
-
-    public int x() {
-        return c.x;
-    }
-    public int y () {
-        return c.y;
+    public void transform(int amountx, int amounty) {
+        this.x += amountx;
+        this.y += amounty;
     }
     
-    public void setXCoord(int x) {
-        this.c.x = x;
-    }
-    
-    public void setYCoord(int y) {
-        this.c.y = y;
-    }
-    
-    public void setCoords(int x, int y) {
-        this.c = new Coordinates(x, y);
-    }
-    
-    public String getName() {
-        return name;
-    }
-    
-    public char symbol() {
-        return Constants.getSymbol(name);
+    @Override
+    public String toString() {
+        return x + ", " + y;
     }
 }

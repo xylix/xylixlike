@@ -21,45 +21,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
 
-import java.util.HashMap;
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.TreeBidiMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import game.mobs.Spider;
 
 /**
  *
  * @author xylix
  */
-public class Constants {
-    static final BidiMap<String, Character> SYMSET = new TreeBidiMap();
-    static {
-        SYMSET.put("air", ' ');
-        SYMSET.put("vwall", '|');
-        SYMSET.put("hwall", '-');
-        SYMSET.put("spider", ':');
-    }
-    
-        
-    static char getSymbol(String name) {
-        return SYMSET.get(name);
-    }
-    
-    static String getName(Character symbol) {
-        return SYMSET.getKey(symbol);
-    }
-    
-    static final HashMap<String, Boolean> PASSABILITY = new HashMap<>();
-    static {
-        PASSABILITY.put("air", Boolean.TRUE);
-        PASSABILITY.put("vwall", Boolean.FALSE);
-        PASSABILITY.put("hwall", Boolean.FALSE);
-    }
+public class Game {
+    public Game() {
 
-    
-    static boolean isPassable(String name) {
-        return PASSABILITY.get(name);
     }
-    
-            
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("Levels/level1map.txt");
+        
+        Scanner fileReader = new Scanner(file);
+        StringBuilder levelString = new StringBuilder(); 
+        while(fileReader.hasNextLine()) {
+            levelString.append(fileReader.nextLine()).append("\n");
+        }
+        Level level = new Level(levelString.toString());
+        //Level level = new Level(40, 40);
+        Spider spider = new Spider(new Coordinates(2, 2));
+        level.spawnEntity(spider);
+        System.out.println(level.render());
+        System.out.println(spider.coords());
+        System.out.println(level.moveEntity(Direction.DOWN, spider));
+        System.out.println(spider.coords());
+        System.out.println(level.render());
+    }
 }

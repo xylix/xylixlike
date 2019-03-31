@@ -21,41 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
-
-import java.util.HashMap;
+package game;
 
 /**
  *
  * @author xylix
  */
-public class Inventory {
-    private final HashMap<Item, Integer> inventory;
-    public Inventory () {
-        this.inventory = new HashMap<>();
-    }
-    public void clearInventory() {
-        inventory.clear();
-    }
+public class DefaultJob {
     
-    public boolean containsItem(Item item) {
-        return inventory.containsKey(item);
-    }
-    
-    public boolean adjustItem(Item item, int amount) {
-        if(containsItem(item)){
-            inventory.put(item, inventory.get(item) + amount);
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    public boolean reduceItem(Item item) {
-        return adjustItem(item, -1);
-    }
-    
-    public void addItem(Item item) {
-        adjustItem(item, +1);
-    }
 }

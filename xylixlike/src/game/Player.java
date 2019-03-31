@@ -21,27 +21,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game;
+
 
 /**
  *
  * @author xylix
  */
-public class Coordinates {
-    public int x;
-    public int y;
-    public Coordinates(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+public class Player extends Entity {
+    public Inventory inventory;
     
-    public void transform(int amountx, int amounty) {
-        this.x += amountx;
-        this.y += amounty;
-    }
-    
-    @Override
-    public String toString() {
-        return x + ", " + y;
+    public Player(Coordinates coords) {
+        super("Player", coords);
+        this.inventory = new Inventory();
     }
 }

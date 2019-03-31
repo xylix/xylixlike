@@ -21,15 +21,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game.mobs;
+
+import game.Coordinates;
+import game.Entity;
 
 /**
  *
  * @author xylix
  */
-public enum Direction {
-    UP,
-    RIGHT,
-    DOWN,
-    LEFT
+public class Mob extends Entity {
+    private int hp;
+    private int damage;
+    public Mob(String name, Coordinates coords, int hp, int damage) {
+        super(name, coords);
+        this.hp = hp;
+        this.damage = damage;
+    }
+    
+    private boolean isAlive() {
+        return hp > 0;
+    }
 }

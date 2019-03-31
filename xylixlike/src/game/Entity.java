@@ -21,40 +21,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import xylixlike.game.mobs.Spider;
+package game;
 
 /**
  *
  * @author xylix
  */
-public class Game {
-    public Game() {
-
+public class Entity {
+    private final String name;
+    private Coordinates c;
+    public Entity (String name, Coordinates coords) {
+        this.c = coords;
+        this.name = name;
     }
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("Levels/level1map.txt");
-        
-        Scanner fileReader = new Scanner(file);
-        StringBuilder levelString = new StringBuilder(); 
-        while(fileReader.hasNextLine()) {
-            levelString.append(fileReader.nextLine()).append("\n");
-        }
-        Level level = new Level(levelString.toString());
-        //Level level = new Level(40, 40);
-        Spider spider = new Spider(new Coordinates(2, 2));
-        level.spawnEntity(spider);
-        System.out.println(level.render());
-        System.out.println(spider.coords());
-        System.out.println(level.moveEntity(Direction.DOWN, spider));
-        System.out.println(spider.coords());
-        System.out.println(level.render());
+    
+    public Coordinates coords() {
+        return c;
+    }
+
+    public int x() {
+        return c.x;
+    }
+    public int y () {
+        return c.y;
+    }
+    
+    public void setXCoord(int x) {
+        this.c.x = x;
+    }
+    
+    public void setYCoord(int y) {
+        this.c.y = y;
+    }
+    
+    public void setCoords(int x, int y) {
+        this.c = new Coordinates(x, y);
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public char symbol() {
+        return Constants.getSymbol(name);
     }
 }

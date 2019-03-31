@@ -21,18 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike.game;
+package game.mobs;
 
+import game.Coordinates;
 
 /**
  *
  * @author xylix
  */
-public class Player extends Entity {
-    public Inventory inventory;
-    
-    public Player(Coordinates coords) {
-        super("Player", coords);
-        this.inventory = new Inventory();
+public class Spider extends Mob {
+    public Spider(Coordinates coords) {
+        super("spider", coords, 4, 1);
     }
 }

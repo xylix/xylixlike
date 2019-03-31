@@ -21,16 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package xylixlike;
+package xylixlike.game;
 
+import game.Level;
+import game.Coordinates;
+import game.Entity;
+import game.Direction;
 import org.junit.Assert;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import xylixlike.game.Coordinates;
-import xylixlike.game.Direction;
-import xylixlike.game.Entity;
-import xylixlike.game.Level;
-import xylixlike.game.mobs.Spider;
+import game.mobs.Spider;
 
 /**
  *
@@ -51,7 +51,6 @@ public class EntityTest {
     
     @Test
     public void MoveEntityDownTest() {
-        //Add code to move entity and assert that it has moved
         MoveEntityTest(Direction.DOWN);  
     }
     
