@@ -28,8 +28,8 @@ package xylixlike.game;
  * @author xylix
  */
 public class Entity {
-    private Coordinates c;
     private final String name;
+    private Coordinates c;
     public Entity (String name, Coordinates coords) {
         this.c = coords;
         this.name = name;

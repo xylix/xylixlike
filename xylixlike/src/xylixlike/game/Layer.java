@@ -25,6 +25,7 @@ package xylixlike.game;
 
 import xylixlike.rendering.Renderable;
 import java.util.HashMap;
+import org.apache.commons.collections4.map.MultiKeyMap;
 
 
 /**
@@ -33,25 +34,36 @@ import java.util.HashMap;
  */
 public class Layer implements Renderable{
     private final HashMap<Integer, StringBuilder> yAxis;
+    private final MultiKeyMap<Integer, Character> grid;
     public final int height;
+    public final int width;
     
     public Layer(int height, int width) {
         yAxis = new HashMap<>();
+        grid = new MultiKeyMap<>();
         this.height = height;
-        for(int i = 0; i < height; i++) {
+        this.width = width;
+        
+        for(int y = 0; y < height; y++) {
             StringBuilder sb = new StringBuilder();
-            for (int j = 0; j < width; j++)  
+            for (int x = 0; x < width; x++) {
+                grid.put(x, y, Constants.getSymbol("vwall"));
                 sb.append(Constants.getSymbol("vwall"));
-            yAxis.put(i, (sb));
+            }
+            yAxis.put(y, (sb));
         }
     }
     
     public Layer(String map) {
         yAxis = new HashMap<>();
+        grid = new MultiKeyMap<>();
         String[] osat = map.split("\n");
         this.height = osat.length;
         for (int i = 0; i < osat.length; i++) {
             yAxis.put(i, new StringBuilder(osat[i]));
+            for(int j = 0; j < osat[i].length(); j++) {
+                grid.put(i, j, osat[i].charAt(j));
+            }
         }
     }
     
@@ -63,7 +75,14 @@ public class Layer implements Renderable{
     @Override
     public String column(int x) {
         StringBuilder column = new StringBuilder();
-        yAxis.forEach((k, v) -> column.append(v.charAt(x)));
+        for(int i = 0; i < yAxis.size(); i++) {
+            if (yAxis.get(i)) {
+                
+            }
+            column.append(yAxis.get(i).charAt(x));
+        }
+        //yAxis.forEach((k, v) -> column.append(v.charAt(x)));'
+        //Stringbuilderilla tai mun syötteellä sille on jotain ongelmia whitespacen kaa
         return column.toString();
     }
     
@@ -75,8 +94,12 @@ public class Layer implements Renderable{
     @Override
     public String toString() {
         StringBuilder toString = new StringBuilder();
-        yAxis.forEach((k, v) -> toString.append(v.toString()).append("\n"));
-        yAxis.forEach((k, v) -> System.out.println(v.toString()));
+        for (int x = 0; x < width; x++) {
+        for(int y = 0; y < height; y++) {
+            
+        }}
+        //yAxis.forEach((k, v) -> toString.append(v.toString()).append("\n"));
+        //yAxis.forEach((k, v) -> System.out.println(v.toString()));
         return toString.toString();
     }
     
@@ -87,10 +110,14 @@ public class Layer implements Renderable{
     public boolean drawHorizontalLine(Coordinates startCoords, int length) {
         for(int i = 0; i < length; i++) {
             //implement functionality
+            
         }
     }
     
-    public boolean drawVerticalLine() {
+    public boolean drawVerticalLine(Coordinates startCoords, int length) {
+        for(int i = 0; i < length; i++) { 
+        
+        }
         //implement functionality
     }
     

@@ -50,7 +50,7 @@ public class XylixlikeTest {
     @Test
     public void SpawnEntityTest() {
         Level level = new Level(40, 80);
-        Coordinates c = new Coordinates (1,1);
+        Coordinates c = new Coordinates(1,1);
         Entity testEntity = new Entity("test", c);
         level.spawnEntity(testEntity);
         assertTrue(level.entities().contains(testEntity));

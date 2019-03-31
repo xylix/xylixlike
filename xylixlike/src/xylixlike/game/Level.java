@@ -38,7 +38,7 @@ public class Level {
         entities = new ArrayList<>();
     }
     
-    //Create level from a level file converted to a string. 
+    //Create levels floor from a level file converted to a string. 
     //Generate an empty entitylist
     public Level(String s) {
         this.floor = new Layer(s);
@@ -58,7 +58,6 @@ public class Level {
         return floor.tile(c.x, c.y);
     }
     
-    //The entity needs to have a location set before this to not break stuff
     public void spawnEntity(Entity e) {
         entities.add(e);
     }
