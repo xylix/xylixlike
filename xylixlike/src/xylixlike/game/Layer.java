@@ -33,74 +33,69 @@ import org.apache.commons.collections4.map.MultiKeyMap;
  * @author xylix
  */
 public class Layer implements Renderable{
-    private final HashMap<Integer, StringBuilder> yAxis;
     private final MultiKeyMap<Integer, Character> grid;
     public final int height;
     public final int width;
     
     public Layer(int height, int width) {
-        yAxis = new HashMap<>();
         grid = new MultiKeyMap<>();
         this.height = height;
         this.width = width;
         
         for(int y = 0; y < height; y++) {
-            StringBuilder sb = new StringBuilder();
             for (int x = 0; x < width; x++) {
                 grid.put(x, y, Constants.getSymbol("vwall"));
-                sb.append(Constants.getSymbol("vwall"));
             }
-            yAxis.put(y, (sb));
         }
     }
     
-    public Layer(String map) {
-        yAxis = new HashMap<>();
+    public Layer(String floorDesign) {
         grid = new MultiKeyMap<>();
-        String[] osat = map.split("\n");
+        String[] osat = floorDesign.split("\n");
         this.height = osat.length;
+        width = osat[0].length();
         for (int i = 0; i < osat.length; i++) {
-            yAxis.put(i, new StringBuilder(osat[i]));
             for(int j = 0; j < osat[i].length(); j++) {
                 grid.put(i, j, osat[i].charAt(j));
+                
             }
         }
     }
     
     @Override
     public String row(int y) {
-        return yAxis.get(y).toString();
+        StringBuilder row = new StringBuilder();
+        for (int x = 0; x < width; x++) {
+            row.append(grid.get(x, y));
+        }
+        return row.toString();
     }
     
     @Override
     public String column(int x) {
         StringBuilder column = new StringBuilder();
-        for(int i = 0; i < yAxis.size(); i++) {
-            if (yAxis.get(i)) {
-                
-            }
-            column.append(yAxis.get(i).charAt(x));
+        for (int y = 0; y < width; y++) {
+            
         }
-        //yAxis.forEach((k, v) -> column.append(v.charAt(x)));'
-        //Stringbuilderilla tai mun syötteellä sille on jotain ongelmia whitespacen kaa
         return column.toString();
     }
     
     @Override
     public Character tile(int x, int y) {
-        return yAxis.get(x).charAt(y);
+        return grid.get(x, y);
     }
      
     @Override
     public String toString() {
-        StringBuilder toString = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int x = 0; x < width; x++) {
-        for(int y = 0; y < height; y++) {
-            
-        }}
+            for(int y = 0; y < height; y++) {
+                sb.append(grid.get(x, y));
+            }
+        }
         //yAxis.forEach((k, v) -> toString.append(v.toString()).append("\n"));
         //yAxis.forEach((k, v) -> System.out.println(v.toString()));
-        return toString.toString();
+        return sb.toString();
     }
     
     public void draw(Character c, int xCoord, int yCoord) {
