@@ -33,9 +33,6 @@ import game.mobs.Spider;
  * @author xylix
  */
 public class Game {
-    public Game() {
-
-    }
     /**
      * @param args the command line arguments
      */
@@ -54,8 +51,10 @@ public class Game {
         level.spawnEntity(spider);
         System.out.println(level.render());
         System.out.println(spider.coordinates());
-        System.out.println(level.moveEntity(Direction.DOWN, spider));
-        System.out.println(level.floor.column(0));
+        //This still doesn't work
+        System.out.println(level.moveEntity(Direction.RIGHT, spider));
+        System.out.println(spider.coordinates());
+        System.out.println(level.render());
 
     }
 }

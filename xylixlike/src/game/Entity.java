@@ -46,10 +46,6 @@ public class Entity {
         return c.y;
     }
 
-    public void setCoordinates(int x, int y) {
-        this.c = new Coordinates(x, y);
-    }
-
     public void transform(Coordinates transformVector) {
         this.c.transform(transformVector);
     }
