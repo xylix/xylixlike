@@ -24,11 +24,12 @@
 package game;
 
 import game.mobs.Spider;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -45,7 +46,7 @@ public class EntityTest {
         Entity testEntity = new Entity("test", c);
         level.spawnEntity(testEntity);
         assertTrue(level.entities().values().contains(testEntity));
-        assertTrue(testEntity.coords().equals(c));
+        assertEquals(testEntity.coords(), c);
     }
     
     @Test
@@ -73,7 +74,7 @@ public class EntityTest {
     }
     
     
-    public void MoveEntityTest(Direction d) {
+    private void MoveEntityTest(Direction d) {
         Level level = new Level(40, 80);
         Spider testSpider = new Spider(new Coordinates(1, 1));
         level.spawnEntity(testSpider);

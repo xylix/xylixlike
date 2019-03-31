@@ -40,8 +40,9 @@ public class Game {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("Levels/level1map.txt");
-        
+        File file = new File("xylixlike/Levels/Level1Map.txt");
+        System.out.println(System.getProperty("user.dir"));
+
         Scanner fileReader = new Scanner(file);
         StringBuilder levelString = new StringBuilder(); 
         while(fileReader.hasNextLine()) {
@@ -55,6 +56,9 @@ public class Game {
         System.out.println(spider.coords());
         System.out.println(level.moveEntity(Direction.DOWN, spider));
         System.out.println(spider.coords());
+        System.out.println(level.render());
+        System.out.println(level.moveEntity(Direction.RIGHT, spider));
+        System.out.println(level.moveEntity(Direction.RIGHT, spider));
         System.out.println(level.render());
     }
 }
