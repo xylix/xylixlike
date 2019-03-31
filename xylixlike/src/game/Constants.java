@@ -23,9 +23,10 @@
  */
 package game;
 
-import java.util.HashMap;
 import org.apache.commons.collections4.BidiMap;
 import org.apache.commons.collections4.bidimap.TreeBidiMap;
+
+import java.util.HashMap;
 
 /**
  *

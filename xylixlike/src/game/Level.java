@@ -23,7 +23,6 @@
  */
 package game;
 
-import java.util.ArrayList;
 import org.apache.commons.collections4.map.MultiKeyMap;
 
 /**
@@ -32,7 +31,6 @@ import org.apache.commons.collections4.map.MultiKeyMap;
  */
 public class Level {
     public final Layer floor;
-    //private final ArrayList<Entity> entities;
     private final MultiKeyMap<Integer, Entity> entities;
     
     public Level(int h, int w) {
@@ -47,12 +45,12 @@ public class Level {
         entities = new MultiKeyMap<>();
     }
     
-    public Level(String s, ArrayList<Entity> e) {
+    /*public Level(String s, ArrayList<Entity> e) {
         this.floor = new Layer(s);
         entities = new MultiKeyMap<>();
         e.forEach(l ->entities.put(l.x(), l.y(), l));
         
-    }
+    }*/
     
     public char floorTile(Coordinates c) {
         return floor.tile(c.x, c.y);
@@ -68,7 +66,12 @@ public class Level {
     
     public boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
-        return floor.move(direction, entity);
+        Coordinates oldCoordinates = entity.coordinates();
+        floor.move(direction, entity);
+        Coordinates newCoordinates = entity.coordinates();
+        entities.put(newCoordinates.x, newCoordinates.y, entity);
+        entities.remove(oldCoordinates.x, oldCoordinates.y);
+        return true;
     }
     
     //Starts drawing a room from specified top left corner

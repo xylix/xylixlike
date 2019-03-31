@@ -23,10 +23,11 @@
  */
 package game;
 
+import game.mobs.Spider;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import game.mobs.Spider;
 
 /**
  *
