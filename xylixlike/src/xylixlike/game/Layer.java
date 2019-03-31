@@ -43,7 +43,7 @@ public class Layer implements Renderable{
         
         for(int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                grid.put(x, y, Constants.getSymbol("vwall"));
+                grid.put(x, y, Constants.getSymbol("air"));
             }
         }
     }
