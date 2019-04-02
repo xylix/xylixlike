@@ -1,6 +1,9 @@
 package game;
 
-import game.mobs.Spider;
+import game.entities.Spider;
+import game.dimensions.Coordinates;
+import game.dimensions.Direction;
+import game.dimensions.Level;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

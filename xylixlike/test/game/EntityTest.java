@@ -23,7 +23,11 @@
  */
 package game;
 
-import game.mobs.Spider;
+import game.entities.Entity;
+import game.entities.Spider;
+import game.dimensions.Coordinates;
+import game.dimensions.Direction;
+import game.dimensions.Level;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -41,9 +45,9 @@ public class EntityTest {
     public void SpawnEntityTest() {
         Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
-        Entity testEntity = new Entity("test", c);
+        Entity testEntity = new Entity("test", c, '.');
         level.spawnEntity(testEntity);
-        assertTrue(level.entities().values().contains(testEntity));
+        assertTrue(level.containsEntity(testEntity));
         assertEquals(testEntity.coordinates(), c);
     }
     

@@ -42,7 +42,7 @@ public class Constants {
     }
     
         
-    static char getSymbol(String name) {
+    public static char getSymbol(String name) {
         return SYMSET.get(name);
     }
     

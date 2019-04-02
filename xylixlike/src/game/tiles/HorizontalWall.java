@@ -1,7 +1,7 @@
 package game.tiles;
 
-import game.Coordinates;
-import game.Entity;
+import game.dimensions.Coordinates;
+import game.entities.Entity;
 
 public class HorizontalWall extends Entity {
     public HorizontalWall (Coordinates coordinates) {
