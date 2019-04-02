@@ -27,14 +27,22 @@ package game;
  *
  * @author xylix
  */
-public class Entity {
-    private final String name;
+public class Entity implements Comparable<Entity>{
+    private String kind;
+    private String name;
     private Coordinates c;
-    public Entity (String name, Coordinates coordinates) {
+    private char symbol;
+    public Entity (String kind, Coordinates coordinates, char Symbol) {
+        this.kind = kind;
+        this.c = coordinates;
+        this.symbol = symbol();
+    }
+
+    public Entity (String name, String kind, Coordinates coordinates) {
         this.name = name;
+        this.kind = kind;
         this.c = coordinates;
     }
-    
     public Coordinates coordinates() {
         return c;
     }
@@ -51,6 +59,11 @@ public class Entity {
     }
 
     public char symbol() {
-        return Constants.getSymbol(name);
+        return symbol;
+    }
+
+    @Override
+    public int compareTo(Entity o) {
+        return false;
     }
 }

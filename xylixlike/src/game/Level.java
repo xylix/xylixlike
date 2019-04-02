@@ -23,64 +23,44 @@
  */
 package game;
 
-import org.apache.commons.collections4.map.MultiKeyMap;
+import javafx.collections.transformation.SortedList;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author xylix
  */
 public class Level {
+    private final ArrayList<Entity> entities;
     public final Layer floor;
-    private final MultiKeyMap<Integer, Entity> entities;
     
     public Level(int h, int w) {
         this.floor = new Layer(h, w);
-        entities = new MultiKeyMap<>();
+        entities = new SortedList<>();
     }
     
-    //Create levels floor from a level file converted to a string. 
-    //Generate an empty entitylist
+    //Create levels floor from a level file converted to a string.
     public Level(String s) {
         this.floor = new Layer(s);
-        entities = new MultiKeyMap<>();
-    }
-    
-    /*public Level(String s, ArrayList<Entity> e) {
-        this.floor = new Layer(s);
-        entities = new MultiKeyMap<>();
-        e.forEach(l ->entities.put(l.x(), l.y(), l));
-        
-    }*/
-    
-    public char floorTile(Coordinates c) {
-        return floor.tile(c.x, c.y);
+        entities = new ArrayList<>();
     }
     
     public void spawnEntity(Entity e) {
-        entities.put(e.x(), e.y(), e);
+        entities.add(e);
     }
     
-    public MultiKeyMap<Integer, Entity> entities() {
+    public ArrayList<Entity> entities() {
         return entities;
     }
     
     public boolean moveEntity(Direction direction, Entity entity) {
         //returns false if entity can't move
-        Coordinates oldCoordinates = entity.coordinates();
-        floor.move(direction, entity);
-        Coordinates newCoordinates = entity.coordinates();
-        entities.put(newCoordinates.x, newCoordinates.y, entity);
-        entities.remove(oldCoordinates.x, oldCoordinates.y);
-        return true;
+        return  floor.move(direction, entity);
     }
-    
-    //Starts drawing a room from specified top left corner
-    /*public boolean generateRoom(int w, int h, Coordinates c) {
-        //implement functionality using draw line functions in Layer
-    }*/
-    
+
     //Returns stringified version of the floor + entities
-    public String render() {
+    /*public String render() {
         StringBuilder sb = new StringBuilder();
         for (int y = 0; y < floor.height; y++) {
             for (int x = 0; x < floor.width; x++) {
@@ -93,5 +73,13 @@ public class Level {
             sb.append("\n");
         }
         return sb.toString();
+    }*/
+    public String render() {
+        StringBuilder sb = new StringBuilder();
+        for(Entity e:entities) {
+
+        }
+        return " ";
     }
+
 }

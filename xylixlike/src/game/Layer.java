@@ -33,6 +33,7 @@ import org.apache.commons.collections4.map.MultiKeyMap;
  */
 public class Layer implements Renderable{
     private final MultiKeyMap<Integer, Character> grid;
+
     public final int height;
     public final int width;
     
@@ -130,7 +131,7 @@ public class Layer implements Renderable{
         //Lacks legality check
         Coordinates transformVector = d.toVector();
         e.transform(transformVector);
-        return true;
+        return tru e;
 
     }
 }

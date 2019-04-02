@@ -33,8 +33,8 @@ import game.Entity;
 public class Mob extends Entity {
     private int hp;
     private int damage;
-    public Mob(String name, Coordinates coords, int hp, int damage) {
-        super(name, coords);
+    public Mob(String name, Coordinates coords, int hp, int damage, char symbol) {
+        super(name, coords, symbol);
         this.hp = hp;
         this.damage = damage;
     }
