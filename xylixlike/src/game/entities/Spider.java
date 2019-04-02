@@ -24,6 +24,7 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Spider extends Mob {
                 coords,
                 4,
                 1,
-                ':');
+                new Tile(':',
+                "spider"));
     }
 }

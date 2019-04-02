@@ -41,7 +41,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("xylixlike/Levels/Level1Map.txt");
+        /*File file = new File("xylixlike/Levels/Level1Map.txt");
         System.out.println(System.getProperty("user.dir"));
 
         Scanner fileReader = new Scanner(file);
@@ -59,6 +59,8 @@ public class Main {
         System.out.println(level.moveEntity(Direction.RIGHT, spider));
         System.out.println(spider.coordinates());
         System.out.println(level.render());
+        */
+
 
     }
 }

@@ -23,6 +23,7 @@
  */
 package game.entities;
 
+import game.dimensions.Tile;
 import game.entities.Entity;
 import game.entities.Spider;
 import game.dimensions.Coordinates;
@@ -45,7 +46,8 @@ public class EntityTest {
     public void SpawnEntityTest() {
         Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
-        Entity testEntity = new Entity("test", c, '.');
+        Tile testTile = new Tile('.', "test");
+        Entity testEntity = new Entity("test", c, testTile);
         level.spawnEntity(testEntity);
         assertTrue(level.containsEntity(testEntity));
         assertEquals(testEntity.coordinates(), c);

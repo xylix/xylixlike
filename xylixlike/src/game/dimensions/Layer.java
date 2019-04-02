@@ -32,89 +32,17 @@ import org.apache.commons.collections4.map.MultiKeyMap;
  *
  * @author xylix
  */
-public class Layer implements Renderable{
+public class Layer {
     private final Grid grid;
 
     public final int height;
     public final int width;
-    
+
     public Layer(int height, int width) {
-        grid = new MultiKeyMap<>();
+        grid = new Grid(height, width, new Tile(' ', "air"));
         this.height = height;
         this.width = width;
-        
-        for(int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                grid.put(x, y, Constants.getSymbol("air"));
-            }
-        }
     }
-    
-    public Layer(String floorDesign) {
-        grid = new MultiKeyMap<>();
-        String[] osat = floorDesign.split("\n");
-        this.height = osat.length;
-        width = osat[0].length();
-        for (int y = 0; y < osat.length; y++) {
-            for(int x = 0; x < osat[y].length(); x++) {
-                grid.put(x, y, osat[y].charAt(x));
-                
-            }
-        }
-    }
-    
-    @Override
-    public String row(int y) {
-        StringBuilder row = new StringBuilder();
-        for (int x = 0; x < width; x++) {
-            row.append(tile(x, y));
-        }
-        return row.toString();
-    }
-    
-    @Override
-    public String column(int x) {
-        StringBuilder column = new StringBuilder();
-        for (int y = 0; y < height; y++) {
-            column.append(tile(x, y));
-        }
-        return column.toString();
-    }
-    
-    @Override
-    public Character tile(int x, int y) {
-        return grid.get(x, y);
-    }
-     
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int x = 0; x < width; x++) {
-            for(int y = 0; y < height; y++) {
-                sb.append(tile(x, y));
-            }
-        }
-        return sb.toString();
-    }
-    
-    public void draw(Character c, int x, int y) {
-        grid.put(x, y, c);
-    }
-    
-    /*public boolean drawHorizontalLine(Coordinates startCoords, int length) {
-        for(int i = 0; i < length; i++) {
-            //implement functionality
-            
-        }
-    }
-    
-    public boolean drawVerticalLine(Coordinates startCoords, int length) {
-        for(int i = 0; i < length; i++) { 
-        
-        }
-        //implement functionality
-    }*/
-
 
     public boolean move(Direction d, Entity e) {
         //Lacks legality check

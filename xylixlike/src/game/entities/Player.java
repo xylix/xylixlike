@@ -25,6 +25,7 @@ package game.entities;
 
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 import game.items.Inventory;
 
 /**
@@ -32,13 +33,12 @@ import game.items.Inventory;
  * @author xylix
  */
 public class Player extends Entity {
-    private Inventory inventory;
     
     public Player(Coordinates coords) {
         super(
                 "Player",
-                coords,
-                '@');
-        this.inventory = new Inventory();
+                coords, new Tile(
+                '@',
+                "player"));
     }
 }

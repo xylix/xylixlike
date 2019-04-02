@@ -2,18 +2,17 @@ package game.dimensions;
 
 public class Tile {
     private char symbol;
-    private String id;
-    public Tile (char symbol, String id) {
+    private String tileId;
+    public Tile (char symbol, String kind) {
         this.symbol = symbol;
-        this.id = id;
+        this.tileId = kind;
     }
 
     public char getSymbol() {
         return this.symbol;
     }
 
-
-    public String getId() {
-        return this.id;
+    public String getKind() {
+        return this.tileId;
     }
 }

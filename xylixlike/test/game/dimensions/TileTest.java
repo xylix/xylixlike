@@ -18,6 +18,6 @@ public class TileTest {
     @Test
     public void tileIdTest() {
         Tile testTile = new Tile('-', "vwall");
-        Assert.assertThat("vwall", is(equalTo(testTile.getId())));
+        Assert.assertThat("vwall", is(equalTo(testTile.getKind())));
     }
 }

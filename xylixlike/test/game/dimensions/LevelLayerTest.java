@@ -46,21 +46,4 @@ public class LevelLayerTest {
         Assert.assertNotNull(level);
     }
     
-    @Test
-    public void LayerTest() {
-        String row = level.floor.row(2);
-        Assert.assertThat(row.length(), is(equalTo(80)));
-    }
-    @Test
-    public void ColumnTest() {
-        String column = level.floor.column(2);
-        Assert.assertThat(column.length(), is(equalTo(40)));
-    }
-
-    @Test
-    public void SpawnEntityLocationTest() {
-        Mob mob = new Spider(new Coordinates(0,0));
-
-    }
-    
 }

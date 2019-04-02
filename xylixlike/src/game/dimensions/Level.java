@@ -24,34 +24,38 @@
 package game.dimensions;
 
 import game.entities.Entity;
-import javafx.collections.transformation.SortedList;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  *
  * @author xylix
  */
 public class Level {
-    private final ArrayList<Entity> entities;
+    private final TreeSet<Entity> entities;
     public final Layer floor;
     
     public Level(int h, int w) {
         this.floor = new Layer(h, w);
-        entities = new SortedList<>();
+        entities = new TreeSet<>();
+    }
+
+    public Level(int h, int w, TreeSet<Entity> entities) {
+        this.floor = new Layer(h, w);
+        this.entities = entities;
     }
     
-    //Create levels floor from a level file converted to a string.
-    public Level(String s) {
-        this.floor = new Layer(s);
-        entities = new ArrayList<>();
+    public boolean spawnEntity(Entity e) {
+        if (entities.contains(e)) {
+            return false;
+        } else {
+            entities.add(e);
+            return true;
+        }
     }
     
-    public void spawnEntity(Entity e) {
-        entities.add(e);
-    }
-    
-    public ArrayList<Entity> entities() {
+    public TreeSet<Entity> entities() {
         return entities;
     }
     
@@ -60,8 +64,8 @@ public class Level {
         return  floor.move(direction, entity);
     }
 
-    public boolean containsEntity() {
-
+    public boolean containsEntity(Entity e) {
+        return entities.contains(e);
     }
     //Returns stringified version of the floor + entities
     /*public String render() {

@@ -24,6 +24,7 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 
 /**
  *
@@ -32,8 +33,10 @@ import game.dimensions.Coordinates;
 public class Mob extends Entity {
     private int hp;
     private int damage;
-    public Mob(String name, Coordinates coords, int hp, int damage, char symbol) {
-        super(name, coords, symbol);
+    public Mob(String name, Coordinates coords, int hp, int damage, Tile tile) {
+        super(name,
+                coords,
+                tile);
         this.hp = hp;
         this.damage = damage;
     }
