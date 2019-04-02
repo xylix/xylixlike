@@ -34,16 +34,15 @@ import java.util.TreeSet;
  */
 public class Level {
     private final TreeSet<Entity> entities;
-    public final Layer floor;
-    
-    public Level(int h, int w) {
-        this.floor = new Layer(h, w);
-        entities = new TreeSet<>();
-    }
+    private final int height;
+    private final int width;
+    private final Tile filler;
 
-    public Level(int h, int w, TreeSet<Entity> entities) {
-        this.floor = new Layer(h, w);
+    public Level(int h, int w, TreeSet<Entity> entities, Tile filler) {
+        this.height = h;
+        this.width = w;
         this.entities = entities;
+        this.filler = filler;
     }
     
     public boolean spawnEntity(Entity e) {
@@ -59,35 +58,18 @@ public class Level {
         return entities;
     }
     
-    public boolean moveEntity(Direction direction, Entity entity) {
-        //returns false if entity can't move
-        return  floor.move(direction, entity);
+    public void moveEntity(Direction direction, Entity entity) {
+        //Implement check if entity can move
+        entity.transform(direction.toVector());
     }
 
     public boolean containsEntity(Entity e) {
         return entities.contains(e);
     }
-    //Returns stringified version of the floor + entities
-    /*public String render() {
-        StringBuilder sb = new StringBuilder();
-        for (int y = 0; y < floor.height; y++) {
-            for (int x = 0; x < floor.width; x++) {
-                if(entities.containsKey(x, y)) {
-                    sb.append(entities.get(x, y).symbol());
-                } else {
-                    sb.append(floor.tile(x, y));
-                }             
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }*/
-    public String render() {
-        StringBuilder sb = new StringBuilder();
-        for(Entity e:entities) {
 
-        }
-        return " ";
+    public String render() {
+        Grid grid = new Grid(height, width, filler, entities);
+        return grid.getStringRepresentation();
     }
 
 }

@@ -32,6 +32,8 @@ import game.dimensions.Level;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.TreeSet;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
@@ -44,7 +46,8 @@ import static org.junit.Assert.assertTrue;
 public class EntityTest {
     @Test
     public void SpawnEntityTest() {
-        Level level = new Level(40, 80);
+        Tile air = new Tile(' ', "air");
+        Level level = new Level(40, 80, new TreeSet<>(), air);
         Coordinates c = new Coordinates(1,1);
         Tile testTile = new Tile('.', "test");
         Entity testEntity = new Entity("test", c, testTile);
@@ -79,13 +82,14 @@ public class EntityTest {
     
     
     private void MoveEntityTest(Direction d) {
-        Level level = new Level(40, 80);
+        Tile air = new Tile(' ', "air");
+        Level level = new Level(40, 80, new TreeSet<>(), air);
         Spider testSpider = new Spider(new Coordinates(1, 1));
         level.spawnEntity(testSpider);
-        Coordinates coords = testSpider.coordinates();
+        Coordinates coordinates = testSpider.coordinates();
         level.moveEntity(d, testSpider);
         Coordinates transformVector = d.toVector();
-        coords.transform(transformVector);
-        Assert.assertThat(testSpider.coordinates(), is(equalTo(coords)));
+        coordinates.transform(transformVector);
+        Assert.assertThat(testSpider.coordinates(), is(equalTo(coordinates)));
     }
 }

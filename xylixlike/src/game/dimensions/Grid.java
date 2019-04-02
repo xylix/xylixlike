@@ -6,13 +6,11 @@ import java.util.TreeSet;
 
 public class Grid {
     private char[][] grid;
-    private final int width;
-    private final int height;
+    private String stringRepresentation;
 
     public Grid(int height, int width, Tile filler, TreeSet<Entity> entities) {
         this.grid = new char[height][width];
-        this.width = width;
-        this.height = height;
+
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 grid[x][y] = filler.getSymbol();
@@ -27,12 +25,7 @@ public class Grid {
                 grid[x][y] = filler.getSymbol();
             }
         }
-    }
-
-    public Grid (int width, int height, Tile filler) {
-        this.grid = new char[height][width];
-        this.width = width;
-        this.height = height;
+        this.stringRepresentation = stringify(height, width, grid);
     }
 
     public char get(int x, int y) {
@@ -50,11 +43,17 @@ public class Grid {
         }
     }
 
-    public int getWidth() {
-        return width;
+    public String getStringRepresentation() {
+        return stringRepresentation;
     }
 
-    public int getHeight() {
-        return height;
+    private static String stringify (int h, int w, char[][] g) {
+        StringBuilder sb = new StringBuilder();
+        for(int y = h; y >= 0; y--) {
+            for(int x = 0; x < w; x++) {
+                sb.append(g[x][y]);
+            }
+        }
+        return sb.toString();
     }
 }

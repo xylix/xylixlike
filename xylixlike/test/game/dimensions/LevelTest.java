@@ -8,6 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.TreeSet;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -16,7 +18,8 @@ public class LevelTest {
     private Level level;
     @Before
     public void SetUp() {
-        level = new Level(40, 80);
+        Tile air = new Tile(' ', "air");
+        level = new Level(40, 80, new TreeSet<>(), air);
     }
 
     @Test

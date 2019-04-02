@@ -23,6 +23,7 @@
  */
 package game;
 
+import game.dimensions.Tile;
 import game.entities.Spider;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
@@ -41,6 +42,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
+
         /*File file = new File("xylixlike/Levels/Level1Map.txt");
         System.out.println(System.getProperty("user.dir"));
 
