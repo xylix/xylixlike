@@ -1,4 +1,4 @@
-package game;
+package game.dimensions;
 
 import game.entities.Spider;
 import game.dimensions.Coordinates;

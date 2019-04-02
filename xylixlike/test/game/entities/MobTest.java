@@ -1,4 +1,4 @@
-package game;
+package game.entities;
 
 import game.entities.Mob;
 import game.dimensions.Coordinates;
