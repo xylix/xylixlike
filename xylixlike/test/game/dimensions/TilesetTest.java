@@ -4,13 +4,14 @@ package game.dimensions;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TilesetTest {
     @Test
-    public void testLoadTiles() {
-        Tileset t = new Tileset(new File("testTileset.tiles"));
+    public void testLoadTiles() throws IOException {
+        Tileset t = new Tileset(new File("xylixlike/Resources/Tilesets/default.json"));
         assertNotNull(t);
     }
 }

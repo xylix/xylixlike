@@ -3,7 +3,7 @@ package game.entities.organisms;
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;
 
-public class Organism {
+public class Organism implements Comparable<Organism> {
     private final String name;
     private final Coordinates coordinates;
     private final Tile tile;
@@ -36,4 +36,13 @@ public class Organism {
     public String getKind() {
         return this.tile.getKind();
     }
+    @Override
+    public int compareTo(Organism o) {
+        int yComparison = this.getY() - o.getY();
+        if (yComparison != 0)
+            return yComparison;
+        else
+            return this.getX() - o.getX();
+    }
+
 }

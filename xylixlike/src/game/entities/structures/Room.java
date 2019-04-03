@@ -7,14 +7,16 @@ import game.dimensions.Tileset;
 public class Room extends Structure {
 
     public Room(Coordinates coordinates, Tileset tileset, int width, int height) {
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                if (y == 0 || y == height - 1)
+        int xCoordinate = coordinates.x;
+        int yCooordinate = coordinates.y;
+        for (int x = xCoordinate; x < (width + xCoordinate); x++) {
+            for (int y = yCooordinate; y < (height + yCooordinate); y++) {
+                if (y == 0 + yCooordinate || y == height - 1 + yCooordinate)
                     tiles.put(tileset.getSymbol("vwall"), new Coordinates(x, y));
-                else if (x == 0 || x == width - 1 ) {
+                else if (x == 0 + xCoordinate || x == width - 1 + xCoordinate ) {
                     tiles.put(tileset.getSymbol("vwall"), new Coordinates(x, y));
                 } else {
-                    tiles.put(tileset.getSymbol("filler"), new Coordinates(x, y));
+                    tiles.put(tileset.getSymbol("air"), new Coordinates(x, y));
                 }
 
             }

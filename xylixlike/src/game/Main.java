@@ -25,10 +25,12 @@ package game;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Level;
+import game.dimensions.Tileset;
 import game.entities.organisms.Spider;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -39,24 +41,14 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException {
-
-        File file = new File("xylixlike/Levels/Level1Map.txt");
-        System.out.println(System.getProperty("user.dir"));
-
-        Scanner fileReader = new Scanner(file);
-        StringBuilder loadedMap = new StringBuilder();
-        while(fileReader.hasNextLine()) {
-            loadedMap.append(fileReader.nextLine()).append("\n");
-        }
-        //Level level = new Level(levelString.toString());
+    public static void main(String[] args) throws IOException {
+        File level1 = new File("xylixlike/Resources/Levels/level1.json");
+        File tileFile = new File("xylixlike/Resources/Tilesets/default.json");
+        Tileset tileset = new Tileset(tileFile);
         Level level = new Level(20, 40);
         Spider spider = new Spider(new Coordinates(2, 2));
-        level.spawnEntity(spider);
+        level.spawnOrganism(spider);
         System.out.println(level.render());
-
-
-
 
     }
 }

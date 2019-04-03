@@ -11,9 +11,9 @@ public class LevelTest {
     public void RenderMoveTest() {
         Level level = new Level(40, 80);
         Spider spider = new Spider(new Coordinates(2, 2));
-        level.spawnEntity(spider);
+        level.spawnOrganism(spider);
         String levelBeforeMove = level.render();
-        level.moveEntity(Direction.DOWN, spider);
+        level.moveOrganism(Direction.DOWN, spider);
         String levelAfterMove = level.render();
         assertNotEquals(levelBeforeMove, levelAfterMove);
     }

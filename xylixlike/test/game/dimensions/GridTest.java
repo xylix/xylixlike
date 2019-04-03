@@ -1,6 +1,6 @@
 package game.dimensions;
 
-import game.entities.Entity;
+import game.entities.organisms.Organism;
 import game.entities.organisms.Spider;
 import game.entities.structures.Structure;
 import org.junit.jupiter.api.Test;
@@ -15,12 +15,12 @@ public class GridTest {
     @Test
     public void gridConstructorTest() {
 
-        Entity testSpider = new Spider(new Coordinates(0, 0));
-        TreeSet<Entity> testSet = new TreeSet<>();
+        Organism testSpider = new Spider(new Coordinates(0, 0));
+        TreeSet<Organism> testSet = new TreeSet<>();
         TreeSet<Structure> testStructureSet = new TreeSet<>();
         testSet.add(testSpider);
-        Grid testGrid = new Grid(20, 20, new Tile(' ', "air"), testSet, testStructureSet);
-        assertEquals(testGrid.get(0, 0), testSpider.symbol());
+        Grid testGrid = new Grid(20, 20, new Tile(' ', "air"), testStructureSet, testSet);
+        assertEquals(testGrid.get(0, 0), testSpider.getSymbol());
     }
 
     @Test

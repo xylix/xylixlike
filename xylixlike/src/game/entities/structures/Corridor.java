@@ -8,10 +8,13 @@ public class Corridor extends Structure {
     public Corridor(Coordinates coordinates, Tileset tileset, int length, Direction direction) {
         int x = direction.toVector().x;
         int y = direction.toVector().y;
-        for (int i = x; i < length; i++) {
-            for (int j = y; j < length; j++) {
-                tiles.put(tileset.getSymbol("wall"), new Coordinates(x, y));
+        int xCoordinate = coordinates.x;
+        int yCoordinate = coordinates.y;
+        for (int i = xCoordinate; i < length + xCoordinate && i > 0; i += x) {
+            for (int j = yCoordinate; j < length + yCoordinate && j > 0; j += y) {
+                tiles.put(tileset.getSymbol("wall"), new Coordinates(i, j));
             }
+            break;
         }
     }
 }
