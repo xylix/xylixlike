@@ -25,7 +25,6 @@ package game.dimensions;
 
 import game.entities.Entity;
 
-import java.util.ArrayList;
 import java.util.TreeSet;
 
 /**
@@ -43,6 +42,13 @@ public class Level {
         this.width = w;
         this.entities = entities;
         this.filler = filler;
+    }
+
+    public Level(int h, int w, TreeSet<Entity> entities) {
+        this.height = h;
+        this.width = w;
+        this.entities = entities;
+        this.filler = new Tile(' ', "air");
     }
     
     public boolean spawnEntity(Entity e) {

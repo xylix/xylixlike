@@ -23,15 +23,15 @@
  */
 package game;
 
-import game.dimensions.Tile;
-import game.entities.Spider;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
+import game.entities.Spider;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  *
@@ -43,7 +43,7 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException {
 
-        /*File file = new File("xylixlike/Levels/Level1Map.txt");
+        File file = new File("xylixlike/Levels/Level1Map.txt");
         System.out.println(System.getProperty("user.dir"));
 
         Scanner fileReader = new Scanner(file);
@@ -51,17 +51,21 @@ public class Main {
         while(fileReader.hasNextLine()) {
             levelString.append(fileReader.nextLine()).append("\n");
         }
-        Level level = new Level(levelString.toString());
-        //Level level = new Level(40, 40);
+        //Level level = new Level(levelString.toString());
+        Level level = new Level(40, 40, new TreeSet<>());
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnEntity(spider);
-        System.out.println(level.render());
-        System.out.println(spider.coordinates());
-        //This still doesn't work
-        System.out.println(level.moveEntity(Direction.RIGHT, spider));
-        System.out.println(spider.coordinates());
-        System.out.println(level.render());
-        */
+        try {
+            System.out.println(level.render());
+            System.out.println(spider.coordinates());
+            //This still doesn't work
+            level.moveEntity(Direction.RIGHT, spider);
+            System.out.println(spider.coordinates());
+            System.out.println(level.render());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
 
 
     }

@@ -26,7 +26,6 @@ package game.entities;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;
-import game.items.Inventory;
 
 /**
  *
