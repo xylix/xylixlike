@@ -25,20 +25,19 @@ package game.entities;
 
 
 import game.dimensions.Coordinates;
-import game.items.Inventory;
+import game.dimensions.Tile;
 
 /**
  *
  * @author xylix
  */
 public class Player extends Entity {
-    private Inventory inventory;
     
-    public Player(Coordinates coords) {
+    public Player(Coordinates coordinates) {
         super(
                 "Player",
-                coords,
-                '@');
-        this.inventory = new Inventory();
+                coordinates, new Tile(
+                '@',
+                "player"));
     }
 }

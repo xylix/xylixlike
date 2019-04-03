@@ -24,66 +24,56 @@
 package game.dimensions;
 
 import game.entities.Entity;
-import javafx.collections.transformation.SortedList;
 
-import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  *
  * @author xylix
  */
 public class Level {
-    private final ArrayList<Entity> entities;
-    public final Layer floor;
-    
-    public Level(int h, int w) {
-        this.floor = new Layer(h, w);
-        entities = new SortedList<>();
+    private final TreeSet<Entity> entities;
+    private final int height;
+    private final int width;
+    private final Tile filler;
+
+    public Level(int h, int w, TreeSet<Entity> entities, Tile filler) {
+        this.height = h;
+        this.width = w;
+        this.entities = entities;
+        this.filler = filler;
     }
-    
-    //Create levels floor from a level file converted to a string.
-    public Level(String s) {
-        this.floor = new Layer(s);
-        entities = new ArrayList<>();
+
+    public Level(int h, int w, TreeSet<Entity> entities) {
+        this.height = h;
+        this.width = w;
+        this.entities = entities;
+        this.filler = new Tile(' ', "air");
     }
     
     public void spawnEntity(Entity e) {
-        entities.add(e);
+        if (entities.contains(e)) {
+        } else {
+            entities.add(e);
+        }
     }
     
-    public ArrayList<Entity> entities() {
+    public TreeSet<Entity> entities() {
         return entities;
     }
     
-    public boolean moveEntity(Direction direction, Entity entity) {
-        //returns false if entity can't move
-        return  floor.move(direction, entity);
+    public void moveEntity(Direction direction, Entity entity) {
+        //Implement check if entity can move
+        entity.transform(direction.toVector());
     }
 
-    public boolean containsEntity() {
-
+    public boolean containsEntity(Entity e) {
+        return entities.contains(e);
     }
-    //Returns stringified version of the floor + entities
-    /*public String render() {
-        StringBuilder sb = new StringBuilder();
-        for (int y = 0; y < floor.height; y++) {
-            for (int x = 0; x < floor.width; x++) {
-                if(entities.containsKey(x, y)) {
-                    sb.append(entities.get(x, y).symbol());
-                } else {
-                    sb.append(floor.tile(x, y));
-                }             
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }*/
+
     public String render() {
-        StringBuilder sb = new StringBuilder();
-        for(Entity e:entities) {
-
-        }
-        return " ";
+        Grid grid = new Grid(height, width, filler, entities);
+        return grid.getStringRepresentation();
     }
 
 }

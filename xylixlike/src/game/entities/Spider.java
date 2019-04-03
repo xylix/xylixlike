@@ -24,18 +24,19 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 
 /**
  *
  * @author xylix
  */
 public class Spider extends Mob {
-    public Spider(Coordinates coords) {
+    public Spider(Coordinates coordinates) {
         super(
                 "spider",
-                coords,
+                coordinates,
                 4,
-                1,
-                ':');
+                new Tile(':',
+                "spider"));
     }
 }

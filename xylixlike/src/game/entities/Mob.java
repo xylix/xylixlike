@@ -24,18 +24,20 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 
 /**
  *
  * @author xylix
  */
 public class Mob extends Entity {
-    private int hp;
-    private int damage;
-    public Mob(String name, Coordinates coords, int hp, int damage, char symbol) {
-        super(name, coords, symbol);
+    private final int hp;
+
+    public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
+        super(name,
+                coordinates,
+                tile);
         this.hp = hp;
-        this.damage = damage;
     }
 
     public boolean isAlive() {

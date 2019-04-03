@@ -24,48 +24,56 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Tile;
 
 /**
  *
  * @author xylix
  */
 public class Entity implements Comparable<Entity>{
-    private String kind;
-    private String name;
-    private Coordinates c;
-    private char symbol;
-    public Entity (String kind, Coordinates coordinates, char Symbol) {
-        this.kind = kind;
-        this.c = coordinates;
-        this.symbol = symbol();
-    }
+    private final String name;
+    private final Coordinates coordinates;
+    private final Tile tile;
 
-    public Entity (String name, String kind, Coordinates coordinates) {
+    public Entity (String name, Coordinates coordinates, Tile tile) {
         this.name = name;
-        this.kind = kind;
-        this.c = coordinates;
-    }
-    public Coordinates coordinates() {
-        return c;
+        this.coordinates = coordinates;
+        this.tile = tile;
     }
 
-    public int x() {
-        return c.x;
+    public String getName() {
+        return this.name;
     }
-    public int y () {
-        return c.y;
+
+    public Coordinates coordinates() {
+        return this.coordinates;
+    }
+
+    public int getX() {
+        return this.coordinates.x;
+    }
+    public int getY () {
+        return this.coordinates.y;
     }
 
     public void transform(Coordinates transformVector) {
-        this.c.transform(transformVector);
+        this.coordinates.transform(transformVector);
     }
 
     public char symbol() {
-        return symbol;
+        return this.tile.getSymbol();
+    }
+
+    public String getKind() {
+        return this.tile.getKind();
     }
 
     @Override
     public int compareTo(Entity o) {
-        return false;
+        int yComparison = this.getY() - o.getY();
+        if (yComparison != 0)
+            return yComparison;
+        else
+            return this.getX() - o.getX();
     }
 }
