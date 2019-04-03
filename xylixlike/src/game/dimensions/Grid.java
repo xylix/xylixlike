@@ -1,17 +1,16 @@
 package game.dimensions;
 
-import game.entities.Entity;
-import game.entities.Room;
+import game.entities.Organism;
 import game.entities.Structure;
 
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeSet;
 
 public class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
 
-    public Grid(int height, int width, Tile filler, TreeSet<Entity> entities, TreeSet<Structure> structures) {
+    public Grid(int height, int width, Tile filler, TreeSet<Structure> structures, TreeSet<Organism> organisms) {
         this.grid = new char[width][height];
 
         for(int y = 0; y < height; y++) {
@@ -24,8 +23,8 @@ public class Grid {
             placeStructure(s);
         }
 
-        for (Entity e: entities) {
-            place(e);
+        for (Organism o: organisms) {
+            placeOrganism(o);
         }
 
         this.stringRepresentation = stringify(height, width, grid);
@@ -35,12 +34,12 @@ public class Grid {
         return this.grid[x][y];
     }
 
-    public void place(Entity e) {
-        this.grid[e.getX()][e.getY()] = e.symbol();
+    public void placeOrganism(Organism o) {
+        this.grid[o.getX()][o.getY()] = o.getSymbol();
     }
 
     public void placeStructure(Structure s) {
-        for (Map.Entry<Character, Coordinates> e: s.tiles().entrySet()) {
+        for (Entry<Character, Coordinates> e: s.tiles().entrySet()) {
             this.grid[e.getValue().x][e.getValue().y] = e.getKey();
         }
     }

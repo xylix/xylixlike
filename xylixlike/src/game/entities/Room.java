@@ -18,7 +18,7 @@ public class Room implements Structure {
                 else if (x == 0 || x == width - 1 ) {
                     tiles.put(tileset.getSymbol("vwall"), new Coordinates(x, y));
                 } else {
-                    tiles.put(tileset.getSymbol("filler");
+                    tiles.put(tileset.getSymbol("filler"), new Coordinates(x, y));
                 }
 
             }

@@ -23,7 +23,7 @@
  */
 package game.dimensions;
 
-import game.entities.Entity;
+import game.entities.Organism;
 import game.entities.Structure;
 
 import java.util.TreeSet;
@@ -33,7 +33,7 @@ import java.util.TreeSet;
  * @author xylix
  */
 public class Level {
-    private final TreeSet<Entity> entities;
+    private final TreeSet<Organism> organisms;
     private final TreeSet<Structure> structures;
     private final int height;
     private final int width;
@@ -42,15 +42,15 @@ public class Level {
     public Level(int h, int w) {
         this.height = h;
         this.width = w;
-        this.entities = new TreeSet<>();
+        this.organisms = new TreeSet<>();
         this.structures = new TreeSet<>();
         this.filler = new Tile(' ', "air");
     }
     
-    public void spawnEntity(Entity e) {
-        if (entities.contains(e)) {
+    public void spawnOrganism(Organism o) {
+        if (organisms.contains(o)) {
         } else {
-            entities.add(e);
+            organisms.add(o);
         }
     }
 
@@ -61,21 +61,21 @@ public class Level {
         }
     }
     
-    public TreeSet<Entity> entities() {
-        return entities;
+    public TreeSet<Organism> organisms() {
+        return organisms;
     }
     
-    public void moveEntity(Direction direction, Entity entity) {
+    public void moveOrganism(Direction direction, Organism organism) {
         //Implement check if entity can move
-        entity.transform(direction.toVector());
+        organism.transform(direction.toVector());
     }
 
-    public boolean containsEntity(Entity e) {
-        return entities.contains(e);
+    public boolean containsOrganism(Organism o) {
+        return organisms.contains(o);
     }
 
     public String render() {
-        Grid grid = new Grid(height, width, filler, entities, structures);
+        Grid grid = new Grid(height, width, filler, structures, organisms);
         return grid.getStringRepresentation();
     }
 

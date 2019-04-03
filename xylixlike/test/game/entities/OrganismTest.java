@@ -39,38 +39,38 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author xylix
  */
-public class EntityTest {
+public class OrganismTest {
     @Test
-    public void SpawnEntityTest() {
+    public void SpawnOrganismTest() {
         Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
         Tile testTile = new Tile('.', "test");
-        Entity testEntity = new Entity("test", c, testTile);
-        level.spawnEntity(testEntity);
-        assertTrue(level.containsEntity(testEntity));
-        assertEquals(testEntity.coordinates(), c);
+        Organism testOrganism = new Organism("test", c, testTile);
+        level.spawnOrganism(testOrganism);
+        assertTrue(level.containsOrganism(testOrganism));
+        assertEquals(testOrganism.getCoordinates(), c);
     }
     
     @Test
-    public void MoveEntityDownTest() {
+    public void MoveOrganismDownTest() {
         Direction d = Direction.DOWN;
         MoveEntityTest(d);  
     }
     
     @Test
-    public void MoveEntityRightTest() {
+    public void MoveOrganismRightTest() {
         Direction d = Direction.RIGHT;
         MoveEntityTest(d);
     }
     
     @Test
-    public void MoveEntityUpTest() {
+    public void MoveOrganismUpTest() {
         Direction d = Direction.UP;
         MoveEntityTest(d);
     }
     
     @Test
-    public void MoveEntityLEFTTest() {
+    public void MoveOrganismLEFTTest() {
         Direction d = Direction.LEFT;
         MoveEntityTest(d);
     }
@@ -79,11 +79,11 @@ public class EntityTest {
     private void MoveEntityTest(Direction d) {
         Level level = new Level(40, 80);
         Spider testSpider = new Spider(new Coordinates(1, 1));
-        level.spawnEntity(testSpider);
-        Coordinates coordinates = testSpider.coordinates();
-        level.moveEntity(d, testSpider);
+        level.spawnOrganism(testSpider);
+        Coordinates coordinates = testSpider.getCoordinates();
+        level.moveOrganism(d, testSpider);
         Coordinates transformVector = d.toVector();
         coordinates.transform(transformVector);
-        assertEquals(testSpider.coordinates(), coordinates);
+        assertEquals(testSpider.getCoordinates(), coordinates);
     }
 }

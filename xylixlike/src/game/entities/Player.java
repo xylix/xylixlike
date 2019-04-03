@@ -31,7 +31,7 @@ import game.dimensions.Tile;
  *
  * @author xylix
  */
-public class Player extends Entity {
+public class Player extends Organism {
     
     public Player(Coordinates coordinates) {
         super(

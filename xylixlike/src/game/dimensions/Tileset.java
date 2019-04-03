@@ -26,7 +26,7 @@ public class Tileset {
         return this.tileset.getKey(symbol);
     }
 
-    public boolean loadTiles(File file) {
+    public void loadTiles(File file) {
         return false;
     }
 

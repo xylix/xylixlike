@@ -30,7 +30,7 @@ import game.dimensions.Tile;
  *
  * @author xylix
  */
-public class Mob extends Entity {
+public class Mob extends Organism {
     private final int hp;
 
     public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
