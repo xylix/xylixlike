@@ -3,6 +3,7 @@ package game.dimensions;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
+import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.TreeSet;
 
@@ -10,7 +11,7 @@ public class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
 
-    public Grid(int height, int width, Tile filler, TreeSet<Structure> structures, TreeSet<Organism> organisms) {
+    public Grid(int height, int width, Tile filler, HashSet<Structure> structures, TreeSet<Organism> organisms) {
         this.grid = new char[width][height];
 
         for(int y = 0; y < height; y++) {

@@ -29,9 +29,7 @@ import game.dimensions.Tileset;
 import game.entities.organisms.Spider;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  *

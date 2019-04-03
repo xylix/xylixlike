@@ -26,6 +26,7 @@ package game.dimensions;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
+import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
@@ -34,7 +35,7 @@ import java.util.TreeSet;
  */
 public class Level {
     private final TreeSet<Organism> organisms;
-    private final TreeSet<Structure> structures;
+    private final HashSet<Structure> structures;
     private final int height;
     private final int width;
     private final Tile filler;
@@ -43,20 +44,18 @@ public class Level {
         this.height = h;
         this.width = w;
         this.organisms = new TreeSet<>();
-        this.structures = new TreeSet<>();
+        this.structures = new HashSet<>();
         this.filler = new Tile('#', "wall");
     }
     
     public void spawnOrganism(Organism o) {
-        if (organisms.contains(o)) {
-        } else {
+        if (!organisms.contains(o)) {
             organisms.add(o);
         }
     }
 
     public void spawnStructure(Structure s) {
-        if (structures.contains(s)) {
-        } else {
+        if (!structures.contains(s)) {
             structures.add(s);
         }
     }

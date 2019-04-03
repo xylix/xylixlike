@@ -14,7 +14,6 @@ public class Corridor extends Structure {
             for (int j = yCoordinate; j < length + yCoordinate && j > 0; j += y) {
                 tiles.put(tileset.getSymbol("wall"), new Coordinates(i, j));
             }
-            break;
         }
     }
 }

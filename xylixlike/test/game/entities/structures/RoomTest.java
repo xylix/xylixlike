@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RoomTest {
     @Test
-    public void RoomTest() throws IOException {
+    public void roomTest() throws IOException {
         Level level = new Level(40, 80);
         String levelPreStructure = level.render();
         Coordinates c = new Coordinates(1,1);
