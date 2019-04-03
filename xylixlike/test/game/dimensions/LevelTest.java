@@ -1,17 +1,9 @@
 package game.dimensions;
 
 import game.entities.Spider;
-import game.dimensions.Coordinates;
-import game.dimensions.Direction;
-import game.dimensions.Level;
-import org.junit.Assert;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.util.TreeSet;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class LevelTest {
 
@@ -24,6 +16,6 @@ public class LevelTest {
         String levelBeforeMove = level.render();
         level.moveEntity(Direction.DOWN, spider);
         String levelAfterMove = level.render();
-        Assert.assertThat(levelBeforeMove, is(not(equalTo(levelAfterMove))));
+        assertNotEquals(levelBeforeMove, levelAfterMove);
     }
 }

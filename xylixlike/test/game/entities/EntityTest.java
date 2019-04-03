@@ -24,20 +24,16 @@
 package game.entities;
 
 import game.dimensions.Tile;
-import game.entities.Entity;
-import game.entities.Spider;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.TreeSet;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 /**
  *
@@ -90,6 +86,6 @@ public class EntityTest {
         level.moveEntity(d, testSpider);
         Coordinates transformVector = d.toVector();
         coordinates.transform(transformVector);
-        Assert.assertThat(testSpider.coordinates(), is(equalTo(coordinates)));
+        assertEquals(testSpider.coordinates(), coordinates);
     }
 }

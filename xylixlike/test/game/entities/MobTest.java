@@ -1,10 +1,11 @@
 package game.entities;
 
 import game.dimensions.Tile;
-import game.entities.Mob;
 import game.dimensions.Coordinates;
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class MobTest {
     @Test
@@ -14,6 +15,6 @@ public class MobTest {
                 new Coordinates(0, 0),
                 -1,
                 new Tile(':', "semicolon"));
-        Assert.assertFalse(mob.isAlive());
+        assertFalse(mob.isAlive());
     }
 }

@@ -2,13 +2,12 @@ package game.dimensions;
 
 import game.entities.Entity;
 import game.entities.Spider;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.TreeSet;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class GridTest {
 
@@ -19,6 +18,6 @@ public class GridTest {
         TreeSet<Entity> testSet = new TreeSet<>();
         testSet.add(testSpider);
         Grid testGrid = new Grid(20, 20, new Tile(' ', "air"), testSet);
-        Assert.assertThat(testGrid.get(0, 0), is(equalTo(testSpider.symbol())));
+        assertEquals(testGrid.get(0, 0), testSpider.symbol());
     }
 }
