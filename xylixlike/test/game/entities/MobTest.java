@@ -1,8 +1,7 @@
 package game.entities;
 
-import game.dimensions.Tile;
 import game.dimensions.Coordinates;
-
+import game.dimensions.Tile;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

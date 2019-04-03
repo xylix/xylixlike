@@ -24,6 +24,7 @@
 package game.dimensions;
 
 import game.entities.Entity;
+import game.entities.Structure;
 
 import java.util.TreeSet;
 
@@ -33,21 +34,16 @@ import java.util.TreeSet;
  */
 public class Level {
     private final TreeSet<Entity> entities;
+    private final TreeSet<Structure> structures;
     private final int height;
     private final int width;
     private final Tile filler;
 
-    public Level(int h, int w, TreeSet<Entity> entities, Tile filler) {
+    public Level(int h, int w) {
         this.height = h;
         this.width = w;
-        this.entities = entities;
-        this.filler = filler;
-    }
-
-    public Level(int h, int w, TreeSet<Entity> entities) {
-        this.height = h;
-        this.width = w;
-        this.entities = entities;
+        this.entities = new TreeSet<>();
+        this.structures = new TreeSet<>();
         this.filler = new Tile(' ', "air");
     }
     
@@ -55,6 +51,13 @@ public class Level {
         if (entities.contains(e)) {
         } else {
             entities.add(e);
+        }
+    }
+
+    public void spawnStructure(Structure s) {
+        if (structures.contains(s)) {
+        } else {
+            structures.add(s);
         }
     }
     
@@ -72,7 +75,7 @@ public class Level {
     }
 
     public String render() {
-        Grid grid = new Grid(height, width, filler, entities);
+        Grid grid = new Grid(height, width, filler, entities, structures);
         return grid.getStringRepresentation();
     }
 

@@ -23,10 +23,10 @@
  */
 package game.entities;
 
-import game.dimensions.Tile;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
+import game.dimensions.Tile;
 import org.junit.jupiter.api.Test;
 
 import java.util.TreeSet;
@@ -42,8 +42,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class EntityTest {
     @Test
     public void SpawnEntityTest() {
-        Tile air = new Tile(' ', "air");
-        Level level = new Level(40, 80, new TreeSet<>(), air);
+        Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
         Tile testTile = new Tile('.', "test");
         Entity testEntity = new Entity("test", c, testTile);
@@ -78,8 +77,7 @@ public class EntityTest {
     
     
     private void MoveEntityTest(Direction d) {
-        Tile air = new Tile(' ', "air");
-        Level level = new Level(40, 80, new TreeSet<>(), air);
+        Level level = new Level(40, 80);
         Spider testSpider = new Spider(new Coordinates(1, 1));
         level.spawnEntity(testSpider);
         Coordinates coordinates = testSpider.coordinates();

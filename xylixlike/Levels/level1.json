@@ -1,0 +1,13 @@
+{
+  "levelName": "level 1",
+  "entities": {
+    "Spider": "b",
+    "Goblin": "d",
+    "Player": "f"
+  }, "structures": {
+  "Room 1":"Room parameters",
+  "Room 2":"",
+  "Corridor 1": "Corridot parameters",
+  "Corridor 2": ""
+}
+}

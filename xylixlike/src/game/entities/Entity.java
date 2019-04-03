@@ -41,10 +41,6 @@ public class Entity implements Comparable<Entity>{
         this.tile = tile;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public Coordinates coordinates() {
         return this.coordinates;
     }

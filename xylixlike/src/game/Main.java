@@ -54,19 +54,11 @@ public class Main {
             loadedMap.append(fileReader.nextLine()).append("\n");
         }
         //Level level = new Level(levelString.toString());
-        Level level = new Level(40, 40, new TreeSet<>());
+        Level level = new Level(20, 40);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnEntity(spider);
-        try {
-            System.out.println(level.render());
-            System.out.println(spider.coordinates());
-            //This still doesn't work
-            level.moveEntity(Direction.RIGHT, spider);
-            System.out.println(spider.coordinates());
-            System.out.println(level.render());
-        } catch (Exception e) {
-            printStackTrace(e);
-        }
+        System.out.println(level.render());
+
 
 
 
