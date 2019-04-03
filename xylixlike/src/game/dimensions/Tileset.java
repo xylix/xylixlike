@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.MapType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.apache.commons.collections4.bidimap.TreeBidiMap;
 
 
 public class Tileset {
-    private TreeBidiMap<String, Character> tileset;
+    private final TreeBidiMap<String, Character> tileset;
 
     public Tileset (File f) throws IOException {
         this.tileset = new TreeBidiMap<>();
@@ -27,10 +29,12 @@ public class Tileset {
 
     public void loadTiles(File file) throws IOException {
         FileReader fr = new FileReader(file);
-        HashMap<String, String> result = new ObjectMapper().readValue(fr, HashMap.class);
+        TypeFactory factory = TypeFactory.defaultInstance();
+        MapType type = factory.constructMapType(HashMap.class, String.class, Character.class);
+        ObjectMapper mapper  = new ObjectMapper();
+        HashMap<String, Character>  result  = mapper.readValue(fr, type);
 
-        result.entrySet().forEach(s ->
-                tileset.put(s.getKey(), s.getValue().charAt(0)));
+        result.forEach((key, value) -> tileset.put(key, value));
     }
 
 }

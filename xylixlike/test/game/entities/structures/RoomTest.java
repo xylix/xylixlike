@@ -8,11 +8,20 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class RoomTest {
     @Test
-    public void roomTest() throws IOException {
+    public void roomConstructorTest() throws IOException {
+        Coordinates c = new Coordinates(1,1);
+        Tileset t = new Tileset(new File("xylixlike/Resources/Tilesets/default.json"));
+        Room room = new Room(c, t, 4, 4);
+        assertEquals(room.getClass(), Room.class);
+    }
+
+    @Test
+    public void roomRenderingTest() throws IOException {
         Level level = new Level(40, 80);
         String levelPreStructure = level.render();
         Coordinates c = new Coordinates(1,1);

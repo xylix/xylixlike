@@ -49,15 +49,11 @@ public class Level {
     }
     
     public void spawnOrganism(Organism o) {
-        if (!organisms.contains(o)) {
-            organisms.add(o);
-        }
+        organisms.add(o);
     }
 
     public void spawnStructure(Structure s) {
-        if (!structures.contains(s)) {
-            structures.add(s);
-        }
+        structures.add(s);
     }
     
     public TreeSet<Organism> organisms() {

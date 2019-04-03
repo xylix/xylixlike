@@ -7,6 +7,7 @@ import game.dimensions.Tileset;
 public class Room extends Structure {
 
     public Room(Coordinates coordinates, Tileset tileset, int width, int height) {
+
         int xCoordinate = coordinates.x;
         int yCoordinate = coordinates.y;
         for (int x = xCoordinate; x < (width + xCoordinate); x++) {
