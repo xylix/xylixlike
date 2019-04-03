@@ -1,8 +1,8 @@
 package game.dimensions;
 
 import game.entities.Entity;
-import game.entities.Spider;
-import game.entities.Structure;
+import game.entities.organisms.Spider;
+import game.entities.structures.Structure;
 import org.junit.jupiter.api.Test;
 
 import java.util.TreeSet;

@@ -23,8 +23,8 @@
  */
 package game.dimensions;
 
-import game.entities.Organism;
-import game.entities.Structure;
+import game.entities.organisms.Organism;
+import game.entities.structures.Structure;
 
 import java.util.TreeSet;
 
@@ -44,7 +44,7 @@ public class Level {
         this.width = w;
         this.organisms = new TreeSet<>();
         this.structures = new TreeSet<>();
-        this.filler = new Tile(' ', "air");
+        this.filler = new Tile('#', "wall");
     }
     
     public void spawnOrganism(Organism o) {

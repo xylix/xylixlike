@@ -21,7 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game.entities;
+package game.entities.organisms;
+
 
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;
@@ -30,13 +31,13 @@ import game.dimensions.Tile;
  *
  * @author xylix
  */
-public class Spider extends Mob {
-    public Spider(Coordinates coordinates) {
+public class Player extends Organism {
+    
+    public Player(Coordinates coordinates) {
         super(
-                "spider",
-                coordinates,
-                4,
-                new Tile(':',
-                "spider"));
+                "Player",
+                coordinates, new Tile(
+                '@',
+                "player"));
     }
 }

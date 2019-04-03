@@ -1,7 +1,7 @@
 package game.dimensions;
 
-import game.entities.Organism;
-import game.entities.Structure;
+import game.entities.organisms.Organism;
+import game.entities.structures.Structure;
 
 import java.util.Map.Entry;
 import java.util.TreeSet;

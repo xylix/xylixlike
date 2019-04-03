@@ -5,7 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/xylixlike/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/xylixlike/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/xylixlike/Levels" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/xylixlike/Resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

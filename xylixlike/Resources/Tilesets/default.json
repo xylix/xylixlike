@@ -1,0 +1,9 @@
+{
+  "tileset" :{
+    "wall" : "#",
+    "vwall" : "-",
+    "hwall" : "|",
+    "spider" : ":",
+    "player" : "@"
+  }
+}

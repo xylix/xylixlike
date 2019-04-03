@@ -24,16 +24,12 @@
 package game;
 
 import game.dimensions.Coordinates;
-import game.dimensions.Direction;
 import game.dimensions.Level;
-import game.entities.Spider;
+import game.entities.organisms.Spider;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.TreeSet;
-
-import static jdk.nashorn.internal.objects.NativeError.printStackTrace;
 
 /**
  *

@@ -1,7 +1,8 @@
-package game.entities;
+package game.entities.organisms;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;
+import game.entities.organisms.Mob;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

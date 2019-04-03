@@ -1,9 +1,7 @@
 package game.dimensions;
 
-import game.entities.Spider;
+import game.entities.organisms.Spider;
 import org.junit.jupiter.api.Test;
-
-import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 

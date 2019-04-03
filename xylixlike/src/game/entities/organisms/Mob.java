@@ -21,8 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game.entities;
-
+package game.entities.organisms;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;
@@ -31,13 +30,17 @@ import game.dimensions.Tile;
  *
  * @author xylix
  */
-public class Player extends Organism {
-    
-    public Player(Coordinates coordinates) {
-        super(
-                "Player",
-                coordinates, new Tile(
-                '@',
-                "player"));
+public class Mob extends Organism {
+    private final int hp;
+
+    public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
+        super(name,
+                coordinates,
+                tile);
+        this.hp = hp;
+    }
+
+    public boolean isAlive() {
+        return hp > 0;
     }
 }

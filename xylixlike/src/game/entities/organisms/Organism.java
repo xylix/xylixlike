@@ -1,4 +1,4 @@
-package game.entities;
+package game.entities.organisms;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Tile;

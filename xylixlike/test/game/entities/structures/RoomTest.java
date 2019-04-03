@@ -1,7 +1,9 @@
-package game.entities;
+package game.entities.structures;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Level;
+import game.entities.structures.Room;
+import game.entities.structures.Structure;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

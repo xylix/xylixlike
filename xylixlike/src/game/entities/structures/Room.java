@@ -1,14 +1,10 @@
-package game.entities;
+package game.entities.structures;
 
 import game.dimensions.Coordinates;
 
 import game.dimensions.Tileset;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
-public class Room implements Structure {
-    HashMap<Character, Coordinates> tiles;
+public class Room extends Structure {
 
     public Room(Coordinates coordinates, Tileset tileset, int width, int height) {
         for (int x = 0; x < width; x++) {
@@ -24,11 +20,5 @@ public class Room implements Structure {
             }
         }
 
-    }
-
-
-    @Override
-    public HashMap<Character, Coordinates> tiles() {
-        return tiles;
     }
 }

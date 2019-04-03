@@ -21,15 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game.entities;
+package game.entities.organisms;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
+import game.entities.organisms.Organism;
+import game.entities.organisms.Spider;
 import org.junit.jupiter.api.Test;
-
-import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -50,16 +50,22 @@ public class OrganismTest {
         assertTrue(level.containsOrganism(testOrganism));
         assertEquals(testOrganism.getCoordinates(), c);
     }
-    
+
+    @Test
+    public void MoveOrganismRightTest() {
+        Direction d = Direction.RIGHT;
+        MoveEntityTest(d);
+    }
+
     @Test
     public void MoveOrganismDownTest() {
         Direction d = Direction.DOWN;
         MoveEntityTest(d);  
     }
-    
+
     @Test
-    public void MoveOrganismRightTest() {
-        Direction d = Direction.RIGHT;
+    public void MoveOrganismLEFTTest() {
+        Direction d = Direction.LEFT;
         MoveEntityTest(d);
     }
     
@@ -68,13 +74,6 @@ public class OrganismTest {
         Direction d = Direction.UP;
         MoveEntityTest(d);
     }
-    
-    @Test
-    public void MoveOrganismLEFTTest() {
-        Direction d = Direction.LEFT;
-        MoveEntityTest(d);
-    }
-    
     
     private void MoveEntityTest(Direction d) {
         Level level = new Level(40, 80);
