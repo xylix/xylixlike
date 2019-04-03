@@ -33,10 +33,10 @@ import game.dimensions.Tile;
  */
 public class Player extends Entity {
     
-    public Player(Coordinates coords) {
+    public Player(Coordinates coordinates) {
         super(
                 "Player",
-                coords, new Tile(
+                coordinates, new Tile(
                 '@',
                 "player"));
     }

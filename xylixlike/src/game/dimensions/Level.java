@@ -51,12 +51,10 @@ public class Level {
         this.filler = new Tile(' ', "air");
     }
     
-    public boolean spawnEntity(Entity e) {
+    public void spawnEntity(Entity e) {
         if (entities.contains(e)) {
-            return false;
         } else {
             entities.add(e);
-            return true;
         }
     }
     

@@ -31,9 +31,9 @@ import game.dimensions.Tile;
  * @author xylix
  */
 public class Entity implements Comparable<Entity>{
-    private String name;
-    private Coordinates coordinates;
-    private Tile tile;
+    private final String name;
+    private final Coordinates coordinates;
+    private final Tile tile;
 
     public Entity (String name, Coordinates coordinates, Tile tile) {
         this.name = name;

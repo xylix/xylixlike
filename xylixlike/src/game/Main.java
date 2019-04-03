@@ -33,6 +33,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.TreeSet;
 
+import static jdk.nashorn.internal.objects.NativeError.printStackTrace;
+
 /**
  *
  * @author xylix
@@ -47,9 +49,9 @@ public class Main {
         System.out.println(System.getProperty("user.dir"));
 
         Scanner fileReader = new Scanner(file);
-        StringBuilder levelString = new StringBuilder(); 
+        StringBuilder loadedMap = new StringBuilder();
         while(fileReader.hasNextLine()) {
-            levelString.append(fileReader.nextLine()).append("\n");
+            loadedMap.append(fileReader.nextLine()).append("\n");
         }
         //Level level = new Level(levelString.toString());
         Level level = new Level(40, 40, new TreeSet<>());
@@ -63,7 +65,7 @@ public class Main {
             System.out.println(spider.coordinates());
             System.out.println(level.render());
         } catch (Exception e) {
-            System.out.println(e);
+            printStackTrace(e);
         }
 
 

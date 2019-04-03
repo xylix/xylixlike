@@ -31,14 +31,13 @@ import game.dimensions.Tile;
  * @author xylix
  */
 public class Mob extends Entity {
-    private int hp;
-    private int damage;
-    public Mob(String name, Coordinates coords, int hp, int damage, Tile tile) {
+    private final int hp;
+
+    public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
         super(name,
-                coords,
+                coordinates,
                 tile);
         this.hp = hp;
-        this.damage = damage;
     }
 
     public boolean isAlive() {

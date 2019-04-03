@@ -11,6 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class GridTest {
+
     @Test
     public void gridConstructorTest() {
 
@@ -18,6 +19,6 @@ public class GridTest {
         TreeSet<Entity> testSet = new TreeSet<>();
         testSet.add(testSpider);
         Grid testGrid = new Grid(20, 20, new Tile(' ', "air"), testSet);
-        Assert.assertThat(testGrid.get(0, 0), is(equalTo(testSpider)));
+        Assert.assertThat(testGrid.get(0, 0), is(equalTo(testSpider.symbol())));
     }
 }

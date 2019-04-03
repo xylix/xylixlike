@@ -5,8 +5,8 @@ import game.entities.Entity;
 import java.util.TreeSet;
 
 public class Grid {
-    private char[][] grid;
-    private String stringRepresentation;
+    private final char[][] grid;
+    private final String stringRepresentation;
 
     public Grid(int height, int width, Tile filler, TreeSet<Entity> entities) {
         this.grid = new char[width][height];
@@ -28,9 +28,8 @@ public class Grid {
         return this.grid[x][y];
     }
 
-    public boolean set(Entity e) {
+    public void set(Entity e) {
         this.grid[e.getX()][e.getY()] = e.symbol();
-        return true;
     }
 
     public String getStringRepresentation() {
