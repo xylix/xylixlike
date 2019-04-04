@@ -27,6 +27,7 @@ import game.dimensions.Coordinates;
 import game.dimensions.Level;
 import game.dimensions.Tileset;
 import game.entities.organisms.Spider;
+import game.entities.structures.Corridor;
 import game.entities.structures.Room;
 
 import java.io.File;
@@ -44,11 +45,13 @@ public class Main {
         File level1 = new File("xylixlike/Resources/Levels/level1.json");
         File tileFile = new File("xylixlike/Resources/Tilesets/default.json");
         Tileset tileset = new Tileset(tileFile);
-        Level level = new Level(30, 60);
+        Level level = new Level(20, 60);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnOrganism(spider);
         Room room1 = new Room(new Coordinates (0,0), tileset, 10, 8);
         level.spawnStructure(room1);
+        Corridor corridor = new Corridor(new Coordinates(10, 15), new Coordinates(20, 15), tileset);
+        level.spawnStructure(corridor);
         System.out.println(level.render());
 
     }

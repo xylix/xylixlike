@@ -1,20 +1,23 @@
 package game.entities.structures;
 
 import game.dimensions.Coordinates;
-import game.dimensions.Direction;
 import game.dimensions.Tileset;
 
 public class Corridor extends Structure {
-    public Corridor(Coordinates coordinates, Tileset tileset, int length, Direction direction) {
-        int x = direction.toVector().x;
-        int y = direction.toVector().y;
-        int xCoordinate = coordinates.x;
-        int yCoordinate = coordinates.y;
-        for (int i = xCoordinate; i < length + xCoordinate && i > 0; i += x) {
-            for (int j = yCoordinate; j < length + yCoordinate && j > 0; j += y) {
-                //tiles.put(tileset.getSymbol("wall"), new Coordinates(i, j));
+    public Corridor(Coordinates startCoordinates, Coordinates endCoordinates, Tileset tileset) {
+        super(tileset);
+        if (startCoordinates.x - endCoordinates.x == 0) {
+            int length = startCoordinates.y - endCoordinates.y;
+            for (int i = 0; i < length; i++) {
+                placeTile("air", new Coordinates(startCoordinates.x, startCoordinates.y + i));
+            }
+        } else if (startCoordinates.y - endCoordinates.x == 0) {
+            int length = startCoordinates.x - endCoordinates.x;
+            for (int i = 0; i < length; i++) {
+                placeTile("air", new Coordinates(startCoordinates.x + i, startCoordinates.y));
             }
         }
+
     }
 }
 

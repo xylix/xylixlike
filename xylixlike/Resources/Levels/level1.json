@@ -1,13 +1,31 @@
 {
   "levelName": "level 1",
-  "entities": {
-    "Spider": "b",
-    "Goblin": "d",
-    "Player": "f"
-  }, "structures": {
-  "Room 1":"Room parameters",
-  "Room 2":"",
-  "Corridor 1": "Corridor parameters",
-  "Corridor 2": ""
-}
+  "organisms": [
+    {
+      "kind" : "spider",
+      "coordinates" : [0, 0]
+    },
+    {
+      "kind" : "player",
+      "coordinates" : [0, 0]
+    }
+  ],
+  "structures": [
+    {
+      "kind": "room",
+      "coordinates" : [0, 0],
+      "width": "10",
+      "height": "8"
+    }, {
+      "kind": "room",
+      "coordinates" : [0, 0],
+      "width": "10",
+      "height": "8"
+    }, {
+      "kind": "corridor",
+      "coordinates" : [0, 0],
+      "length": "4",
+      "direction": "RIGHT"
+    }
+  ]
 }
