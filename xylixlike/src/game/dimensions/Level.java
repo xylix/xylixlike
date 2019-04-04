@@ -23,9 +23,16 @@
  */
 package game.dimensions;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -74,4 +81,21 @@ public class Level {
         return grid.getStringRepresentation();
     }
 
+    public void loadLevel(File file) {
+        try {
+            FileReader fr = new FileReader(file);
+            TypeFactory factory = TypeFactory.defaultInstance();
+            CollectionType type = factory.constructCollectionType(ArrayList.class, Entity.class);
+            ObjectMapper mapper = new ObjectMapper();
+            ArrayList<Entity> result = mapper.readValue(fr, type);
+
+            for (Entity entry : result) {
+                if (entry.getKind() == )
+            }
+            result.forEach((key, value) -> key.equals()
+                    );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

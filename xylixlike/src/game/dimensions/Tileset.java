@@ -27,16 +27,20 @@ public class Tileset {
         return this.tileset.getKey(symbol);
     }
 
-    public void loadTiles(File file) throws IOException {
-        FileReader fr = new FileReader(file);
-        TypeFactory factory = TypeFactory.defaultInstance();
-        MapType type = factory.constructMapType(HashMap.class, String.class, Character.class);
-        ObjectMapper mapper  = new ObjectMapper();
-        HashMap<String, Character>  result  = mapper.readValue(fr, type);
+    public void loadTiles(File file) {
+        try {
+            FileReader fr = new FileReader(file);
+            TypeFactory factory = TypeFactory.defaultInstance();
+            MapType type = factory.constructMapType(HashMap.class, String.class, Character.class);
+            ObjectMapper mapper = new ObjectMapper();
+            HashMap<String, Character> result = mapper.readValue(fr, type);
 
-        result.forEach((key, value) -> tileset.put(key, value));
+            result.forEach((key, value) -> tileset.put(key, value));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
-
 }
 
 

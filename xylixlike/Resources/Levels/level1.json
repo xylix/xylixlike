@@ -16,12 +16,14 @@
       "coordinates" : [0, 0],
       "width": "10",
       "height": "8"
-    }, {
+    },
+    {
       "kind": "room",
       "coordinates" : [0, 0],
       "width": "10",
       "height": "8"
-    }, {
+    },
+    {
       "kind": "corridor",
       "coordinates" : [0, 0],
       "length": "4",
