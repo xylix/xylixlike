@@ -12,7 +12,7 @@ public class Corridor extends Structure {
         int yCoordinate = coordinates.y;
         for (int i = xCoordinate; i < length + xCoordinate && i > 0; i += x) {
             for (int j = yCoordinate; j < length + yCoordinate && j > 0; j += y) {
-                tiles.put(tileset.getSymbol("wall"), new Coordinates(i, j));
+                //tiles.put(tileset.getSymbol("wall"), new Coordinates(i, j));
             }
         }
     }

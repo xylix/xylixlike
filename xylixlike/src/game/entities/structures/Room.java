@@ -6,22 +6,21 @@ import game.dimensions.Tileset;
 
 public class Room extends Structure {
 
-    public Room(Coordinates coordinates, Tileset tileset, int width, int height) {
+    public Room(Coordinates startCoordinates, Tileset tileset, int width, int height) {
 
-        int xCoordinate = coordinates.x;
-        int yCoordinate = coordinates.y;
-        for (int x = xCoordinate; x < (width + xCoordinate); x++) {
-            for (int y = yCoordinate; y < (height + yCoordinate); y++) {
-                if (y == yCoordinate || y == height - 1 + yCoordinate) {
-                    tiles.put(tileset.getSymbol("vwall"), new Coordinates(x, y));
-                } else if (x == xCoordinate || x == width - 1 + xCoordinate ) {
-                    tiles.put(tileset.getSymbol("hwall"), new Coordinates(x, y));
+        int xCoordinate = startCoordinates.x;
+        int yCoordinate = startCoordinates.y;
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                Coordinates coordinates = new Coordinates(x + xCoordinate, y + yCoordinate);
+                if (y == 0 || y == height - 1) {
+                    tiles.put(coordinates, tileset.getSymbol("vwall"));
+                } else if (x == 0 || x == width - 1) {
+                    tiles.put(coordinates, tileset.getSymbol("hwall"));
                 } else {
-                    tiles.put(tileset.getSymbol("air"), new Coordinates(x, y));
+                    tiles.put(coordinates, tileset.getSymbol("air"));
                 }
-
             }
         }
-
     }
 }

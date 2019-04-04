@@ -5,13 +5,13 @@ import game.dimensions.Coordinates;
 import java.util.HashMap;
 
 public class Structure {
-    HashMap<Character, Coordinates> tiles;
+    HashMap<Coordinates, Character> tiles;
 
     Structure() {
         this.tiles = new HashMap<>();
     }
 
-    public HashMap<Character, Coordinates> tiles() {
+    public HashMap<Coordinates, Character> tiles() {
         return tiles;
     }
 }

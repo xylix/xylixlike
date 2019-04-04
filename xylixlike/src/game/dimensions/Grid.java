@@ -40,8 +40,8 @@ public class Grid {
     }
 
     public void placeStructure(Structure s) {
-        for (Entry<Character, Coordinates> e: s.tiles().entrySet()) {
-            this.grid[e.getValue().x][e.getValue().y] = e.getKey();
+        for (Entry<Coordinates, Character> e: s.tiles().entrySet()) {
+            this.grid[e.getKey().x][e.getKey().y] = e.getValue();
         }
     }
 
