@@ -50,7 +50,7 @@ public class Main {
         level.spawnOrganism(spider);
         Room room1 = new Room(new Coordinates (0,0), tileset, 10, 8);
         level.spawnStructure(room1);
-        Corridor corridor = new Corridor(new Coordinates(10, 15), new Coordinates(20, 15), tileset);
+        Corridor corridor = new Corridor(new Coordinates(10, 1), new Coordinates(20, 1), tileset);
         level.spawnStructure(corridor);
         System.out.println(level.render());
 
