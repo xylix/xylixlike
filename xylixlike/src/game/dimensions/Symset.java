@@ -41,6 +41,15 @@ public class Symset {
         }
 
     }
+
+    public static Symset defaultSymset() {
+        try {
+            return new Symset(new File("xylixlike/Resources/Tilesets/default.json"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
 
 

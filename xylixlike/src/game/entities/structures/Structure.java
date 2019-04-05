@@ -9,18 +9,13 @@ public class Structure {
     HashMap<Coordinates, Character> tiles;
     Symset symset;
 
-    Structure(Symset symset) {
-        this.tiles = new HashMap<>();
-        this.symset = symset;
-    }
-
-    public Structure(Coordinates coordinates, Symset symset, int width, int height) {
-        this.symset = symset;
+    public Structure(Coordinates coordinates, int width, int height) {
+        this.symset = Symset.defaultSymset();;
         this.tiles = buildRoom(coordinates, width, height);
     }
 
-    public Structure(Coordinates startCoordinates, Coordinates endCoordinates, Symset symset) {
-        this.symset = symset;
+    public Structure(Coordinates startCoordinates, Coordinates endCoordinates) {
+        this.symset = Symset.defaultSymset();
         this.tiles = buildCorridor(startCoordinates, endCoordinates);
     }
 

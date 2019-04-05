@@ -19,28 +19,20 @@ public class Grid {
                 grid[x][y] = data.filler;
             }
         }
-        data.structures.forEach(this::placeStructure);
-        data.organisms.forEach(this::placeOrganism);
+
+        if (data.structures.isEmpty()) {
+            System.out.println("No structures on this level!");
+        } else {
+            data.structures.forEach(this::placeStructure);
+        }
+
+        if (data.organisms.isEmpty()) {
+            System.out.println("No organisms on this level!");
+        } else {
+            data.organisms.forEach(this::placeOrganism);
+        }
 
         this.stringRepresentation = stringify(data.height, data.width, grid);
-    }
-
-    public Grid(int height, int width, char filler, HashSet<Structure> structures, TreeSet<Organism> organisms) {
-        this.grid = new char[width][height];
-
-        for(int y = 0; y < height; y++) {
-            for(int x = 0; x < width; x++) {
-                grid[x][y] = filler;
-            }
-        }
-        for(Structure s: structures) {
-            placeStructure(s);
-        }
-        for (Organism o: organisms) {
-            placeOrganism(o);
-        }
-
-        this.stringRepresentation = stringify(height, width, grid);
     }
 
     public char get(int x, int y) {

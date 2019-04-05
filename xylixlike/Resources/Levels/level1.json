@@ -7,15 +7,15 @@
     {
       "kind" : "spider",
       "coordinates" : {
-        "x": 0,
-        "y": 0
+        "x": 1,
+        "y": 1
       }
     },
     {
       "kind" : "player",
       "coordinates" : {
-        "x": 0,
-        "y": 0
+        "x": 1,
+        "y": 1
       }
     }
   ],
@@ -23,8 +23,8 @@
     {
       "kind": "room",
       "coordinates" : {
-        "x": 0,
-        "y": 0
+        "x": 4,
+        "y": 4
       },
       "width": "10",
       "height": "8"
@@ -32,20 +32,23 @@
     {
       "kind": "room",
       "coordinates" : {
-        "x": 0,
-        "y": 0
+        "x": 8,
+        "y": 8
       },
       "width": "10",
       "height": "8"
     },
     {
       "kind": "corridor",
-      "coordinates" : {
-        "x": 0,
-        "y": 0
+      "startCoordinates" : {
+        "x": 3,
+        "y": 3
       },
       "length": "4",
-      "direction": "RIGHT"
+      "endCoordinates" : {
+        "x": 6,
+        "y": 3
+      }
     }
   ]
 }
