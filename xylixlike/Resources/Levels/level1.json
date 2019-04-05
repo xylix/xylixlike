@@ -1,5 +1,8 @@
 {
-  "levelName": "level 1",
+  "level": "level 1",
+    "width": 80,
+    "height": 40
+  ,
   "organisms": [
     {
       "kind" : "spider",

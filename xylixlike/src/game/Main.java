@@ -42,8 +42,8 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         File level1 = new File("xylixlike/Resources/Levels/level1.json");
-        File tileFile = new File("xylixlike/Resources/Tilesets/default.json");
-        Symset symset = new Symset(tileFile);
+        File symFile = new File("xylixlike/Resources/Tilesets/default.json");
+        Symset symset = new Symset(symFile);
         Level level = new Level(level1);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnOrganism(spider);

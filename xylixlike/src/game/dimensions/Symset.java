@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class Symset {
     private final TreeBidiMap<String, Character> tileset;
 
-    public Symset(File f) throws IOException {
+    public Symset(File f) {
         this.tileset = new TreeBidiMap<>();
         loadTiles(f);
     }

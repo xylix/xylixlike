@@ -25,6 +25,7 @@ package game.dimensions;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
@@ -43,26 +44,27 @@ import java.util.TreeSet;
 public class Level {
     private final TreeSet<Organism> organisms;
     private final HashSet<Structure> structures;
-    private final Symset symset;
     private final int height;
     private final int width;
-    private final Tile filler;
+    private final char filler;
 
     public Level(int h, int w) {
         this.height = h;
         this.width = w;
         this.organisms = new TreeSet<>();
         this.structures = new HashSet<>();
-        this.filler = new Tile('#', "wall");
+
+        this.filler = '#';
     }
 
     public Level(File levelFile) {
-        loadLevel(levelFile);
         this.height = 20;
         this.width = 40;
         this.organisms = new TreeSet<>();
         this.structures = new HashSet<>();
-        this.filler = new Tile('#', "wall");
+        loadLevel(levelFile);
+        this.filler = '#';
+
     }
     
     public void spawnOrganism(Organism o) {
@@ -97,10 +99,13 @@ public class Level {
             Gson gson = new Gson();
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
-            JsonArray array = parser.parse(fr).getAsJsonArray();
-            String levelname = gson.fromJson(array.get(0), String.class);
-            ArrayList<Organism> organisms = gson.fromJson(array.get(0), ArrayList.class);
-            ArrayList<Structure> structures = gson.fromJson(array.get(0), ArrayList.class);
+            JsonObject level = parser.parse(fr).getAsJsonObject();
+            String levelname = gson.fromJson(level.get("levelName"), String.class);
+            int height = gson.fromJson(level.get("height"), Integer.class);
+            int width = gson.fromJson(level.get("width"), Integer.class);
+
+            ArrayList<Organism> organisms = gson.fromJson(level.get("organisms"), ArrayList.class);
+            ArrayList<Structure> structures = gson.fromJson(level.get("structures"), ArrayList.class);
             for (Organism o : organisms) {
 
             }

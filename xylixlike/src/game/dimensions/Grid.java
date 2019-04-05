@@ -11,12 +11,12 @@ public class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
 
-    public Grid(int height, int width, Tile filler, HashSet<Structure> structures, TreeSet<Organism> organisms) {
+    public Grid(int height, int width, char filler, HashSet<Structure> structures, TreeSet<Organism> organisms) {
         this.grid = new char[width][height];
 
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
-                grid[x][y] = filler.getSymbol();
+                grid[x][y] = filler;
             }
         }
 
