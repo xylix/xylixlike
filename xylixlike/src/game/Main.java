@@ -45,12 +45,13 @@ public class Main {
         File symFile = new File("xylixlike/Resources/Tilesets/default.json");
         Symset symset = new Symset(symFile);
         Level level = new Level(level1);
-        Spider spider = new Spider(new Coordinates(2, 2));
-        level.spawnOrganism(spider);
-        Structure room1 = new Structure(new Coordinates (0,0), symset, 10, 8);
-        level.spawnStructure(room1);
-        Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
-        level.spawnStructure(corridor);
+
+        //Spider spider = new Spider(new Coordinates(2, 2));
+        //level.spawnOrganism(spider);
+        //Structure room1 = new Structure(new Coordinates (0,0), symset, 10, 8);
+        //level.spawnStructure(room1);
+        //Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
+        //level.spawnStructure(corridor);
         System.out.println(level.render());
     }
 }

@@ -26,13 +26,16 @@ package game.dimensions;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.lang.reflect.Type;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  *
@@ -58,7 +61,7 @@ public class Level {
         data.structures.add(s);
     }
     
-    public TreeSet<Organism> organisms() {
+    public Collection<Organism> organisms() {
         return data.organisms;
     }
     
@@ -90,12 +93,15 @@ public class Level {
 
     public LevelData parseJson(JsonObject levelJson) {
         Gson gson = new Gson();
+        Type organismCollection = new TypeToken<HashSet<Organism>>() {}.getType();
+        Type structureCollection = new TypeToken<HashSet<Structure>>() {}.getType();
+
         return new LevelData(
                 gson.fromJson(levelJson.get("height"), Integer.class),
                 gson.fromJson(levelJson.get("width"), Integer.class),
                 gson.fromJson(levelJson.get("filler"), Character.class),
-                gson.fromJson(levelJson.get("organisms"), TreeSet.class),
-                gson.fromJson(levelJson.get("structures"), HashSet.class)
+                gson.fromJson(levelJson.get("organisms"), organismCollection),
+                gson.fromJson(levelJson.get("structures"), structureCollection)
         );
     }
 }

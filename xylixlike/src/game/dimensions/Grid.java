@@ -19,12 +19,8 @@ public class Grid {
                 grid[x][y] = data.filler;
             }
         }
-        for(Structure s: data.structures) {
-            placeStructure(s);
-        }
-        for (Organism o: data.organisms) {
-            placeOrganism(o);
-        }
+        data.structures.forEach(this::placeStructure);
+        data.organisms.forEach(this::placeOrganism);
 
         this.stringRepresentation = stringify(data.height, data.width, grid);
     }
