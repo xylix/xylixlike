@@ -20,17 +20,10 @@ public class Grid {
             }
         }
 
-        if (data.structures.isEmpty()) {
-            System.out.println("No structures on this level!");
-        } else {
-            data.structures.forEach(this::placeStructure);
-        }
+        data.structures.forEach(this::placeStructure);
 
-        if (data.organisms.isEmpty()) {
-            System.out.println("No organisms on this level!");
-        } else {
-            data.organisms.forEach(this::placeOrganism);
-        }
+        data.organisms.forEach(this::placeOrganism);
+
 
         this.stringRepresentation = stringify(data.height, data.width, grid);
     }

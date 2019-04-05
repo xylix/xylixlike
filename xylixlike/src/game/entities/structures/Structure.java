@@ -5,17 +5,18 @@ import game.dimensions.Symset;
 
 import java.util.HashMap;
 
+import static game.dimensions.Symset.defaultSymset;
+
 public class Structure {
     HashMap<Coordinates, Character> tiles;
-    Symset symset;
+    Symset symset = defaultSymset();
 
     public Structure(Coordinates coordinates, int width, int height) {
-        this.symset = Symset.defaultSymset();;
+        ;
         this.tiles = buildRoom(coordinates, width, height);
     }
 
     public Structure(Coordinates startCoordinates, Coordinates endCoordinates) {
-        this.symset = Symset.defaultSymset();
         this.tiles = buildCorridor(startCoordinates, endCoordinates);
     }
 

@@ -44,7 +44,8 @@ public class Symset {
 
     public static Symset defaultSymset() {
         try {
-            return new Symset(new File("xylixlike/Resources/Tilesets/default.json"));
+            File symsetFile = new File("xylixlike/Resources/Tilesets/default.json");
+            return new Symset(symsetFile);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
