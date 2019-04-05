@@ -16,8 +16,7 @@ public class CorridorTest {
         Coordinates startCoordinates = new Coordinates(1, 1);
         Coordinates endCoordinates = new Coordinates(4, 1);
         Tileset t = new Tileset(new File("xylixlike/Resources/Tilesets/default.json"));
-        Corridor corridor = new Corridor(startCoordinates, endCoordinates, t);
-        assertEquals(corridor.getClass(), Corridor.class);
+        Structure corridor = new Structure(startCoordinates, endCoordinates, t);
     }
 
     @Test
@@ -25,8 +24,7 @@ public class CorridorTest {
         Coordinates startCoordinates = new Coordinates(1, 1);
         Coordinates endCoordinates = new Coordinates(4, 1);
         Tileset t = new Tileset(new File("xylixlike/Resources/Tilesets/default.json"));
-        Corridor corridor = new Corridor(startCoordinates, endCoordinates, t);
-
+        Structure corridor = new Structure(startCoordinates, endCoordinates, t);
         testRenderingStructure(corridor);
     }
 }

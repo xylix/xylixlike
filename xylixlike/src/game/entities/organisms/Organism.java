@@ -7,6 +7,7 @@ public class Organism implements Comparable<Organism> {
     private final String name;
     private final Coordinates coordinates;
     private final Tile tile;
+    private int hp;
 
     public Organism (String name, Coordinates coordinates, Tile tile) {
         this.name = name;
@@ -31,6 +32,10 @@ public class Organism implements Comparable<Organism> {
 
     public char getSymbol() {
         return this.tile.getSymbol();
+    }
+
+    public boolean isAlive() {
+        return hp > 0;
     }
 
     public String getKind() {

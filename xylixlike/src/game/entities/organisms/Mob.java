@@ -40,7 +40,5 @@ public class Mob extends Organism {
         this.hp = hp;
     }
 
-    public boolean isAlive() {
-        return hp > 0;
-    }
+
 }

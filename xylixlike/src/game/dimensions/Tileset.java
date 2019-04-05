@@ -1,14 +1,14 @@
 package game.dimensions;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.apache.commons.collections4.bidimap.TreeBidiMap;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.MapType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
-import org.apache.commons.collections4.bidimap.TreeBidiMap;
 
 
 public class Tileset {
@@ -30,12 +30,12 @@ public class Tileset {
     public void loadTiles(File file) {
         try {
             FileReader fr = new FileReader(file);
-            TypeFactory factory = TypeFactory.defaultInstance();
-            MapType type = factory.constructMapType(HashMap.class, String.class, Character.class);
-            ObjectMapper mapper = new ObjectMapper();
-            HashMap<String, Character> result = mapper.readValue(fr, type);
+            Gson gson = new Gson();
+            JsonParser parser = new JsonParser();
+            JsonObject result = parser.parse(fr).getAsJsonObject();
 
-            result.forEach((key, value) -> tileset.put(key, value));
+            HashMap<String, String> mappings = gson.fromJson(result, HashMap.class);
+            mappings.forEach((key, value) -> tileset.put(key, value.charAt(0)));
         } catch (IOException e) {
             e.printStackTrace();
         }

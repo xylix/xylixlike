@@ -27,8 +27,7 @@ import game.dimensions.Coordinates;
 import game.dimensions.Level;
 import game.dimensions.Tileset;
 import game.entities.organisms.Spider;
-import game.entities.structures.Corridor;
-import game.entities.structures.Room;
+import game.entities.structures.Structure;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,11 +47,10 @@ public class Main {
         Level level = new Level(20, 60);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnOrganism(spider);
-        Room room1 = new Room(new Coordinates (0,0), tileset, 10, 8);
+        Structure room1 = new Structure(new Coordinates (0,0), tileset, 10, 8);
         level.spawnStructure(room1);
-        Corridor corridor = new Corridor(new Coordinates(10, 1), new Coordinates(20, 1), tileset);
+        Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), tileset);
         level.spawnStructure(corridor);
         System.out.println(level.render());
-
     }
 }

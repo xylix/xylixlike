@@ -23,9 +23,9 @@
  */
 package game.dimensions;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.CollectionType;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
@@ -83,17 +83,20 @@ public class Level {
 
     public void loadLevel(File file) {
         try {
+            Gson gson = new Gson();
             FileReader fr = new FileReader(file);
-            TypeFactory factory = TypeFactory.defaultInstance();
-            CollectionType type = factory.constructCollectionType(ArrayList.class, Entity.class);
-            ObjectMapper mapper = new ObjectMapper();
-            ArrayList<Entity> result = mapper.readValue(fr, type);
+            JsonParser parser = new JsonParser();
+            JsonArray array = parser.parse(fr).getAsJsonArray();
+            String levelname = gson.fromJson(array.get(0), String.class);
+            ArrayList<Organism> organisms = gson.fromJson(array.get(0), ArrayList.class);
+            ArrayList<Structure> structures = gson.fromJson(array.get(0), ArrayList.class);
+            for (Organism o : organisms) {
 
-            for (Entity entry : result) {
-                if (entry.getKind() == )
             }
-            result.forEach((key, value) -> key.equals()
-                    );
+            for (Structure s : structures) {
+
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
