@@ -1,26 +1,26 @@
 package game.entities.structures;
 
 import game.dimensions.Coordinates;
-import game.dimensions.Tileset;
+import game.dimensions.Symset;
 
 import java.util.HashMap;
 
 public class Structure {
     HashMap<Coordinates, Character> tiles;
-    Tileset tileset;
+    Symset symset;
 
-    Structure(Tileset tileset) {
+    Structure(Symset symset) {
         this.tiles = new HashMap<>();
-        this.tileset = tileset;
+        this.symset = symset;
     }
 
-    public Structure(Coordinates coordinates, Tileset tileset, int width, int height) {
-        this.tileset = tileset;
+    public Structure(Coordinates coordinates, Symset symset, int width, int height) {
+        this.symset = symset;
         this.tiles = buildRoom(coordinates, width, height);
     }
 
-    public Structure(Coordinates startCoordinates, Coordinates endCoordinates, Tileset tileset) {
-        this.tileset = tileset;
+    public Structure(Coordinates startCoordinates, Coordinates endCoordinates, Symset symset) {
+        this.symset = symset;
         this.tiles = buildCorridor(startCoordinates, endCoordinates);
     }
 
@@ -30,7 +30,7 @@ public class Structure {
     }
 
     void placeTile(HashMap<Coordinates, Character> tiles, String kind, Coordinates coordinates) {
-        tiles.put(coordinates, tileset.getSymbol(kind));
+        tiles.put(coordinates, symset.getSymbol(kind));
     }
 
     public HashMap<Coordinates, Character> buildRoom(Coordinates startCoordinates, int width, int height) {

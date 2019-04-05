@@ -8,10 +8,10 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class TilesetTest {
+public class SymsetTest {
     @Test
     public void testLoadTiles() throws IOException {
-        Tileset t = new Tileset(new File("xylixlike/Resources/Tilesets/default.json"));
+        Symset t = new Symset(new File("xylixlike/Resources/Tilesets/default.json"));
         assertNotNull(t);
     }
 }

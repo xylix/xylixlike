@@ -25,7 +25,7 @@ package game;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Level;
-import game.dimensions.Tileset;
+import game.dimensions.Symset;
 import game.entities.organisms.Spider;
 import game.entities.structures.Structure;
 
@@ -43,13 +43,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
         File level1 = new File("xylixlike/Resources/Levels/level1.json");
         File tileFile = new File("xylixlike/Resources/Tilesets/default.json");
-        Tileset tileset = new Tileset(tileFile);
-        Level level = new Level(20, 60);
+        Symset symset = new Symset(tileFile);
+        Level level = new Level(level1);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnOrganism(spider);
-        Structure room1 = new Structure(new Coordinates (0,0), tileset, 10, 8);
+        Structure room1 = new Structure(new Coordinates (0,0), symset, 10, 8);
         level.spawnStructure(room1);
-        Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), tileset);
+        Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
         level.spawnStructure(corridor);
         System.out.println(level.render());
     }

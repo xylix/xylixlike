@@ -11,10 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class Tileset {
+public class Symset {
     private final TreeBidiMap<String, Character> tileset;
 
-    public Tileset (File f) throws IOException {
+    public Symset(File f) throws IOException {
         this.tileset = new TreeBidiMap<>();
         loadTiles(f);
     }

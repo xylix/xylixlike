@@ -43,6 +43,7 @@ import java.util.TreeSet;
 public class Level {
     private final TreeSet<Organism> organisms;
     private final HashSet<Structure> structures;
+    private final Symset symset;
     private final int height;
     private final int width;
     private final Tile filler;
@@ -50,6 +51,15 @@ public class Level {
     public Level(int h, int w) {
         this.height = h;
         this.width = w;
+        this.organisms = new TreeSet<>();
+        this.structures = new HashSet<>();
+        this.filler = new Tile('#', "wall");
+    }
+
+    public Level(File levelFile) {
+        loadLevel(levelFile);
+        this.height = 20;
+        this.width = 40;
         this.organisms = new TreeSet<>();
         this.structures = new HashSet<>();
         this.filler = new Tile('#', "wall");
@@ -83,6 +93,7 @@ public class Level {
 
     public void loadLevel(File file) {
         try {
+
             Gson gson = new Gson();
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
