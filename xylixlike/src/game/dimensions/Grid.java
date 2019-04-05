@@ -11,6 +11,24 @@ public class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
 
+    public Grid(LevelData data) {
+        this.grid = new char[data.width][data.height];
+
+        for(int y = 0; y < data.height; y++) {
+            for(int x = 0; x < data.width; x++) {
+                grid[x][y] = data.filler;
+            }
+        }
+        for(Structure s: data.structures) {
+            placeStructure(s);
+        }
+        for (Organism o: data.organisms) {
+            placeOrganism(o);
+        }
+
+        this.stringRepresentation = stringify(data.height, data.width, grid);
+    }
+
     public Grid(int height, int width, char filler, HashSet<Structure> structures, TreeSet<Organism> organisms) {
         this.grid = new char[width][height];
 
@@ -19,11 +37,9 @@ public class Grid {
                 grid[x][y] = filler;
             }
         }
-
         for(Structure s: structures) {
             placeStructure(s);
         }
-
         for (Organism o: organisms) {
             placeOrganism(o);
         }

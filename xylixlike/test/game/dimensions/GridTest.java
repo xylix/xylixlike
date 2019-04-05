@@ -17,10 +17,10 @@ public class GridTest {
     public void gridConstructorTest() {
 
         Organism testSpider = new Spider(new Coordinates(0, 0));
-        TreeSet<Organism> testSet = new TreeSet<>();
+        TreeSet<Organism> testOrganismSet = new TreeSet<>();
         HashSet<Structure> testStructureSet = new HashSet<>();
-        testSet.add(testSpider);
-        Grid testGrid = new Grid(20, 20, new Tile(' ', "air"), testStructureSet, testSet);
+        testOrganismSet.add(testSpider);
+        Grid testGrid = new Grid(new LevelData(20, 20, testOrganismSet, testStructureSet, ' '));
         assertEquals(testGrid.get(0, 0), testSpider.getSymbol());
     }
 

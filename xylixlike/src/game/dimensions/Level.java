@@ -24,7 +24,6 @@
 package game.dimensions;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import game.entities.organisms.Organism;
@@ -33,50 +32,34 @@ import game.entities.structures.Structure;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  *
  * @author xylix
  */
 public class Level {
-    private final TreeSet<Organism> organisms;
-    private final HashSet<Structure> structures;
-    private final int height;
-    private final int width;
-    private final char filler;
+    private LevelData data;
 
     public Level(int h, int w) {
-        this.height = h;
-        this.width = w;
-        this.organisms = new TreeSet<>();
-        this.structures = new HashSet<>();
-
-        this.filler = '#';
+        this.data = new LevelData(h, w);
     }
 
     public Level(File levelFile) {
-        this.height = 20;
-        this.width = 40;
-        this.organisms = new TreeSet<>();
-        this.structures = new HashSet<>();
-        loadLevel(levelFile);
-        this.filler = '#';
-
+        this.data = parseJson(loadLevel(levelFile));
     }
+
     
     public void spawnOrganism(Organism o) {
-        organisms.add(o);
+        data.organisms.add(o);
     }
 
     public void spawnStructure(Structure s) {
-        structures.add(s);
+        data.structures.add(s);
     }
     
     public TreeSet<Organism> organisms() {
-        return organisms;
+        return data.organisms;
     }
     
     public void moveOrganism(Direction direction, Organism organism) {
@@ -85,36 +68,34 @@ public class Level {
     }
 
     public boolean containsOrganism(Organism o) {
-        return organisms.contains(o);
+        return data.organisms.contains(o);
     }
 
     public String render() {
-        Grid grid = new Grid(height, width, filler, structures, organisms);
+        Grid grid = new Grid(data);
         return grid.getStringRepresentation();
     }
 
-    public void loadLevel(File file) {
+    public JsonObject loadLevel(File file) {
         try {
-
-            Gson gson = new Gson();
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
-            JsonObject level = parser.parse(fr).getAsJsonObject();
-            String levelname = gson.fromJson(level.get("levelName"), String.class);
-            int height = gson.fromJson(level.get("height"), Integer.class);
-            int width = gson.fromJson(level.get("width"), Integer.class);
-
-            ArrayList<Organism> organisms = gson.fromJson(level.get("organisms"), ArrayList.class);
-            ArrayList<Structure> structures = gson.fromJson(level.get("structures"), ArrayList.class);
-            for (Organism o : organisms) {
-
-            }
-            for (Structure s : structures) {
-
-            }
-
+            JsonObject parsedLevel = parser.parse(fr).getAsJsonObject();
+            return parsedLevel;
         } catch (IOException e) {
             e.printStackTrace();
+            return new JsonObject();
         }
+    }
+
+    public LevelData parseJson(JsonObject levelJson) {
+        Gson gson = new Gson();
+        return new LevelData(
+                gson.fromJson(levelJson.get("height"), Integer.class),
+                gson.fromJson(levelJson.get("width"), Integer.class),
+                gson.fromJson(levelJson.get("filler"), Character.class),
+                gson.fromJson(levelJson.get("organisms"), TreeSet.class),
+                gson.fromJson(levelJson.get("structures"), HashSet.class)
+        );
     }
 }
