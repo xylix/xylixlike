@@ -4,13 +4,14 @@ import game.entities.organisms.Spider;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class LevelTest {
+class LevelTest {
 
     @Test
-    public void RenderMoveTest() {
+    void RenderMoveTest() throws FileNotFoundException {
         Level level = new Level(40, 80);
         Spider spider = new Spider(new Coordinates(2, 2));
         level.spawnOrganism(spider);
@@ -20,7 +21,7 @@ public class LevelTest {
         assertNotEquals(levelBeforeMove, levelAfterMove);
     }
     @Test
-    public void LevelLoadTest() {
+    void LevelLoadTest() throws FileNotFoundException {
         File level1 = new File("xylixlike/Resources/Levels/level1.json");
         Level level = new Level(level1);
         System.out.println(level.render());

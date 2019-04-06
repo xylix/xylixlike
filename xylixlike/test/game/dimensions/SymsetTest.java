@@ -8,9 +8,9 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class SymsetTest {
+class SymsetTest {
     @Test
-    public void testLoadTiles() throws IOException {
+    void testLoadTiles() {
         Symset t = new Symset(new File("xylixlike/Resources/Tilesets/default.json"));
         assertNotNull(t);
     }

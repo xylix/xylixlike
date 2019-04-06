@@ -23,28 +23,23 @@
  */
 package game;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Level;
 import game.dimensions.Symset;
-import game.entities.organisms.Spider;
-import game.entities.structures.Structure;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 
 /**
  *
  * @author xylix
  */
-public class Main {
+class Main {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         File level1 = new File("xylixlike/Resources/Levels/level1.json");
-        File symFile = new File("xylixlike/Resources/Tilesets/default.json");
-        Symset symset = new Symset(symFile);
         Level level = new Level(level1);
 
         //Spider spider = new Spider(new Coordinates(2, 2));

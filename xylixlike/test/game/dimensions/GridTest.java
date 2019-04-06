@@ -6,15 +6,14 @@ import game.entities.structures.Structure;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
-import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class GridTest {
+class GridTest {
 
     @Test
-    public void gridConstructorTest() {
+    void gridConstructorTest() {
 
         Organism testSpider = new Spider(new Coordinates(0, 0));
         HashSet<Organism> testOrganismSet = new HashSet<>();
@@ -25,7 +24,6 @@ public class GridTest {
     }
 
     @Test
-    public void placeStructureTest() {
-
+    void placeStructureTest() {
     }
 }

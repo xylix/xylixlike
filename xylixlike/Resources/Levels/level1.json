@@ -19,7 +19,7 @@
       }
     }
   ],
-  "structures": [
+  "blueprints": [
     {
       "kind": "room",
       "coordinates" : {

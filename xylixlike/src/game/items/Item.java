@@ -27,8 +27,8 @@ package game.items;
  *
  * @author xylix
  */
-public class Item {
-    final String name;
+class Item {
+    private final String name;
     public Item (String name) {
         this.name = name;
     }

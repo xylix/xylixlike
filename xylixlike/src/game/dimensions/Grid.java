@@ -3,11 +3,9 @@ package game.dimensions;
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
 
-import java.util.HashSet;
 import java.util.Map.Entry;
-import java.util.TreeSet;
 
-public class Grid {
+class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
 
@@ -32,14 +30,13 @@ public class Grid {
         return this.grid[x][y];
     }
 
-    public void placeOrganism(Organism o) {
+    private void placeOrganism(Organism o) {
         this.grid[o.getX()][o.getY()] = o.getSymbol();
     }
 
-    public void placeStructure(Structure s) {
-        for (Entry<Coordinates, Character> e: s.tiles().entrySet()) {
-            this.grid[e.getKey().x][e.getKey().y] = e.getValue();
-        }
+    private void placeStructure(Structure s) {
+        s.tiles().forEach((key, value) ->
+                this.grid[key.x][key.y] = value);
     }
 
     public String getStringRepresentation() {

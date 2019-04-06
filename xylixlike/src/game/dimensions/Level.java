@@ -28,9 +28,12 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import game.entities.organisms.Organism;
+import game.entities.structures.Blueprint;
 import game.entities.structures.Structure;
+import game.entities.structures.StructureFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -42,14 +45,24 @@ import java.util.HashSet;
  * @author xylix
  */
 public class Level {
-    private LevelData data;
+    private final LevelData data;
+    private StructureFactory structureFactory;
+
 
     public Level(int h, int w) {
         this.data = new LevelData(h, w);
+        try { structureFactory = new StructureFactory(Symset.defaultSymset());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public Level(File levelFile) {
         this.data = parseJson(loadLevel(levelFile));
+        try { structureFactory = new StructureFactory(Symset.defaultSymset());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     
@@ -57,8 +70,8 @@ public class Level {
         data.organisms.add(o);
     }
 
-    public void spawnStructure(Structure s) {
-        data.structures.add(s);
+    public void spawnStructure(Blueprint s) {
+        data.structures.add(structureFactory.buildStructure(s));
     }
     
     public Collection<Organism> organisms() {
@@ -79,29 +92,28 @@ public class Level {
         return grid.getStringRepresentation();
     }
 
-    public JsonObject loadLevel(File file) {
+    private JsonObject loadLevel(File file) {
         try {
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
-            JsonObject parsedLevel = parser.parse(fr).getAsJsonObject();
-            return parsedLevel;
+            return parser.parse(fr).getAsJsonObject();
         } catch (IOException e) {
             e.printStackTrace();
             return new JsonObject();
         }
     }
 
-    public LevelData parseJson(JsonObject levelJson) {
+    private LevelData parseJson(JsonObject levelJson) {
         Gson gson = new Gson();
         Type organismCollection = new TypeToken<HashSet<Organism>>() {}.getType();
-        Type structureCollection = new TypeToken<HashSet<Structure>>() {}.getType();
+        Type blueprintCollection = new TypeToken<HashSet<Blueprint>>() {}.getType();
 
         return new LevelData(
                 gson.fromJson(levelJson.get("height"), Integer.class),
                 gson.fromJson(levelJson.get("width"), Integer.class),
                 gson.fromJson(levelJson.get("filler"), Character.class),
                 gson.fromJson(levelJson.get("organisms"), organismCollection),
-                gson.fromJson(levelJson.get("structures"), structureCollection)
+                gson.fromJson(levelJson.get("blueprints"), blueprintCollection)
         );
     }
 }

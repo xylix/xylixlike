@@ -4,24 +4,27 @@ import game.dimensions.Coordinates;
 import game.dimensions.Symset;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static game.entities.structures.StructureTest.testRenderingStructure;
 
-public class CorridorTest {
+class CorridorTest {
     @Test
-    public void corridorConstructorTest() throws IOException {
-        Coordinates startCoordinates = new Coordinates(1, 1);
-        Coordinates endCoordinates = new Coordinates(4, 1);
-        Structure corridor = new Structure(startCoordinates, endCoordinates);
+    void corridorConstructorTest()  {
+        createCorridor();
     }
 
     @Test
-    public void corridorRenderingTest() throws IOException {
-        Coordinates startCoordinates = new Coordinates(1, 1);
-        Coordinates endCoordinates = new Coordinates(4, 1);
-        Structure corridor = new Structure(startCoordinates, endCoordinates);
-        testRenderingStructure(corridor);
+    void corridorRenderingTest() throws IOException {
+        testRenderingStructure(createCorridor());
+    }
+
+    static Blueprint createCorridor () {
+        Blueprint bp = new Blueprint();
+        bp.kind = "corridor";
+        bp.startCoordinates = new Coordinates(1, 1);
+        bp.endCoordinates = new Coordinates(4, 1);
+        return bp;
     }
 }

@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class MobTest {
+class MobTest {
     @Test
-    public void isNotAliveTest() {
+    void isNotAliveTest() {
         Mob mob = new Mob(
                 "testMob",
                 new Coordinates(0, 0),

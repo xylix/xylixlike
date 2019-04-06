@@ -1,68 +1,20 @@
 package game.entities.structures;
 
 import game.dimensions.Coordinates;
-import game.dimensions.Symset;
 
-import java.util.HashMap;
-
-import static game.dimensions.Symset.defaultSymset;
+import java.io.FileNotFoundException;
+import java.util.Map;
 
 public class Structure {
-    HashMap<Coordinates, Character> tiles;
-    Symset symset = defaultSymset();
+    private final Map<Coordinates, Character> tiles;
 
-    public Structure(Coordinates coordinates, int width, int height) {
-        ;
-        this.tiles = buildRoom(coordinates, width, height);
+    Structure(Map<Coordinates, Character> tiles) {
+        this.tiles = tiles;
     }
 
-    public Structure(Coordinates startCoordinates, Coordinates endCoordinates) {
-        this.tiles = buildCorridor(startCoordinates, endCoordinates);
-    }
-
-
-    public HashMap<Coordinates, Character> tiles() {
+    public Map<Coordinates, Character> tiles() {
         return tiles;
     }
 
-    void placeTile(HashMap<Coordinates, Character> tiles, String kind, Coordinates coordinates) {
-        tiles.put(coordinates, symset.getSymbol(kind));
-    }
 
-    public HashMap<Coordinates, Character> buildRoom(Coordinates startCoordinates, int width, int height) {
-        HashMap<Coordinates, Character> roomTiles = new HashMap<>();
-        int xCoordinate = startCoordinates.x;
-        int yCoordinate = startCoordinates.y;
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                Coordinates coordinates = new Coordinates(x + xCoordinate, y + yCoordinate);
-                if (y == 0 || y == height - 1) {
-                    placeTile(roomTiles, "vwall", coordinates);
-                } else if (x == 0 || x == width - 1) {
-                    placeTile(roomTiles, "hwall", coordinates);
-                } else {
-                    placeTile(roomTiles, "air", coordinates);
-                }
-            }
-        }
-        return roomTiles;
-    }
-
-    public HashMap<Coordinates, Character> buildCorridor(Coordinates startCoordinates, Coordinates endCoordinates) {
-        HashMap<Coordinates, Character> corridorTiles = new HashMap<>();
-        if (startCoordinates.x == endCoordinates.x) {
-            int length = endCoordinates.y - startCoordinates.y;
-            for (int i = 0; i < length; i++) {
-                placeTile(corridorTiles, "air",
-                        new Coordinates(startCoordinates.x, startCoordinates.y + i));
-            }
-        } else if (startCoordinates.y == endCoordinates.y) {
-            int length = endCoordinates.x - startCoordinates.x;
-            for (int i = 0; i < length; i++) {
-                placeTile(corridorTiles, "air",
-                        new Coordinates(startCoordinates.x + i, startCoordinates.y));
-            }
-        }
-        return corridorTiles;
-    }
 }

@@ -2,26 +2,32 @@ package game.entities.structures;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Symset;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static game.entities.structures.StructureTest.testRenderingStructure;
 
-public class RoomTest {
+class RoomTest {
+
     @Test
-    public void roomConstructorTest() {
-        Coordinates c = new Coordinates(1,1);
-        Structure testRoom = new Structure(c, 4, 4);
+    void roomConstructorTest() {
+        createRoom();
     }
 
     @Test
-    public void roomRenderingTest() throws IOException {
-        Coordinates c = new Coordinates(1,1);
-        Structure testRoom = new Structure(c, 4, 4);
-
-        testRenderingStructure(testRoom);
-
+    void roomRenderingTest() throws IOException {
+        testRenderingStructure(createRoom());
     }
+
+    Blueprint createRoom() {
+        Blueprint bp = new Blueprint();
+        bp.kind = "room";
+        bp.startCoordinates = new Coordinates(1, 1);
+        bp.endCoordinates = new Coordinates(4, 1);
+        return bp;
+    }
+
 }

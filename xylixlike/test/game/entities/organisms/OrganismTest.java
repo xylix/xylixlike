@@ -39,9 +39,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author xylix
  */
-public class OrganismTest {
+class OrganismTest {
     @Test
-    public void SpawnOrganismTest() {
+    void SpawnOrganismTest() {
         Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
         Tile testTile = new Tile('.', "test");
@@ -52,25 +52,25 @@ public class OrganismTest {
     }
 
     @Test
-    public void MoveOrganismRightTest() {
+    void MoveOrganismRightTest() {
         Direction d = Direction.RIGHT;
         MoveEntityTest(d);
     }
 
     @Test
-    public void MoveOrganismDownTest() {
+    void MoveOrganismDownTest() {
         Direction d = Direction.DOWN;
         MoveEntityTest(d);  
     }
 
     @Test
-    public void MoveOrganismLEFTTest() {
+    void MoveOrganismLEFTTest() {
         Direction d = Direction.LEFT;
         MoveEntityTest(d);
     }
     
     @Test
-    public void MoveOrganismUpTest() {
+    void MoveOrganismUpTest() {
         Direction d = Direction.UP;
         MoveEntityTest(d);
     }

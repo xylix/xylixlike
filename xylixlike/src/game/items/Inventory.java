@@ -29,7 +29,7 @@ import java.util.HashMap;
  *
  * @author xylix
  */
-public class Inventory {
+class Inventory {
     private final HashMap<Item, Integer> inventory;
     public Inventory () {
         this.inventory = new HashMap<>();
@@ -38,11 +38,11 @@ public class Inventory {
         inventory.clear();
     }
     
-    public boolean containsItem(Item item) {
+    private boolean containsItem(Item item) {
         return inventory.containsKey(item);
     }
     
-    public boolean adjustItem(Item item, int amount) {
+    private boolean adjustItem(Item item, int amount) {
         if(containsItem(item)){
             inventory.put(item, inventory.get(item) + amount);
             return true;
