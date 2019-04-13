@@ -21,8 +21,8 @@ class LevelTest {
         assertNotEquals(levelBeforeMove, levelAfterMove);
     }
     @Test
-    void LevelLoadTest() throws FileNotFoundException {
-        File level1 = new File("xylixlike/Resources/Levels/level1.json");
+    void LevelLoadTest() {
+        File level1 = new File("xylixlike/Resources/Levels/level0.json");
         Level level = new Level(level1);
         System.out.println(level.render());
     }

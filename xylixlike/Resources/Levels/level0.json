@@ -1,0 +1,40 @@
+{
+  "level": "level 1",
+  "width": 80,
+  "height": 40,
+  "filler":  "#",
+  "organisms": [
+  ],
+  "blueprints": [
+    {
+      "kind": "room",
+      "coordinates" : {
+        "x": 4,
+        "y": 4
+      },
+      "width": "10",
+      "height": "8"
+    },
+    {
+      "kind": "room",
+      "coordinates" : {
+        "x": 8,
+        "y": 8
+      },
+      "width": "10",
+      "height": "8"
+    },
+    {
+      "kind": "corridor",
+      "startCoordinates" : {
+        "x": 3,
+        "y": 3
+      },
+      "length": "4",
+      "endCoordinates" : {
+        "x": 6,
+        "y": 3
+      }
+    }
+  ]
+}
