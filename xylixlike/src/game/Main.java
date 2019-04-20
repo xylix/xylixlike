@@ -23,24 +23,27 @@
  */
 package game;
 
-import game.dimensions.Level;
-import game.dimensions.Symset;
-
-import java.io.File;
-import java.io.FileNotFoundException;
+import game.dimensions.Coordinates;
+import game.dimensions.Direction;
+import game.entities.organisms.Player;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author xylix
  */
-class Main {
+public class Main extends Application {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        File level1 = new File("xylixlike/Resources/Levels/level1.json");
-        Level level = new Level(level1);
+        //File level1 = new File("xylixlike/Resources/Levels/level1.json");
+        //Level level = new Level(level1);
 
         //Spider spider = new Spider(new Coordinates(2, 2));
         //level.spawnOrganism(spider);
@@ -48,6 +51,33 @@ class Main {
         //level.spawnStructure(room1);
         //Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
         //level.spawnStructure(corridor);
-        System.out.println(level.render());
+        launch(Main.class);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        Pane pane = new Pane();
+        pane.setPrefSize(1280, 640);
+
+        Player player = new Player(new Coordinates(16, 16));
+        pane.getChildren().add(player);
+        Scene scene = new Scene(pane);
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.LEFT)
+                    player.transform(Direction.LEFT.toVector());
+            else if (event.getCode() == KeyCode.RIGHT)
+                    player.transform(Direction.RIGHT.toVector());
+            else if (event.getCode() == KeyCode.UP)
+                    player.transform(Direction.UP.toVector());
+            else if (event.getCode() == KeyCode.DOWN)
+                    player.transform(Direction.DOWN.toVector());
+
+        });
+
+
+        stage.setScene(scene);
+        stage.show();
+
     }
 }

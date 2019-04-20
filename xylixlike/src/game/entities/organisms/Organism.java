@@ -1,36 +1,26 @@
 package game.entities.organisms;
 
+import game.dimensions.Coordinates;
 import game.dimensions.Tile;
-import javafx.geometry.Point2D;
+import javafx.scene.shape.Rectangle;
 
-public class Organism implements Comparable<Organism> {
+public class Organism extends Rectangle implements Comparable<Organism>  {
     private final String name;
-    private final Point2D coordinates;
     private final Tile tile;
 
-    public Organism (String name, Point2D coordinates, Tile tile) {
+    public Organism (String name, Coordinates coordinates, Tile tile) {
+        super(coordinates.getX(), coordinates.getY(), 15, 15);
         this.name = name;
-        this.coordinates = coordinates;
         this.tile = tile;
     }
 
-    public Point2D getCoordinates() {
-        return this.coordinates;
+    public void transform(Coordinates transformVector) {
+        this.setTranslateX(this.getTranslateX() + transformVector.getX());
+        this.setTranslateY(this.getTranslateY() + transformVector.getY());
     }
 
-    public int getX() {
-        return (int) this.coordinates.getX();
-    }
-    public int getY () {
-        return (int) this.coordinates.getY();
-    }
-
-    public void transform(Point2D transformVector) {
-        this.coordinates.add(transformVector);
-    }
-
-    public char getSymbol() {
-        return this.tile.getSymbol();
+    public Coordinates getCoordinates() {
+        return new Coordinates((int) this.getTranslateX(), (int) this.getTranslateY());
     }
 
     public String getKind() {
@@ -38,11 +28,11 @@ public class Organism implements Comparable<Organism> {
     }
     @Override
     public int compareTo(Organism o) {
-        int yComparison = this.getY() - o.getY();
+        double yComparison = this.getY() - o.getY();
         if (yComparison != 0)
-            return yComparison;
+            return (int) yComparison;
         else
-            return this.getX() - o.getX();
+            return (int) (this.getX() - o.getX());
     }
 
 }

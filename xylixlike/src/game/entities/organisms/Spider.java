@@ -23,15 +23,15 @@
  */
 package game.entities.organisms;
 
+import game.dimensions.Coordinates;
 import game.dimensions.Tile;
-import javafx.geometry.Point2D;
 
 /**
  *
  * @author xylix
  */
 public class Spider extends Mob {
-    public Spider(Point2D coordinates) {
+    public Spider(Coordinates coordinates) {
         super(
                 "spider",
                 coordinates,

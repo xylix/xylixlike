@@ -29,7 +29,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import game.entities.organisms.Organism;
 import game.entities.structures.Blueprint;
-import game.entities.structures.Structure;
 import game.entities.structures.StructureFactory;
 
 import java.io.File;
@@ -85,11 +84,6 @@ public class Level {
 
     public boolean containsOrganism(Organism o) {
         return data.organisms.contains(o);
-    }
-
-    public String render() {
-        Grid grid = new Grid(data);
-        return grid.getStringRepresentation();
     }
 
     private JsonObject loadLevel(File file) {

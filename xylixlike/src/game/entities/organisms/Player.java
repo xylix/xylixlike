@@ -24,16 +24,16 @@
 package game.entities.organisms;
 
 
+import game.dimensions.Coordinates;
 import game.dimensions.Tile;
-import javafx.geometry.Point2D;
 
 /**
  *
  * @author xylix
  */
-class Player extends Organism {
+public class Player extends Organism {
     
-    public Player(Point2D coordinates) {
+    public Player(Coordinates coordinates) {
         super(
                 "Player",
                 coordinates, new Tile(

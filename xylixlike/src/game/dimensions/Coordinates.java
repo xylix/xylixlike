@@ -21,24 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game.entities.organisms;
-
-import game.dimensions.Coordinates;
-import game.dimensions.Tile;
 
 /**
  *
  * @author xylix
  */
-class Mob extends Organism {
-    private final int hp;
 
-    public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
-        super(name,
-                coordinates,
-                tile);
-        this.hp = hp;
+package game.dimensions;
+public class Coordinates {
+    private int x;
+    private int y;
+
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
+    public void transform(Coordinates coordinates) {
+        this.x += coordinates.x;
+        this.y += coordinates.y;
+    }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public String toString() {
+        return x + ", " + y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+
+        return this.toString().equals(obj.toString());
+    }
 }

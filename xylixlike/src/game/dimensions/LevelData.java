@@ -24,7 +24,7 @@ class LevelData {
         this.filler = '#';
     }
 
-    LevelData(int height, int width, char filler, Collection organisms, Collection blueprints) {
+    LevelData(int height, int width, char filler, Collection<Organism> organisms, Collection<Blueprint> blueprints) {
         this.width = width;
         this.height = height;
         this.filler = filler;
