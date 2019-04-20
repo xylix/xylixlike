@@ -1,7 +1,7 @@
 package game.entities.structures;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Symset;
+import javafx.geometry.Point2D;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,13 +24,13 @@ public class StructureFactory {
         }
     }
 
-    private Map<Coordinates, Character> buildRoom(Blueprint bp) {
-        Map<Coordinates, Character> roomTiles = new HashMap<>();
-        int xCoordinate = bp.startCoordinates.x;
-        int yCoordinate = bp.startCoordinates.y;
+    private Map<Point2D, Character> buildRoom(Blueprint bp) {
+        Map<Point2D, Character> roomTiles = new HashMap<>();
+        int xCoordinate = (int) bp.startCoordinates.getX();
+        int yCoordinate = (int) bp.startCoordinates.getY();
         for (int x = 0; x < bp.width; x++) {
             for (int y = 0; y < bp.height; y++) {
-                Coordinates coordinates = new Coordinates(x + xCoordinate, y + yCoordinate);
+                Point2D coordinates = new Point2D(x + xCoordinate, y + yCoordinate);
                 if (y == 0 || y == bp.height - 1) {
                     placeTile(roomTiles, "vwall", coordinates);
                 } else if (x == 0 || x == bp.width - 1) {
@@ -43,24 +43,24 @@ public class StructureFactory {
         return roomTiles;
     }
 
-    private Map<Coordinates, Character> buildCorridor(Blueprint bp) {
-        Map<Coordinates, Character> corridorTiles = new HashMap<>();
-        if (bp.startCoordinates.x == bp.endCoordinates.x) {
-            int length = bp.endCoordinates.y - bp.startCoordinates.y;
+    private Map<Point2D, Character> buildCorridor(Blueprint bp) {
+        Map<Point2D, Character> corridorTiles = new HashMap<>();
+        if (bp.startCoordinates.getX() == bp.endCoordinates.getX()) {
+            int length = (int) (bp.endCoordinates.getY() - bp.startCoordinates.getY());
             for (int i = 0; i < length; i++) {
                 placeTile(corridorTiles, "air",
-                        new Coordinates(bp.startCoordinates.x, bp.startCoordinates.y + i));
+                        new Point2D(bp.startCoordinates.getX(), bp.startCoordinates.getY() + i));
             }
-        } else if (bp.startCoordinates.y == bp.endCoordinates.y) {
-            int length = bp.endCoordinates.x - bp.startCoordinates.x;
+        } else if (bp.startCoordinates.getY() == bp.endCoordinates.getY()) {
+            int length = (int) (bp.endCoordinates.getX() - bp.startCoordinates.getX());
             for (int i = 0; i < length; i++) {
                 placeTile(corridorTiles, "air",
-                        new Coordinates(bp.startCoordinates.x + i, bp.startCoordinates.y));
+                        new Point2D(bp.startCoordinates.getX() + i, bp.startCoordinates.getY()));
             }
         }
         return corridorTiles;
     }
-    private void placeTile(Map<Coordinates, Character> tiles, String kind, Coordinates coordinates) {
+    private void placeTile(Map<Point2D, Character> tiles, String kind, Point2D coordinates) {
         tiles.put(coordinates, symset.getSymbol(kind));
     }
 }

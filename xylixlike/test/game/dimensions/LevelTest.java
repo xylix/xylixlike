@@ -1,6 +1,7 @@
 package game.dimensions;
 
 import game.entities.organisms.Spider;
+import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -13,7 +14,7 @@ class LevelTest {
     @Test
     void RenderMoveTest() throws FileNotFoundException {
         Level level = new Level(40, 80);
-        Spider spider = new Spider(new Coordinates(2, 2));
+        Spider spider = new Spider(new Point2D(2, 2));
         level.spawnOrganism(spider);
         String levelBeforeMove = level.render();
         level.moveOrganism(Direction.DOWN, spider);

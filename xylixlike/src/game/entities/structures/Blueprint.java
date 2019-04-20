@@ -1,12 +1,12 @@
 package game.entities.structures;
 
-import game.dimensions.Coordinates;
+import javafx.geometry.Point2D;
 
 public class Blueprint {
     // the place for Structure creation data
     String kind;
-    Coordinates startCoordinates;
-    Coordinates endCoordinates;
+    Point2D startCoordinates;
+    Point2D endCoordinates;
     int width;
     int height;
 }

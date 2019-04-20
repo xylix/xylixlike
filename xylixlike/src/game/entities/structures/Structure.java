@@ -1,18 +1,17 @@
 package game.entities.structures;
 
-import game.dimensions.Coordinates;
+import javafx.geometry.Point2D;
 
-import java.io.FileNotFoundException;
 import java.util.Map;
 
 public class Structure {
-    private final Map<Coordinates, Character> tiles;
+    private final Map<Point2D, Character> tiles;
 
-    Structure(Map<Coordinates, Character> tiles) {
+    Structure(Map<Point2D, Character> tiles) {
         this.tiles = tiles;
     }
 
-    public Map<Coordinates, Character> tiles() {
+    public Map<Point2D, Character> tiles() {
         return tiles;
     }
 

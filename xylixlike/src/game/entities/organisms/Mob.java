@@ -23,8 +23,8 @@
  */
 package game.entities.organisms;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Tile;
+import javafx.geometry.Point2D;
 
 /**
  *
@@ -33,7 +33,7 @@ import game.dimensions.Tile;
 class Mob extends Organism {
     private final int hp;
 
-    public Mob(String name, Coordinates coordinates, int hp, Tile tile) {
+    public Mob(String name, Point2D coordinates, int hp, Tile tile) {
         super(name,
                 coordinates,
                 tile);

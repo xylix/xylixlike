@@ -2,12 +2,13 @@ package game.dimensions;
 
 import game.entities.organisms.Organism;
 import game.entities.structures.Structure;
+import javafx.geometry.Point2D;
 
-import java.util.Map.Entry;
 
 class Grid {
     private final char[][] grid;
     private final String stringRepresentation;
+    private Point2D key;
 
     public Grid(LevelData data) {
         this.grid = new char[data.width][data.height];
@@ -36,7 +37,7 @@ class Grid {
 
     private void placeStructure(Structure s) {
         s.tiles().forEach((key, value) ->
-                this.grid[key.x][key.y] = value);
+                this.grid[((int) key.getX())][(int)key.getY()] = value);
     }
 
     public String getStringRepresentation() {

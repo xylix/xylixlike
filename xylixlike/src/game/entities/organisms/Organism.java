@@ -1,41 +1,36 @@
 package game.entities.organisms;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Tile;
+import javafx.geometry.Point2D;
 
 public class Organism implements Comparable<Organism> {
     private final String name;
-    private final Coordinates coordinates;
+    private final Point2D coordinates;
     private final Tile tile;
-    private int hp;
 
-    public Organism (String name, Coordinates coordinates, Tile tile) {
+    public Organism (String name, Point2D coordinates, Tile tile) {
         this.name = name;
         this.coordinates = coordinates;
         this.tile = tile;
     }
 
-    public Coordinates getCoordinates() {
+    public Point2D getCoordinates() {
         return this.coordinates;
     }
 
     public int getX() {
-        return this.coordinates.x;
+        return (int) this.coordinates.getX();
     }
     public int getY () {
-        return this.coordinates.y;
+        return (int) this.coordinates.getY();
     }
 
-    public void transform(Coordinates transformVector) {
-        this.coordinates.transform(transformVector);
+    public void transform(Point2D transformVector) {
+        this.coordinates.add(transformVector);
     }
 
     public char getSymbol() {
         return this.tile.getSymbol();
-    }
-
-    public boolean isAlive() {
-        return hp > 0;
     }
 
     public String getKind() {

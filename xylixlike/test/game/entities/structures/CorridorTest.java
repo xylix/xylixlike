@@ -1,7 +1,7 @@
 package game.entities.structures;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Symset;
+import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
@@ -23,8 +23,8 @@ class CorridorTest {
     static Blueprint createCorridor () {
         Blueprint bp = new Blueprint();
         bp.kind = "corridor";
-        bp.startCoordinates = new Coordinates(1, 1);
-        bp.endCoordinates = new Coordinates(4, 1);
+        bp.startCoordinates = new Point2D(1, 1);
+        bp.endCoordinates = new Point2D(4, 1);
         return bp;
     }
 }

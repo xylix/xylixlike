@@ -23,6 +23,8 @@
  */
 package game.dimensions;
 
+import javafx.geometry.Point2D;
+
 /**
  *
  * @author xylix
@@ -32,7 +34,7 @@ public enum Direction {
     RIGHT,
     DOWN,
     LEFT;
-    public Coordinates toVector() {
+    public Point2D toVector() {
         int x; 
         int y;
         switch (this) {
@@ -57,6 +59,6 @@ public enum Direction {
                 y = 0;
                 break;
         }
-        return new Coordinates(x, y);
+        return new Point2D(x, y);
     }
 }

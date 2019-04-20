@@ -23,12 +23,12 @@
  */
 package game.entities.organisms;
 
-import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
 import game.entities.organisms.Organism;
 import game.entities.organisms.Spider;
+import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,7 +43,7 @@ class OrganismTest {
     @Test
     void SpawnOrganismTest() {
         Level level = new Level(40, 80);
-        Coordinates c = new Coordinates(1,1);
+        Point2D c = new Point2D(1,1);
         Tile testTile = new Tile('.', "test");
         Organism testOrganism = new Organism("test", c, testTile);
         level.spawnOrganism(testOrganism);
@@ -77,12 +77,12 @@ class OrganismTest {
     
     private void MoveEntityTest(Direction d) {
         Level level = new Level(40, 80);
-        Spider testSpider = new Spider(new Coordinates(1, 1));
+        Spider testSpider = new Spider(new Point2D(1, 1));
         level.spawnOrganism(testSpider);
-        Coordinates coordinates = testSpider.getCoordinates();
+        Point2D coordinates = testSpider.getCoordinates();
         level.moveOrganism(d, testSpider);
-        Coordinates transformVector = d.toVector();
-        coordinates.transform(transformVector);
+        Point2D transformVector = d.toVector();
+        coordinates.add(transformVector);
         assertEquals(testSpider.getCoordinates(), coordinates);
     }
 }

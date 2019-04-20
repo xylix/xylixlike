@@ -3,6 +3,7 @@ package game.dimensions;
 import game.entities.organisms.Organism;
 import game.entities.organisms.Spider;
 import game.entities.structures.Structure;
+import javafx.geometry.Point2D;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -15,7 +16,7 @@ class GridTest {
     @Test
     void gridConstructorTest() {
 
-        Organism testSpider = new Spider(new Coordinates(0, 0));
+        Organism testSpider = new Spider(new Point2D(0, 0));
         HashSet<Organism> testOrganismSet = new HashSet<>();
         HashSet<Structure> testStructureSet = new HashSet<>();
         testOrganismSet.add(testSpider);
