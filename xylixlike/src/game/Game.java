@@ -26,17 +26,21 @@ package game;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.entities.organisms.Player;
+import game.entities.structures.Structure;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author xylix
  */
-public class Main extends Application {
+public class Game extends Application {
 
     /**
      * @param args the command line arguments
@@ -51,7 +55,7 @@ public class Main extends Application {
         //level.spawnStructure(room1);
         //Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
         //level.spawnStructure(corridor);
-        launch(Main.class);
+        launch(Game.class);
     }
 
     @Override
@@ -61,8 +65,8 @@ public class Main extends Application {
         pane.setPrefSize(1280, 640);
 
         Player player = new Player(new Coordinates(16, 16));
-        pane.getChildren().add(player);
         Scene scene = new Scene(pane);
+
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT)
                     player.transform(Direction.LEFT.toVector());
@@ -75,6 +79,11 @@ public class Main extends Application {
 
         });
 
+        pane.getChildren().add(player);
+
+        for (ArrayList<Rectangle> l : level.getEntityList) {
+            pane.getChildren().addAll(l);
+        }
 
         stage.setScene(scene);
         stage.show();
