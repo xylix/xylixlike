@@ -1,36 +1,40 @@
 package game.dimensions;
 
-import game.entities.organisms.Organism;
-import game.entities.structures.Blueprint;
-import game.entities.structures.Structure;
+import game.entities.Entity;
+import game.entities.Blueprint;
 
 import java.util.Collection;
 import java.util.HashSet;
 
 class LevelData {
-    final int width;
-    final int height;
-    final Collection<Organism> organisms;
-    final Collection<Blueprint> blueprints;
-    final Collection<Structure> structures;
-    final char filler;
+    private final int width;
+    private final int height;
+    private final Collection<Blueprint> blueprints;
+    private Collection<Entity> entities;
+    private final char filler;
 
     LevelData(int height, int width) {
         this.width = width;
         this.height = height;
-        this.organisms = new HashSet<>();
         this.blueprints = new HashSet<>();
-        this.structures = new HashSet<>();
+        this.entities = new HashSet<>();
         this.filler = '#';
     }
 
-    LevelData(int height, int width, char filler, Collection<Organism> organisms, Collection<Blueprint> blueprints) {
+    LevelData(int height, int width, char filler, Collection<Entity> entities, Collection<Blueprint> blueprints) {
         this.width = width;
         this.height = height;
         this.filler = filler;
-        this.organisms = organisms;
         this.blueprints = blueprints;
-        this.structures = new HashSet<>();
+        this.entities = new HashSet<>();
 
+    }
+
+    public void addEntity(Entity e) {
+        this.entities.add(e);
+    }
+
+    public Collection<Entity> getEntities() {
+        return this.entities;
     }
 }

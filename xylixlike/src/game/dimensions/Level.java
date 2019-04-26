@@ -27,10 +27,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import game.entities.organisms.Organism;
-import game.entities.structures.Blueprint;
-import game.entities.structures.Structure;
-import game.entities.structures.StructureFactory;
+import game.entities.Entity;
+import game.entities.Organism;
+import game.entities.Blueprint;
+import game.entities.StructureFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -66,30 +66,23 @@ public class Level {
     }
 
     
-    public void spawnOrganism(Organism o) {
-        data.organisms.add(o);
+    public void spawnEntity(Entity e) {
+        data.addEntity(e);
     }
 
-    public void spawnStructure(Blueprint s) {
-        data.structures.add(structureFactory.buildStructure(s));
+    public Collection<Entity> getEntities() {
+        return data.getEntities();
     }
 
-    public Collection<Structure> getStructures() {
-        return data.structures;
+    public boolean containsEntity(Entity e) {
+        return data.getEntities().contains(e);
     }
 
-    public Collection<Organism> getOrganisms() {
-        return data.organisms;
-    }
-    
     public void moveOrganism(Direction direction, Organism organism) {
         //Implement check if entity can move
         organism.transform(direction.toVector());
     }
 
-    public boolean containsOrganism(Organism o) {
-        return data.organisms.contains(o);
-    }
 
     private JsonObject loadLevel(File file) {
         try {

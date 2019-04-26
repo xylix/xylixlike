@@ -26,17 +26,13 @@ package game;
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
-import game.entities.organisms.Player;
-import game.entities.structures.Structure;
+import game.dimensions.Tile;
+import game.entities.Entity;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import java.io.File;
-import java.util.ArrayList;
 
 /**
  *
@@ -66,7 +62,7 @@ public class Game extends Application {
         Pane pane = new Pane();
         pane.setPrefSize(1280, 640);
 
-        Player player = new Player(new Coordinates(16, 16));
+        Entity player = new Entity(new Coordinates(16, 16), new Tile('@', "player"));
         Scene scene = new Scene(pane);
 
         scene.setOnKeyPressed(event -> {
@@ -83,9 +79,9 @@ public class Game extends Application {
 
         pane.getChildren().add(player);
 
-        Level level = new Level("level0");
+        //Level level = new Level("level0");
 
-        pane.getChildren().addAll(level.getOrganisms());
+        //pane.getChildren().addAll(level.getEntities());
 
         stage.setScene(scene);
         stage.show();

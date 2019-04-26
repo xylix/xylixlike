@@ -27,6 +27,7 @@ import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
 import game.dimensions.Coordinates;
+import game.entities.Organism;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,10 +44,10 @@ class OrganismTest {
         Level level = new Level(40, 80);
         Coordinates c = new Coordinates(1,1);
         Tile testTile = new Tile('.', "test");
-        Organism testOrganism = new Organism("test", c, testTile);
-        level.spawnOrganism(testOrganism);
-        assertTrue(level.containsOrganism(testOrganism));
-        assertEquals(testOrganism.getCoordinates(), c);
+        Organism testOrganism = new Organism(c, testTile);
+        level.spawnEntity(testOrganism);
+        assertTrue(level.containsEntity(testOrganism));
+        assertEquals(c, testOrganism.getCoordinates());
     }
 
     @Test
@@ -75,8 +76,8 @@ class OrganismTest {
     
     private void MoveEntityTest(Direction d) {
         Level level = new Level(40, 80);
-        Spider testSpider = new Spider(new Coordinates(1, 1));
-        level.spawnOrganism(testSpider);
+        Organism testSpider = new Organism(new Coordinates(1, 1), new Tile(':', "spider"));
+        level.spawnEntity(testSpider);
         Coordinates coordinates = testSpider.getCoordinates();
         level.moveOrganism(d, testSpider);
         coordinates.transform(d.toVector());

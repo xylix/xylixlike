@@ -11,5 +11,6 @@
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.5" level="project" />
     <orderEntry type="library" name="org.apache.commons:commons-collections4:4.3" level="project" />
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter-api:5.4.2" level="project" />
+    <orderEntry type="library" name="org.tinylog:jboss-tinylog:2.0.0-M4.2" level="project" />
   </component>
 </module>
