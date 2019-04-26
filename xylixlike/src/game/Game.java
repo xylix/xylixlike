@@ -25,6 +25,7 @@ package game;
 
 import game.dimensions.Coordinates;
 import game.dimensions.Direction;
+import game.dimensions.Level;
 import game.entities.organisms.Player;
 import game.entities.structures.Structure;
 import javafx.application.Application;
@@ -34,6 +35,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -81,9 +83,9 @@ public class Game extends Application {
 
         pane.getChildren().add(player);
 
-        for (ArrayList<Rectangle> l : level.getEntityList) {
-            pane.getChildren().addAll(l);
-        }
+        Level level = new Level("level0");
+
+        pane.getChildren().addAll(level.getOrganisms());
 
         stage.setScene(scene);
         stage.show();

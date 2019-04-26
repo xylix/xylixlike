@@ -29,6 +29,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import game.entities.organisms.Organism;
 import game.entities.structures.Blueprint;
+import game.entities.structures.Structure;
 import game.entities.structures.StructureFactory;
 
 import java.io.File;
@@ -47,7 +48,6 @@ public class Level {
     private final LevelData data;
     private StructureFactory structureFactory;
 
-
     public Level(int h, int w) {
         this.data = new LevelData(h, w);
         try { structureFactory = new StructureFactory(Symset.defaultSymset());
@@ -56,7 +56,8 @@ public class Level {
         }
     }
 
-    public Level(File levelFile) {
+    public Level(String fileName) {
+        File levelFile = new File("xylixlike/Resources/Levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
         try { structureFactory = new StructureFactory(Symset.defaultSymset());
         } catch (FileNotFoundException e) {
@@ -72,8 +73,12 @@ public class Level {
     public void spawnStructure(Blueprint s) {
         data.structures.add(structureFactory.buildStructure(s));
     }
-    
-    public Collection<Organism> organisms() {
+
+    public Collection<Structure> getStructures() {
+        return data.structures;
+    }
+
+    public Collection<Organism> getOrganisms() {
         return data.organisms;
     }
     
