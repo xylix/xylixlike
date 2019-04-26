@@ -7,4 +7,8 @@ public class Blueprint {
     Coordinates startCoordinates;
     int width;
     int height;
+
+    public boolean isValid() {
+        return false;
+    }
 }

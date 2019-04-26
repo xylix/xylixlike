@@ -3,6 +3,6 @@ package game.entities;
 
 public class Structure extends Entity {
     public Structure(Blueprint blueprint) {
-        super(blueprint.startCoordinates, blueprint.width, blueprint.height);
+        super(blueprint.startCoordinates.toPixels(), blueprint.width * 16, blueprint.height * 16);
     }
 }

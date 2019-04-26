@@ -59,4 +59,8 @@ public class Coordinates {
 
         return this.toString().equals(obj.toString());
     }
+
+    public Coordinates toPixels() {
+        return new Coordinates(this.x * 16, this.y *16);
+    }
 }

@@ -28,9 +28,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import game.entities.*;
+import javafx.scene.paint.Color;
+import org.tinylog.Logger;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -55,8 +56,14 @@ public class Level {
             data.addEntity(new Organism(p));
         }
 
-        for (Blueprint bp : data.getBlueprints()) {
-            data.addEntity(new Structure(bp));
+        for (Blueprint blueprint : data.getBlueprints()) {
+            if (!blueprint.isValid()){
+                Logger.error(blueprint);
+            }
+
+            Structure structure = new Structure(blueprint);
+            structure.setFill(Color.WHITE);
+            data.addEntity(structure);
         }
 
     }
@@ -91,8 +98,6 @@ public class Level {
         Type blueprintCollection = new TypeToken<HashSet<Blueprint>>() {}.getType();
 
         return new LevelData(
-                gson.fromJson(levelJson.get("height"), Integer.class),
-                gson.fromJson(levelJson.get("width"), Integer.class),
                 gson.fromJson(levelJson.get("prototypes"), prototypeCollection),
                 gson.fromJson(levelJson.get("blueprints"), blueprintCollection)
         );

@@ -1,22 +1,12 @@
 {
   "level": "level 1",
-  "width": 80,
-  "height": 40,
   "prototypes": [
-    {
-      "kind" : "player",
-      "symbol": "@",
-      "coordinates" : {
-        "x": 16,
-        "y": 16
-      }
-    },
     {
       "kind" : "spider",
       "symbol" : ":",
       "coordinates" : {
-        "x": 8,
-        "y": 8
+        "x": 640,
+        "y": 240
       }
     }
   ],
@@ -45,8 +35,8 @@
         "x": 3,
         "y": 3
       },
-      "height": 4,
-      "width": 1
+      "width": 1,
+      "height": 4
     }
   ]
 }

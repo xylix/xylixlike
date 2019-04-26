@@ -27,12 +27,17 @@ import game.dimensions.Coordinates;
 import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
-import game.entities.Entity;
 import game.entities.Organism;
+
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -45,15 +50,6 @@ public class Game extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //File level1 = new File("xylixlike/Resources/Levels/level1.json");
-        //Level level = new Level(level1);
-
-        //Spider spider = new Spider(new Coordinates(2, 2));
-        //level.spawnOrganism(spider);
-        //Structure room1 = new Structure(new Coordinates (0,0), symset, 10, 8);
-        //level.spawnStructure(room1);
-        //Structure corridor = new Structure(new Coordinates(10, 1), new Coordinates(20, 1), symset);
-        //level.spawnStructure(corridor);
         launch(Game.class);
     }
 
@@ -62,6 +58,7 @@ public class Game extends Application {
 
         Pane pane = new Pane();
         pane.setPrefSize(1280, 640);
+        pane.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
 
         Organism player = new Organism(new Coordinates(16, 16), new Tile('@', "player"));
         Scene scene = new Scene(pane);
