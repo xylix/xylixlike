@@ -2,21 +2,28 @@
   "level": "level 1",
   "width": 80,
   "height": 40,
-  "filler":  "#",
   "prototypes": [
     {
       "kind" : "player",
-      "symbol": "@"
+      "symbol": "@",
+      "coordinates" : {
+        "x": 16,
+        "y": 16
+      }
     },
     {
       "kind" : "spider",
-      "symbol" : ":"
+      "symbol" : ":",
+      "coordinates" : {
+        "x": 8,
+        "y": 8
+      }
     }
   ],
   "blueprints": [
     {
       "kind": "room",
-      "coordinates" : {
+      "startCoordinates" : {
         "x": 4,
         "y": 4
       },
@@ -25,7 +32,7 @@
     },
     {
       "kind": "room",
-      "coordinates" : {
+      "startCoordinates" : {
         "x": 8,
         "y": 8
       },
@@ -39,8 +46,7 @@
         "y": 3
       },
       "height": 4,
-      "width": 1,
-      "direction": "up"
+      "width": 1
     }
   ]
 }

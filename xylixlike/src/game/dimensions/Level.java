@@ -43,17 +43,22 @@ import java.util.HashSet;
  */
 public class Level {
     private final LevelData data;
-    private EntityFactory entityFactory;
 
     public Level(int h, int w) {
         this.data = new LevelData(h, w);
-        entityFactory = new EntityFactory();
     }
 
     public Level(String fileName) {
         File levelFile = new File("xylixlike/Resources/Levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
-        entityFactory = new EntityFactory();
+        for (Prototype p : data.getPrototypes()) {
+            data.addEntity(new Organism(p));
+        }
+
+        for (Blueprint bp : data.getBlueprints()) {
+            data.addEntity(new Structure(bp));
+        }
+
     }
 
     
@@ -88,7 +93,6 @@ public class Level {
         return new LevelData(
                 gson.fromJson(levelJson.get("height"), Integer.class),
                 gson.fromJson(levelJson.get("width"), Integer.class),
-                gson.fromJson(levelJson.get("filler"), Character.class),
                 gson.fromJson(levelJson.get("prototypes"), prototypeCollection),
                 gson.fromJson(levelJson.get("blueprints"), blueprintCollection)
         );
