@@ -26,17 +26,12 @@
 
 package game.dimensions;
 public class Coordinates {
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     public Coordinates(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public void transform(Coordinates coordinates) {
-        this.x += coordinates.x;
-        this.y += coordinates.y;
     }
 
     public int getX() {
@@ -45,11 +40,6 @@ public class Coordinates {
 
     public int getY() {
         return y;
-    }
-
-    @Override
-    public String toString() {
-        return x + ", " + y;
     }
 
     @Override

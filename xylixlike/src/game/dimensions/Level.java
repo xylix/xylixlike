@@ -45,40 +45,30 @@ import java.util.HashSet;
 public class Level {
     private final LevelData data;
 
-    public Level(int h, int w) {
-        this.data = new LevelData(h, w);
-    }
-
     public Level(String fileName) {
         File levelFile = new File("xylixlike/Resources/Levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
-        for (Prototype p : data.getPrototypes()) {
-            data.addEntity(new Organism(p));
+        for (Prototype prototype : data.getPrototypes()) {
+            Logger.info(prototype);
+            spawnEntity(new Organism(prototype));
         }
 
         for (Blueprint blueprint : data.getBlueprints()) {
-            if (!blueprint.isValid()){
-                Logger.error(blueprint);
-            }
-
+            Logger.info(blueprint);
             Structure structure = new Structure(blueprint);
             structure.setFill(Color.WHITE);
-            data.addEntity(structure);
+            spawnEntity(structure);
         }
 
-    }
-
-    
-    public void spawnEntity(Entity e) {
-        data.addEntity(e);
     }
 
     public Collection<Entity> getEntities() {
         return data.getEntities();
     }
 
-    public boolean containsEntity(Entity e) {
-        return data.getEntities().contains(e);
+    @SuppressWarnings("WeakerAccess")
+    public void spawnEntity(Entity e) {
+        data.addEntity(e);
     }
 
     static private JsonObject loadLevel(File file) {

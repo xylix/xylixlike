@@ -5,12 +5,12 @@ import game.dimensions.Direction;
 import game.dimensions.Tile;
 
 public class Organism extends Entity implements Comparable<Organism>  {
-    private Tile tile;
-    static private int defaultWidth = 15;
-    static private int defaultHeight = 15;
+    private final Tile tile;
+    static private final int defaultWidth = 15;
+    static private final int defaultHeight = 15;
 
     public Organism (Coordinates coordinates, Tile tile) {
-        super(coordinates, defaultWidth, defaultWidth);
+        super(coordinates, defaultWidth, defaultHeight);
         this.tile = tile;
     }
 
@@ -19,7 +19,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
         this.tile = new Tile(prototype.symbol, prototype.kind);
     }
 
-    public void transform(Coordinates transformVector) {
+    private void transform(Coordinates transformVector) {
         this.setTranslateX(this.getTranslateX() + transformVector.getX());
         this.setTranslateY(this.getTranslateY() + transformVector.getY());
     }
@@ -36,9 +36,5 @@ public class Organism extends Entity implements Comparable<Organism>  {
             return (int) yComparison;
         else
             return (int) (this.getX() - o.getX());
-    }
-
-    public String getKind() {
-        return this.tile.getKind();
     }
 }

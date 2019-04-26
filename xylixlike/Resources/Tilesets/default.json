@@ -1,8 +1,0 @@
-{
-    "air" : " ",
-    "filler" : "#",
-    "verticalwall" : "-",
-    "horizontalwall" : "|",
-    "spider" : ":",
-    "player" : "@"
-}

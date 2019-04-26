@@ -1,7 +1,7 @@
 package game.dimensions;
 
-import game.entities.Entity;
 import game.entities.Blueprint;
+import game.entities.Entity;
 import game.entities.Prototype;
 
 import java.util.Collection;
@@ -10,13 +10,7 @@ import java.util.HashSet;
 class LevelData {
     private final Collection<Prototype> prototypes;
     private final Collection<Blueprint> blueprints;
-    private Collection<Entity> entities;
-
-    LevelData(int height, int width) {
-        this.prototypes = new HashSet<>();
-        this.blueprints = new HashSet<>();
-        this.entities = new HashSet<>();
-    }
+    private final Collection<Entity> entities;
 
     LevelData(Collection<Prototype> prototypes, Collection<Blueprint> blueprints) {
         this.prototypes = prototypes;

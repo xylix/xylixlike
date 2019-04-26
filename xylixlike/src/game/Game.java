@@ -28,7 +28,6 @@ import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
 import game.entities.Organism;
-
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -65,13 +64,13 @@ public class Game extends Application {
 
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT)
-                    player.transform(Direction.LEFT.toVector());
+                player.move(Direction.LEFT);
             else if (event.getCode() == KeyCode.RIGHT)
-                    player.transform(Direction.RIGHT.toVector());
+                player.move(Direction.RIGHT);
             else if (event.getCode() == KeyCode.UP)
-                    player.transform(Direction.UP.toVector());
+                player.move(Direction.UP);
             else if (event.getCode() == KeyCode.DOWN)
-                    player.transform(Direction.DOWN.toVector());
+                player.move(Direction.DOWN);
 
         });
 
