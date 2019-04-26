@@ -9,13 +9,13 @@ class TileTest {
 
     @Test
     void tileSymbolTest() {
-        Tile testTile = new Tile('-', "vwall");
+        Tile testTile = new Tile('-', "verticalwall");
         assertEquals('-', testTile.getSymbol());
     }
 
     @Test
     void tileIdTest() {
-        Tile testTile = new Tile('-', "vwall");
-        assertEquals("vwall", testTile.getKind());
+        Tile testTile = new Tile('-', "verticalwall");
+        assertEquals("verticalwall", testTile.getKind());
     }
 }

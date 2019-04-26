@@ -1,15 +1,33 @@
 package game.entities;
 
 import game.dimensions.Coordinates;
+import game.dimensions.Direction;
 import game.dimensions.Tile;
-import javafx.scene.shape.Rectangle;
 
 public class Organism extends Entity implements Comparable<Organism>  {
+    private Tile tile;
+    static private int defaultWidth = 15;
+    static private int defaultHeight = 15;
+
     public Organism (Coordinates coordinates, Tile tile) {
-        super(coordinates, 15, 15);
+        super(coordinates, defaultWidth, defaultWidth);
         this.tile = tile;
     }
 
+    public Organism (Prototype prototype) {
+        super(prototype.coordinates, defaultWidth, defaultHeight);
+        this.tile = new Tile(prototype.symbol, prototype.kind);
+    }
+
+    public void transform(Coordinates transformVector) {
+        this.setTranslateX(this.getTranslateX() + transformVector.getX());
+        this.setTranslateY(this.getTranslateY() + transformVector.getY());
+    }
+
+    public void move(Direction direction) {
+        //Implement check if entity can move
+        this.transform(direction.toVector());
+    }
 
     @Override
     public int compareTo(Organism o) {
@@ -20,4 +38,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
             return (int) (this.getX() - o.getX());
     }
 
+    public String getKind() {
+        return this.tile.getKind();
+    }
 }

@@ -28,6 +28,7 @@ import game.dimensions.Direction;
 import game.dimensions.Level;
 import game.dimensions.Tile;
 import game.entities.Entity;
+import game.entities.Organism;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -57,12 +58,12 @@ public class Game extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
 
         Pane pane = new Pane();
         pane.setPrefSize(1280, 640);
 
-        Entity player = new Entity(new Coordinates(16, 16), new Tile('@', "player"));
+        Organism player = new Organism(new Coordinates(16, 16), new Tile('@', "player"));
         Scene scene = new Scene(pane);
 
         scene.setOnKeyPressed(event -> {
@@ -79,9 +80,9 @@ public class Game extends Application {
 
         pane.getChildren().add(player);
 
-        //Level level = new Level("level0");
+        Level level = new Level("level0");
 
-        //pane.getChildren().addAll(level.getEntities());
+        pane.getChildren().addAll(level.getEntities());
 
         stage.setScene(scene);
         stage.show();

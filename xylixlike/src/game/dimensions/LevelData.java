@@ -30,11 +30,11 @@ class LevelData {
 
     }
 
-    public void addEntity(Entity e) {
+    void addEntity(Entity e) {
         this.entities.add(e);
     }
 
-    public Collection<Entity> getEntities() {
+    Collection<Entity> getEntities() {
         return this.entities;
     }
 }

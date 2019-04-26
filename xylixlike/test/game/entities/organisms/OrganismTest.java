@@ -79,7 +79,7 @@ class OrganismTest {
         Organism testSpider = new Organism(new Coordinates(1, 1), new Tile(':', "spider"));
         level.spawnEntity(testSpider);
         Coordinates coordinates = testSpider.getCoordinates();
-        level.moveOrganism(d, testSpider);
+        testSpider.move(d);
         coordinates.transform(d.toVector());
         assertEquals(testSpider.getCoordinates(), coordinates);
     }

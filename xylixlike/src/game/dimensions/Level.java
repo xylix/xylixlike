@@ -27,10 +27,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import game.entities.Entity;
-import game.entities.Organism;
-import game.entities.Blueprint;
-import game.entities.StructureFactory;
+import game.entities.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -46,23 +43,17 @@ import java.util.HashSet;
  */
 public class Level {
     private final LevelData data;
-    private StructureFactory structureFactory;
+    private EntityFactory entityFactory;
 
     public Level(int h, int w) {
         this.data = new LevelData(h, w);
-        try { structureFactory = new StructureFactory(Symset.defaultSymset());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        entityFactory = new EntityFactory();
     }
 
     public Level(String fileName) {
         File levelFile = new File("xylixlike/Resources/Levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
-        try { structureFactory = new StructureFactory(Symset.defaultSymset());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        entityFactory = new EntityFactory();
     }
 
     
@@ -78,13 +69,7 @@ public class Level {
         return data.getEntities().contains(e);
     }
 
-    public void moveOrganism(Direction direction, Organism organism) {
-        //Implement check if entity can move
-        organism.transform(direction.toVector());
-    }
-
-
-    private JsonObject loadLevel(File file) {
+    static private JsonObject loadLevel(File file) {
         try {
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
@@ -95,16 +80,16 @@ public class Level {
         }
     }
 
-    private LevelData parseJson(JsonObject levelJson) {
+    static private LevelData parseJson(JsonObject levelJson) {
         Gson gson = new Gson();
-        Type organismCollection = new TypeToken<HashSet<Organism>>() {}.getType();
+        Type prototypeCollection = new TypeToken<HashSet<Prototype>>() {}.getType();
         Type blueprintCollection = new TypeToken<HashSet<Blueprint>>() {}.getType();
 
         return new LevelData(
                 gson.fromJson(levelJson.get("height"), Integer.class),
                 gson.fromJson(levelJson.get("width"), Integer.class),
                 gson.fromJson(levelJson.get("filler"), Character.class),
-                gson.fromJson(levelJson.get("organisms"), organismCollection),
+                gson.fromJson(levelJson.get("prototypes"), prototypeCollection),
                 gson.fromJson(levelJson.get("blueprints"), blueprintCollection)
         );
     }
