@@ -1,0 +1,10 @@
+{
+  "player" : {
+    "name" : "player",
+    "defaultSymbol": "@"
+  },
+  "spider": {
+    "hp" : 4,
+    "defaultSymbol" : ":"
+  }
+}
