@@ -11,7 +11,7 @@ repositories {
 }
 
 javafx {
-    version = "11"
+    version = "12"
     modules = [ 'javafx.graphics' ]
 }
 
