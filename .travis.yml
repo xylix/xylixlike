@@ -1,9 +1,11 @@
-before_install: cd xylixlike
+dist: xenial
 language: java
 
 jdk:
   - oraclejdk11
   - openjdk11
+
+before_install: cd xylixlike
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
