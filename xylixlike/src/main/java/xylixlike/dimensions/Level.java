@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game.dimensions;
+package xylixlike.dimensions;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import game.entities.*;
+import xylixlike.entities.*;
 import javafx.scene.paint.Color;
 import org.tinylog.Logger;
 
@@ -46,7 +46,7 @@ public class Level {
     private final LevelData data;
 
     public Level(String fileName) {
-        File levelFile = new File("xylixlike/Resources/Levels/" + fileName + ".json");
+        File levelFile = new File("xylixlike/resources/levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
         for (Prototype prototype : data.getPrototypes()) {
             Logger.info(prototype);

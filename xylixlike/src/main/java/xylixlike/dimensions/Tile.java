@@ -1,4 +1,4 @@
-package game.dimensions;
+package xylixlike.dimensions;
 
 public class Tile {
     private final char symbol;

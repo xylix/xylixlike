@@ -21,13 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package game;
+package xylixlike;
 
-import game.dimensions.Coordinates;
-import game.dimensions.Direction;
-import game.dimensions.Level;
-import game.dimensions.Tile;
-import game.entities.Organism;
+import xylixlike.dimensions.Coordinates;
+import xylixlike.dimensions.Direction;
+import xylixlike.dimensions.Level;
+import xylixlike.dimensions.Tile;
+import xylixlike.entities.Organism;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

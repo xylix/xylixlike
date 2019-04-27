@@ -1,6 +1,6 @@
-package game.entities;
+package xylixlike.entities;
 
-import game.dimensions.Coordinates;
+import xylixlike.dimensions.Coordinates;
 import javafx.scene.shape.Rectangle;
 
 public class Entity extends Rectangle {

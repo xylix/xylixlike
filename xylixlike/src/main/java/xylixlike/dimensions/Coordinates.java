@@ -20,43 +20,37 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
-package game.dimensions;
-
-/**
  *
  * @author xylix
  */
-public enum Direction {
-    UP,
-    RIGHT,
-    DOWN,
-    LEFT;
-    public Coordinates toVector() {
-        int x; 
-        int y;
-        switch (this) {
-            case UP:
-                x = 0;
-                y = -1;
-                break;
-            case RIGHT:
-                x = 1;
-                y = 0;
-                break;
-            case DOWN:
-                x = 0;
-                y = 1;
-                break; 
-            case LEFT:
-                x = -1;
-                y = 0;
-                break;
-            default:
-                x = 0;
-                y = 0;
-                break;
-        }
-        return new Coordinates(x * 16, y * 16);
+
+package xylixlike.dimensions;
+public class Coordinates {
+    private final int x;
+    private final int y;
+
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+
+        return this.toString().equals(obj.toString());
+    }
+
+    public Coordinates toPixels() {
+        return new Coordinates(this.x * 16, this.y *16);
     }
 }

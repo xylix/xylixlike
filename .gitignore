@@ -1,4 +1,10 @@
 .idea/workspace.xml
 .idea/uiDesigner.xml
+.idea/xylixlike.iml
 
-target/
+# Java class files
+*.class
+
+xylixlike/gradle
+xylixlike/.gradle
+xylixlike/build/

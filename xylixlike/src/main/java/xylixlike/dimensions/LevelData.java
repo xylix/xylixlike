@@ -1,8 +1,8 @@
-package game.dimensions;
+package xylixlike.dimensions;
 
-import game.entities.Blueprint;
-import game.entities.Entity;
-import game.entities.Prototype;
+import xylixlike.entities.Blueprint;
+import xylixlike.entities.Entity;
+import xylixlike.entities.Prototype;
 
 import java.util.Collection;
 import java.util.HashSet;

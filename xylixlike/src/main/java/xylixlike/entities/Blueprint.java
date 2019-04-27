@@ -1,6 +1,6 @@
-package game.entities;
+package xylixlike.entities;
 
-import game.dimensions.Coordinates;
+import xylixlike.dimensions.Coordinates;
 
 @SuppressWarnings("unused")
 public class Blueprint {

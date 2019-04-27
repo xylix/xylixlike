@@ -1,8 +1,8 @@
-package game.entities;
+package xylixlike.entities;
 
-import game.dimensions.Coordinates;
-import game.dimensions.Direction;
-import game.dimensions.Tile;
+import xylixlike.dimensions.Coordinates;
+import xylixlike.dimensions.Direction;
+import xylixlike.dimensions.Tile;
 
 public class Organism extends Entity implements Comparable<Organism>  {
     private final Tile tile;

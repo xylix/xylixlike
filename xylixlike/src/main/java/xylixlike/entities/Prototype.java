@@ -1,6 +1,6 @@
-package game.entities;
+package xylixlike.entities;
 
-import game.dimensions.Coordinates;
+import xylixlike.dimensions.Coordinates;
 
 public class Prototype {
     String kind;

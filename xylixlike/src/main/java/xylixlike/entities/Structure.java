@@ -1,4 +1,4 @@
-package game.entities;
+package xylixlike.entities;
 
 
 public class Structure extends Entity {
