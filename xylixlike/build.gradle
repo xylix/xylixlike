@@ -16,6 +16,9 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'org.apache.commons:commons-collections4:4.3'
     implementation 'org.tinylog:tinylog-impl:2.0.0-M4.2'
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-graphics
+    implementation 'org.openjfx:javafx-graphics:12.0.1'
+
 
     testImplementation 'junit:junit:4.12'
 }
