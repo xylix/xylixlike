@@ -28,5 +28,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-mainClassName = 'Game'
+mainClassName = 'xylixlike.Game'
 

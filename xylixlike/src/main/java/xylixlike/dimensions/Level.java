@@ -46,7 +46,7 @@ public class Level {
     private final LevelData data;
 
     public Level(String fileName) {
-        File levelFile = new File("xylixlike/resources/levels/" + fileName + ".json");
+        File levelFile = new File("src/main/resources/levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
         for (Prototype prototype : data.getPrototypes()) {
             Logger.info(prototype);
