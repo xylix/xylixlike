@@ -1,11 +1,18 @@
 plugins {
     id 'java-library'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
+}
+
+javafx {
+    version = "11"
+    modules = [ 'javafx.graphics' ]
 }
 
 dependencies {
@@ -17,8 +24,9 @@ dependencies {
     implementation 'org.apache.commons:commons-collections4:4.3'
     implementation 'org.tinylog:tinylog-impl:2.0.0-M4.2'
     // https://mvnrepository.com/artifact/org.openjfx/javafx-graphics
-    implementation 'org.openjfx:javafx-graphics:12.0.1'
-
 
     testImplementation 'junit:junit:4.12'
 }
+
+mainClassName = 'Game'
+
