@@ -23,6 +23,7 @@
  */
 package xylixlike;
 
+import javafx.animation.AnimationTimer;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
@@ -71,14 +72,22 @@ public class Game extends Application {
                 player.move(Direction.UP);
             else if (event.getCode() == KeyCode.DOWN)
                 player.move(Direction.DOWN);
-
         });
 
-        pane.getChildren().add(player);
+        /*new AnimationTimer() {
+            @Override
+            public void handle(long current) {
+                if(player.collide())
+            }
+        }
+        .start();
+         */
 
         Level level = new Level("level0");
 
-        pane.getChildren().addAll(level.getEntities());
+        pane.getChildren().addAll(level.getStructures());
+        pane.getChildren().addAll(level.getOrganisms());
+        pane.getChildren().add(player);
 
         stage.setScene(scene);
         stage.show();

@@ -1,8 +1,6 @@
 package xylixlike.dimensions;
 
-import xylixlike.entities.Blueprint;
-import xylixlike.entities.Entity;
-import xylixlike.entities.Prototype;
+import xylixlike.entities.*;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -10,28 +8,36 @@ import java.util.HashSet;
 class LevelData {
     private final Collection<Prototype> prototypes;
     private final Collection<Blueprint> blueprints;
-    private final Collection<Entity> entities;
+    private final Collection<Structure> structures;
+    private final Collection<Organism> organisms;
 
     LevelData(Collection<Prototype> prototypes, Collection<Blueprint> blueprints) {
         this.prototypes = prototypes;
         this.blueprints = blueprints;
-        this.entities = new HashSet<>();
+        this.structures = new HashSet<>();
+        this.organisms = new HashSet<>();
 
     }
 
-    void addEntity(Entity e) {
-        this.entities.add(e);
+    void addStructure(Structure structure) {
+        this.structures.add(structure);
     }
 
-    public Collection<Prototype> getPrototypes() {
+    void addOrganism(Organism organism) {
+        this.organisms.add(organism);
+    }
+
+    Collection<Prototype> getPrototypes() {
         return prototypes;
     }
-    public Collection<Blueprint> getBlueprints() {
+    Collection<Blueprint> getBlueprints() {
         return blueprints;
     }
-    Collection<Entity> getEntities() {
-        return this.entities;
+    Collection<Structure> getStructures() {
+        return this.structures;
     }
-
+    Collection<Organism> getOrganisms() {
+        return this.organisms;
+    }
 
 }

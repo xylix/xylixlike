@@ -48,27 +48,37 @@ public class Level {
     public Level(String fileName) {
         File levelFile = new File("src/main/resources/levels/" + fileName + ".json");
         this.data = parseJson(loadLevel(levelFile));
-        for (Prototype prototype : data.getPrototypes()) {
-            Logger.info(prototype);
-            spawnEntity(new Organism(prototype));
-        }
 
         for (Blueprint blueprint : data.getBlueprints()) {
             Logger.info(blueprint);
             Structure structure = new Structure(blueprint);
             structure.setFill(Color.WHITE);
-            spawnEntity(structure);
+            spawnStructure(structure);
+        }
+
+        for (Prototype prototype : data.getPrototypes()) {
+            Logger.info(prototype);
+            spawnOrganism(new Organism(prototype));
         }
 
     }
 
-    public Collection<Entity> getEntities() {
-        return data.getEntities();
+    public Collection<Structure> getStructures() {
+        return data.getStructures();
+    }
+
+    public Collection<Organism> getOrganisms() {
+        return data.getOrganisms();
     }
 
     @SuppressWarnings("WeakerAccess")
-    public void spawnEntity(Entity e) {
-        data.addEntity(e);
+    public void spawnStructure(Structure structure) {
+        structure.setViewOrder(1.0);
+        data.addStructure(structure);
+    }
+    @SuppressWarnings("WeakerAccess")
+    public void spawnOrganism(Organism organism) {
+        data.addOrganism(organism);
     }
 
     static private JsonObject loadLevel(File file) {

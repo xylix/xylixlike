@@ -6,8 +6,8 @@ import xylixlike.dimensions.Tile;
 
 public class Organism extends Entity implements Comparable<Organism>  {
     private final Tile tile;
-    static private final int defaultWidth = 15;
-    static private final int defaultHeight = 15;
+    static private final int defaultWidth = 16;
+    static private final int defaultHeight = 16;
 
     public Organism (Coordinates coordinates, Tile tile) {
         super(coordinates, defaultWidth, defaultHeight);
