@@ -25,7 +25,14 @@ dependencies {
     implementation 'org.tinylog:tinylog-impl:2.0.0-M4.2'
     // https://mvnrepository.com/artifact/org.openjfx/javafx-graphics
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.4.2')
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 mainClassName = 'xylixlike.Game'
