@@ -37,6 +37,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Map;
 
 /**
  *
@@ -67,7 +68,7 @@ public class Level {
         return data.getStructures();
     }
 
-    public Collection<Organism> getOrganisms() {
+    public Map<String, Organism> getOrganisms() {
         return data.getOrganisms();
     }
 
@@ -79,6 +80,15 @@ public class Level {
     @SuppressWarnings("WeakerAccess")
     public void spawnOrganism(Organism organism) {
         data.addOrganism(organism);
+    }
+
+    public Organism getPlayer() {
+        if (getOrganisms().containsKey("player")) {
+            return getOrganisms().get("player");
+        } else {
+            Logger.error("Level lacks player");
+            return null;
+        }
     }
 
     static private JsonObject loadLevel(File file) {

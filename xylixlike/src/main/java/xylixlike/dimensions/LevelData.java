@@ -3,19 +3,21 @@ package xylixlike.dimensions;
 import xylixlike.entities.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 class LevelData {
     private final Collection<Prototype> prototypes;
     private final Collection<Blueprint> blueprints;
     private final Collection<Structure> structures;
-    private final Collection<Organism> organisms;
+    private final Map<String, Organism> organisms;
 
     LevelData(Collection<Prototype> prototypes, Collection<Blueprint> blueprints) {
         this.prototypes = prototypes;
         this.blueprints = blueprints;
         this.structures = new HashSet<>();
-        this.organisms = new HashSet<>();
+        this.organisms = new HashMap<String, Organism>();
 
     }
 
@@ -24,7 +26,7 @@ class LevelData {
     }
 
     void addOrganism(Organism organism) {
-        this.organisms.add(organism);
+        this.organisms.put(organism.getKind(), organism);
     }
 
     Collection<Prototype> getPrototypes() {
@@ -36,7 +38,7 @@ class LevelData {
     Collection<Structure> getStructures() {
         return this.structures;
     }
-    Collection<Organism> getOrganisms() {
+    Map<String, Organism> getOrganisms() {
         return this.organisms;
     }
 

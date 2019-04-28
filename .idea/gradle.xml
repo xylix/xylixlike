@@ -6,6 +6,11 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/xylixlike" />
         <option name="gradleHome" value="/usr/local/opt/gradle/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/xylixlike" />
+          </set>
+        </option>
         <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>

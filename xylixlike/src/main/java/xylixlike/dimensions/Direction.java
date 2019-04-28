@@ -59,4 +59,19 @@ public enum Direction {
         }
         return new Coordinates(x * 16, y * 16);
     }
+
+    public Direction getReverse() {
+        switch (this) {
+            case UP:
+                return DOWN;
+            case DOWN:
+                return UP;
+            case RIGHT:
+                return LEFT;
+            case LEFT:
+                return RIGHT;
+            default:
+                return null;
+        }
+    }
 }

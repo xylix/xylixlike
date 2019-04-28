@@ -23,7 +23,6 @@
  */
 package xylixlike;
 
-import javafx.animation.AnimationTimer;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
@@ -55,14 +54,19 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
-
         Pane pane = new Pane();
-        pane.setPrefSize(1280, 640);
+        pane.setPrefSize(720, 480);
         pane.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Organism player = new Organism(new Coordinates(16, 16), new Tile('@', "player"));
-        Scene scene = new Scene(pane);
+        Level level = new Level("level0");
 
+        pane.getChildren().addAll(level.getStructures());
+        pane.getChildren().addAll(level.getOrganisms().values());
+
+        Organism player = level.getPlayer();
+        new CollisionHandler(player, level).start();
+
+        Scene scene = new Scene(pane);
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.LEFT)
                 player.move(Direction.LEFT);
@@ -73,21 +77,6 @@ public class Game extends Application {
             else if (event.getCode() == KeyCode.DOWN)
                 player.move(Direction.DOWN);
         });
-
-        /*new AnimationTimer() {
-            @Override
-            public void handle(long current) {
-                if(player.collide())
-            }
-        }
-        .start();
-         */
-
-        Level level = new Level("level0");
-
-        pane.getChildren().addAll(level.getStructures());
-        pane.getChildren().addAll(level.getOrganisms());
-        pane.getChildren().add(player);
 
         stage.setScene(scene);
         stage.show();
