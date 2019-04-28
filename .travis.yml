@@ -1,14 +1,13 @@
 dist: xenial
 language: java
-jdk:
-  - oraclejdk11
-  - openjdk11
 
 matrix:
   include:
-    - env:
+    - jdk: openjdk11
+      env:
       - _JAVA_OPTIONS="-Djava.awt.headless=true -Dtestfx.robot=glass -Dtestfx.headless=true -Dprism.order=sw"
-    - env:
+    - jdk: openjdk11
+      env:
       - _JAVA_OPTIONS="-Dtestfx.robot=awt"
 
 before_install: cd xylixlike
