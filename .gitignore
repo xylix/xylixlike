@@ -9,3 +9,6 @@ xylixlike/gradle
 xylixlike/.gradle
 xylixlike/gradle.properties
 xylixlike/build/
+
+.DS_Store
+lib/
