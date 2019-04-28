@@ -23,10 +23,8 @@
  */
 package xylixlike;
 
-import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
-import xylixlike.dimensions.Tile;
 import xylixlike.entities.Organism;
 import javafx.application.Application;
 import javafx.geometry.Insets;

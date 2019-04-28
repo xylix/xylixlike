@@ -17,7 +17,7 @@ class LevelData {
         this.prototypes = prototypes;
         this.blueprints = blueprints;
         this.structures = new HashSet<>();
-        this.organisms = new HashMap<String, Organism>();
+        this.organisms = new HashMap<>();
 
     }
 
