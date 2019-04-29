@@ -2,6 +2,8 @@ plugins {
     id 'java-library'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'net.saliman.cobertura'
+    id 'com.github.kt3k.coveralls'
 }
 
 sourceCompatibility = 11
@@ -38,6 +40,7 @@ test {
         events "passed", "skipped", "failed"
     }
 }
-
+cobertura.coverageFormats = ['html', 'xml']
 mainClassName = 'xylixlike.Game'
+
 

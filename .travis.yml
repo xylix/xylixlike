@@ -25,3 +25,6 @@ cache:
 
 script:
   - xvfb-run -a gradle check
+
+after_success:
+  - gradle cobertura coveralls
