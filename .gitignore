@@ -1,6 +1,7 @@
 .idea/workspace.xml
 .idea/uiDesigner.xml
 .idea/xylixlike.iml
+.idea/misc.xml
 
 # Java class files
 *.class

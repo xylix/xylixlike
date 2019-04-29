@@ -3,7 +3,8 @@ Attempt at creating a _new_ and _innovational_ roguelike from scratch.
 
 Refer to https://github.com/xylix/xylixlike/projects/1 for project status
 
-[![Build Status](https://travis-ci.com/xylix/xylixlike.svg?branch=master)](https://travis-ci.com/xylix/xylixlike)
+[![Build Status](https://travis-ci.com/xylix/xylixlike.svg?branch=master)](https://travis-ci.com/xylix/xylixlike) [![codecov](https://codecov.io/gh/xylix/xylixlike/branch/master/graph/badge.svg)](https://codecov.io/gh/xylix/xylixlike)
+
 
 
 ### Compilation
