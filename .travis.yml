@@ -24,7 +24,7 @@ cache:
     - $HOME/.m2
 
 script:
-  - xvfb-run -a gradle check
+  - xvfb-run -a gradle --console=plain check
 
 after_success:
   - gradle cobertura coveralls
