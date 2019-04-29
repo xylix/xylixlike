@@ -10,6 +10,8 @@ Refer to https://github.com/xylix/xylixlike/projects/1 for project status
 ### Compilation
 Run gradle build in xylixlike/
 
+run gradle check to run the tests. You need to have $DISPLAY set to run the graphical tests
+
 run `gradle run` to compile and execute the game binary
 
 ### Development
