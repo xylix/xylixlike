@@ -10,3 +10,9 @@ Refer to https://github.com/xylix/xylixlike/projects/1 for project status
 Run gradle build in xylixlike/
 
 run `gradle run` to compile and execute the game binary
+
+### Development
+Your best friends:
+* https://openjfx.io/javadoc/12/javafx.graphics/module-summary.html
+* https://github.com/TestFX/TestFX
+* https://tinylog.org/v2/logging/
