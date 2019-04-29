@@ -6,12 +6,10 @@ matrix:
     - jdk: openjdk11
       env:      
       - _JAVA_OPTIONS="-Dtestfx.robot=awt"
-      - TEST_SUITE=check
 
-before_install:
-  - apt-get install -y xvfb
 install:
   #Set envvars for graphical testing 
+  - which xvfb
   - cd xylixlike; export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start;
 
 before_cache:
@@ -26,4 +24,4 @@ cache:
     - $HOME/.m2
 
 script:
-  - "gradle $TEST_SUITE"
+  - gradle check
