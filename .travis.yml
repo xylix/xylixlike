@@ -1,15 +1,17 @@
 dist: xenial
 language: java
+services:
+  - xvfb
 
 matrix:
   include:
     - jdk: openjdk11
       env:      
-      - _JAVA_OPTIONS="-Dtestfx.robot=awt"
+      - _JAVA_OPTIONS="-Dtestfx.robot=glass"
 
 install:
   #Set envvars for graphical testing 
-  - cd xylixlike; export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start;
+  - cd xylixlike; export DISPLAY=:99.0;
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -23,4 +25,4 @@ cache:
     - $HOME/.m2
 
 script:
-  - gradle check
+  - xvfb-run gradle check
