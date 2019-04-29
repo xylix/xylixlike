@@ -39,5 +39,7 @@ public class UITest extends ApplicationTest {
     void testMovement() {
         press(KeyCode.UP);
         press(KeyCode.DOWN);
+        press(KeyCode.LEFT);
+        press(KeyCode.RIGHT);
     }
 }
