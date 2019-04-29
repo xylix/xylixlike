@@ -23,6 +23,8 @@
  */
 package xylixlike;
 
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
@@ -30,10 +32,6 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -59,7 +57,17 @@ public class Game extends Application {
         Level level = new Level("level0");
 
         pane.getChildren().addAll(level.getStructures());
-        pane.getChildren().addAll(level.getOrganisms().values());
+
+        level.getOrganisms().values().forEach(organism -> {
+            StackPane imageContainer = new StackPane();
+            imageContainer.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+            imageContainer.getChildren().add(organism);
+            ImageView sprite = new ImageView("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+            sprite.setFitHeight(16);
+            sprite.setFitWidth(16);
+            imageContainer.getChildren().add(sprite);
+            pane.getChildren().add(imageContainer);
+        });
 
         Organism player = level.getPlayer();
         new CollisionHandler(player, level).start();
