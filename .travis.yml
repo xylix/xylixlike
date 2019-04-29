@@ -24,4 +24,4 @@ cache:
     - $HOME/.m2
 
 script:
-  - xvfb-run gradle check
+  - xvfb-run -a gradle check
