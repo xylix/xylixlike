@@ -43,6 +43,10 @@ public class Coordinates {
     }
 
     @Override
+    public String toString() {
+        return "x: " + this.x + ", y: ," + this.y;
+    }
+    @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
         if (obj.getClass() != this.getClass()) return false;

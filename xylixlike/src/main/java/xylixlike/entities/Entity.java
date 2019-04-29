@@ -10,7 +10,7 @@ public class Entity extends Rectangle {
     }
 
     public boolean collide(Entity entity) {
-        Shape coillisionBox = Shape.intersect(this, entity);
-        return coillisionBox.getBoundsInLocal().getWidth() != -1;
+        Shape collisionBox = Shape.intersect(this, entity);
+        return collisionBox.getBoundsInLocal().getWidth() != -1;
     }
 }

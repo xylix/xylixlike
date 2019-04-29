@@ -1,3 +1,5 @@
+package xylixlike;
+
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -5,7 +7,6 @@ import javafx.scene.input.KeyCode;
 import org.junit.jupiter.api.Test;
 
 import org.testfx.framework.junit5.ApplicationTest;
-import xylixlike.CollisionHandler;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
