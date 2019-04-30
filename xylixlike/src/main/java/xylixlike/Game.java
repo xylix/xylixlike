@@ -56,7 +56,7 @@ public class Game extends Application {
         stage.show();
     }
 
-    private static Scene loadLevel(String levelName) {
+    public static Scene loadLevel(String levelName) {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
         pane.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));

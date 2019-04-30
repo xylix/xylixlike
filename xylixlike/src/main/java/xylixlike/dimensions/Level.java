@@ -54,14 +54,12 @@ public class Level {
         this.data = parseLevelJson(loadJsonFile(levelFile));
 
         for (Blueprint blueprint : data.getBlueprints()) {
-            Logger.info(blueprint);
             Structure structure = new Structure(blueprint);
             structure.setFill(Color.WHITE);
             spawnStructure(structure);
         }
 
         for (Prototype prototype : data.getPrototypes()) {
-            Logger.info(prototype);
             spawnOrganism(new Organism(prototype));
         }
 
