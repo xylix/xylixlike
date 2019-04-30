@@ -11,7 +11,7 @@ class EntityTest {
     @Test
     void getOrganismLocationTest() {
         Coordinates location = new Coordinates(0, 0);
-        Organism organism = new Organism(new Prototype("testOrganism", '@', location));
+        Organism organism = new Organism(new Prototype("testOrganism", "spider", location));
         assertEquals(location, organism.getLocation());
     }
 }
