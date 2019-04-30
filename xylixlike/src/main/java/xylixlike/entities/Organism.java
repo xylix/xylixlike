@@ -7,6 +7,8 @@ import javafx.scene.paint.ImagePattern;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 
+import java.net.URL;
+
 public class Organism extends Entity implements Comparable<Organism>  {
     private final String name;
     private final String kind;
@@ -18,7 +20,8 @@ public class Organism extends Entity implements Comparable<Organism>  {
         super(prototype.coordinates, defaultWidth, defaultHeight);
         this.name = prototype.name;
         this.kind = prototype.kind;
-        Image sprite = new Image("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+        URL url = ClassLoader.getSystemClassLoader().getResource("sprites/" + this.kind + ".jpg");
+        Image sprite = new Image(url.toString());
         super.setFill(new ImagePattern(sprite));
     }
 
