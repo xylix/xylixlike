@@ -2,16 +2,16 @@
   "level": "level 1",
   "prototypes": [
     {
+      "name" : "player",
       "kind" : "player",
-      "symbol" : "@",
       "coordinates" : {
         "x": 16,
         "y": 16
       }
     },
     {
+      "name" : "spider1",
       "kind" : "spider",
-      "symbol" : ":",
       "coordinates" : {
         "x": 640,
         "y": 240

@@ -3,12 +3,12 @@ package xylixlike.entities;
 import xylixlike.dimensions.Coordinates;
 
 public class Prototype {
+    String name;
     String kind;
-    Character symbol;
     Coordinates coordinates;
-    public Prototype(String kind, Character symbol, Coordinates coordinates) {
+    public Prototype(String name, String kind, Coordinates coordinates) {
+        this.name = name;
         this.kind = kind;
-        this.symbol = symbol;
         this.coordinates = coordinates;
     }
 }

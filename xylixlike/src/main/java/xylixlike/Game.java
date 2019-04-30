@@ -23,8 +23,10 @@
  */
 package xylixlike;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.ImagePattern;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
@@ -63,15 +65,7 @@ public class Game extends Application {
         Level level = new Level(levelName);
 
         pane.getChildren().addAll(level.getStructures());
-        level.getOrganisms().values().forEach(organism -> {
-            StackPane imageContainer = new StackPane();
-            imageContainer.getChildren().add(organism);
-            ImageView sprite = new ImageView("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
-            sprite.setFitHeight(16);
-            sprite.setFitWidth(16);
-            imageContainer.getChildren().add(sprite);
-            pane.getChildren().add(imageContainer);
-        });
+        pane.getChildren().addAll(level.getOrganisms().values());
 
         Organism player = level.getPlayer();
         new CollisionHandler(player, level).start();

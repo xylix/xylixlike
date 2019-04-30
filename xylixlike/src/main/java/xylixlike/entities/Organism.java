@@ -1,24 +1,29 @@
 package xylixlike.entities;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.ImagePattern;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
-import xylixlike.dimensions.Tile;
 
 public class Organism extends Entity implements Comparable<Organism>  {
-    private final Tile tile;
+    private final String name;
+    private final String kind;
     static private final int defaultWidth = 16;
     static private final int defaultHeight = 16;
     private Direction previousMove;
 
     public Organism (Prototype prototype) {
         super(prototype.coordinates, defaultWidth, defaultHeight);
-        this.tile = new Tile(prototype.symbol, prototype.kind);
+        this.name = prototype.name;
+        this.kind = prototype.kind;
+        Image sprite = new Image("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+        super.setFill(new ImagePattern(sprite));
     }
 
-    public String getKind() {
-        return this.tile.getKind();
+    public String getName() {
+        return this.name;
     }
 
     private void transform(Coordinates transformVector) {

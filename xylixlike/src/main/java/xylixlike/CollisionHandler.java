@@ -23,6 +23,7 @@ public class CollisionHandler extends AnimationTimer {
         for (Structure structure : level.getStructures()) {
             if (organism.collide(structure)) {
                 organism.undoMove();
+                Logger.info("Organism '" + organism.getName() + "' collided with structure");
             }
         }
 
