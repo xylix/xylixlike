@@ -20,8 +20,8 @@ public class Organism extends Entity implements Comparable<Organism>  {
         super(prototype.coordinates, defaultWidth, defaultHeight);
         this.name = prototype.name;
         this.kind = prototype.kind;
-        URL url = ClassLoader.getSystemClassLoader().getResource("sprites/" + this.kind + ".jpg");
-        Image sprite = new Image(url.toString());
+        URL spriteUrl = ClassLoader.getSystemClassLoader().getResource("sprites/" + this.kind + ".jpg");
+        Image sprite = new Image(spriteUrl.toString());
         super.setFill(new ImagePattern(sprite));
     }
 

@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -47,7 +48,9 @@ public class Level {
     private final LevelData data;
 
     public Level(String fileName) {
-        File levelFile = new File("src/main/resources/levels/" + fileName + ".json");
+        String levelPath = ClassLoader.getSystemClassLoader().getResource("levels/" + fileName + ".json").getPath();
+        System.out.println(levelPath);
+        File levelFile = new File(levelPath);
         this.data = parseLevelJson(loadJsonFile(levelFile));
 
         for (Blueprint blueprint : data.getBlueprints()) {

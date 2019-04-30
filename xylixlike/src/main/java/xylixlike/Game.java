@@ -52,11 +52,10 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
-
         stage.setScene(loadLevel("level0"));
         stage.show();
-
     }
+
     private static Scene loadLevel(String levelName) {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
