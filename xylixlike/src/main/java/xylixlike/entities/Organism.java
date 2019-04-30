@@ -1,5 +1,7 @@
 package xylixlike.entities;
 
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Tile;
@@ -43,5 +45,18 @@ public class Organism extends Entity implements Comparable<Organism>  {
             return (int) yComparison;
         else
             return (int) (this.getX() - o.getX());
+    }
+
+    public void bindMovement (Scene scene) {
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.LEFT)
+                this.move(Direction.LEFT);
+            else if (event.getCode() == KeyCode.RIGHT)
+                this.move(Direction.RIGHT);
+            else if (event.getCode() == KeyCode.UP)
+                this.move(Direction.UP);
+            else if (event.getCode() == KeyCode.DOWN)
+                this.move(Direction.DOWN);
+        });
     }
 }

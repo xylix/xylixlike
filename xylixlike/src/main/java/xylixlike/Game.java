@@ -50,17 +50,21 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
+
+        stage.setScene(loadLevel("level0"));
+        stage.show();
+
+    }
+    private static Scene loadLevel(String levelName) {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
         pane.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Level level = new Level("level0");
+        Level level = new Level(levelName);
 
         pane.getChildren().addAll(level.getStructures());
-
         level.getOrganisms().values().forEach(organism -> {
             StackPane imageContainer = new StackPane();
-            imageContainer.setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
             imageContainer.getChildren().add(organism);
             ImageView sprite = new ImageView("https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
             sprite.setFitHeight(16);
@@ -72,20 +76,12 @@ public class Game extends Application {
         Organism player = level.getPlayer();
         new CollisionHandler(player, level).start();
 
-        Scene scene = new Scene(pane);
-        scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.LEFT)
-                player.move(Direction.LEFT);
-            else if (event.getCode() == KeyCode.RIGHT)
-                player.move(Direction.RIGHT);
-            else if (event.getCode() == KeyCode.UP)
-                player.move(Direction.UP);
-            else if (event.getCode() == KeyCode.DOWN)
-                player.move(Direction.DOWN);
-        });
+        Scene loadedLevel = new Scene(pane);
+        player.bindMovement(loadedLevel);
 
-        stage.setScene(scene);
-        stage.show();
-
+        return loadedLevel;
     }
+
+
+
 }

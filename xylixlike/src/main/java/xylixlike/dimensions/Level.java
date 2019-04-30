@@ -48,7 +48,7 @@ public class Level {
 
     public Level(String fileName) {
         File levelFile = new File("src/main/resources/levels/" + fileName + ".json");
-        this.data = parseJson(loadLevel(levelFile));
+        this.data = parseLevelJson(loadJsonFile(levelFile));
 
         for (Blueprint blueprint : data.getBlueprints()) {
             Logger.info(blueprint);
@@ -91,7 +91,7 @@ public class Level {
         }
     }
 
-    static private JsonObject loadLevel(File file) {
+    static private JsonObject loadJsonFile(File file) {
         try {
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
@@ -102,7 +102,7 @@ public class Level {
         }
     }
 
-    static private LevelData parseJson(JsonObject levelJson) {
+    static private LevelData parseLevelJson(JsonObject levelJson) {
         Gson gson = new Gson();
         Type prototypeCollection = new TypeToken<HashSet<Prototype>>() {}.getType();
         Type blueprintCollection = new TypeToken<HashSet<Blueprint>>() {}.getType();

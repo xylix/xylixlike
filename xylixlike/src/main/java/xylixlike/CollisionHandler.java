@@ -1,7 +1,10 @@
 package xylixlike;
 
 import javafx.animation.AnimationTimer;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import org.tinylog.Logger;
+import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
 import xylixlike.entities.Structure;
