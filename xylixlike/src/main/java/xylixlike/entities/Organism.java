@@ -6,6 +6,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import org.tinylog.Logger;
+import xylixlike.Event;
+import xylixlike.EventLog;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 
@@ -44,6 +46,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
     private void move(Direction direction) {
         this.previousMove = direction;
         this.transform(direction.toVector());
+        EventLog.log(Event.MOVEMENT, this.toString() );
     }
 
     public void undoMove() {

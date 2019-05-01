@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import org.tinylog.Logger;
+import xylixlike.EventLog;
 import xylixlike.dimensions.Direction;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
@@ -23,7 +24,6 @@ public class CollisionHandler extends AnimationTimer {
         for (Structure collided : level.getStructures()) {
             if (organism.collide(collided)) {
                 collided.interact(organism);
-                Logger.info("Organism '" + organism.getName() + "' collided with structure");
             }
         }
 
@@ -31,7 +31,6 @@ public class CollisionHandler extends AnimationTimer {
             if (!organism.equals(collided)) {
                 if (organism.collide(collided)) {
                     collided.interact(organism);
-                    Logger.info("Organism " + organism.getName() + "collided with organism: " + collided);
                 }
             }
         }

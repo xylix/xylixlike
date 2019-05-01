@@ -33,8 +33,9 @@ class UITest extends ApplicationTest {
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
-        push(KeyCode.DOWN);
-
-        fail();
+        push(KeyCode.RIGHT);
+        push(KeyCode.RIGHT);
+        push(KeyCode.RIGHT);
+        assertEquals(Event.INTERACTION, EventLog.getLastEvent());
     }
 }
