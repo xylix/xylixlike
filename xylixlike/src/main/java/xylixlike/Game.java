@@ -23,17 +23,13 @@
  */
 package xylixlike;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.ImagePattern;
-import xylixlike.dimensions.Direction;
+import xylixlike.dimensions.CollisionHandler;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 

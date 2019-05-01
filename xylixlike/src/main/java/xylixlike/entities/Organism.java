@@ -3,7 +3,9 @@ package xylixlike.entities;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import org.tinylog.Logger;
 import xylixlike.dimensions.Coordinates;
 import xylixlike.dimensions.Direction;
 
@@ -21,8 +23,13 @@ public class Organism extends Entity implements Comparable<Organism>  {
         this.name = prototype.name;
         this.kind = prototype.kind;
         URL spriteUrl = ClassLoader.getSystemClassLoader().getResource("sprites/" + this.kind + ".jpg");
-        Image sprite = new Image(spriteUrl.toString());
-        super.setFill(new ImagePattern(sprite));
+        if (spriteUrl != null) {
+            Image sprite = new Image(spriteUrl.toString());
+            super.setFill(new ImagePattern(sprite));
+        } else {
+            Logger.error("No sprite found for kind: " + this.kind);
+            super.setFill(Color.GREEN);
+        }
     }
 
     public String getName() {

@@ -5,13 +5,12 @@ import javafx.scene.input.KeyCode;
 import org.junit.jupiter.api.Test;
 
 import org.testfx.framework.junit5.ApplicationTest;
-import org.tinylog.Logger;
 
 import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.*;
 import static xylixlike.Game.loadLevel;
 
-public class UITest extends ApplicationTest {
+class UITest extends ApplicationTest {
     @Override public void start(Stage stage) {
         stage.setScene(loadLevel("testLevel0"));
         stage.show();

@@ -1,4 +1,4 @@
-package xylixlike;
+package xylixlike.dimensions;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
@@ -13,7 +13,7 @@ public class CollisionHandler extends AnimationTimer {
     private final Organism organism;
     private final Level level;
 
-    CollisionHandler(Organism organism, Level level) {
+    public CollisionHandler(Organism organism, Level level) {
         this.organism = organism;
         this.level = level;
     }

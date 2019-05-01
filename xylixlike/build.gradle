@@ -37,7 +37,8 @@ dependencies {
 test {
     useJUnitPlatform()
     testLogging {
-        events "passed", "skipped", "failed"
+        //noinspection GrUnresolvedAccess
+        events "PASSED", "SKIPPED", "FAILED"
     }
 }
 

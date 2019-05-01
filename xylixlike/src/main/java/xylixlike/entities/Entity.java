@@ -13,7 +13,7 @@ public class Entity extends Rectangle {
         Shape collisionBox = Shape.intersect(this, entity);
         return collisionBox.getBoundsInLocal().getWidth() != -1;
     }
-    
+
     public void interact(Organism collider) {
         collider.undoMove();
     }
