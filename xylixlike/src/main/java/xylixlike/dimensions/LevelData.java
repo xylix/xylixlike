@@ -27,7 +27,6 @@ class LevelData {
 
     void addOrganism(Organism organism) {
         this.organisms.put(organism.getName(), organism);
-
     }
 
     Collection<Prototype> getPrototypes() {

@@ -49,7 +49,6 @@ public class Level {
 
     public Level(String fileName) {
         String levelPath = ClassLoader.getSystemClassLoader().getResource("levels/" + fileName + ".json").getPath();
-        System.out.println(levelPath);
         File levelFile = new File(levelPath);
         this.data = parseLevelJson(loadJsonFile(levelFile));
 

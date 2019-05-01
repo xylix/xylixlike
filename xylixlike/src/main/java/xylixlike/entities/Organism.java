@@ -34,7 +34,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
         this.setTranslateY(this.getTranslateY() + transformVector.getY());
     }
 
-    public void move(Direction direction) {
+    private void move(Direction direction) {
         this.previousMove = direction;
         this.transform(direction.toVector());
     }
@@ -46,6 +46,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
     public Coordinates getLocation() {
         return new Coordinates((int) (this.getTranslateX() + this.getX()), (int)(this.getTranslateY() + this.getY()));
     }
+
     @Override
     public int compareTo(Organism o) {
         double yComparison = this.getY() - o.getY();

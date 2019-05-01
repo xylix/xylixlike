@@ -35,6 +35,7 @@ public class UITest extends ApplicationTest {
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
-        assertTrue(false);
+
+        fail();
     }
 }
