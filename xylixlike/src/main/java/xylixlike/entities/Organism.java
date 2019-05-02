@@ -46,7 +46,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
     private void move(Direction direction) {
         this.previousMove = direction;
         this.transform(direction.toVector());
-        EventLog.log(Event.MOVEMENT, this.toString() );
+        EventLog.log(Event.Type.MOVEMENT, this.toString() );
     }
 
     public void undoMove() {

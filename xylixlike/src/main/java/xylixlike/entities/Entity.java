@@ -1,10 +1,11 @@
 package xylixlike.entities;
 
 import javafx.scene.shape.Shape;
+import javafx.scene.shape.Rectangle;
 import xylixlike.Event;
 import xylixlike.EventLog;
 import xylixlike.dimensions.Coordinates;
-import javafx.scene.shape.Rectangle;
+
 
 public class Entity extends Rectangle {
     Entity(Coordinates coordinates, int width, int height) {
@@ -17,7 +18,7 @@ public class Entity extends Rectangle {
     }
 
     public void interact(Organism collider) {
-        EventLog.log(Event.INTERACTION, collider.getName() + "collided with " + this.toString());
+        EventLog.log(Event.Type.INTERACTION, collider.getName() + "collided with " + this.toString());
         collider.undoMove();
     }
 }
