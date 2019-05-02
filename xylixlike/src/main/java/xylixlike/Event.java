@@ -3,10 +3,10 @@ package xylixlike;
 public class Event {
     public enum Type {
         INTERACTION,
-        MOVEMENT;
+        MOVEMENT
     }
-    public Type type;
-    public String message;
+    public final Type type;
+    public final String message;
 
     public Event(Type type, String message) {
         this.type = type;

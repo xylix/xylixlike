@@ -60,10 +60,11 @@ public class Organism extends Entity implements Comparable<Organism>  {
     @Override
     public int compareTo(Organism o) {
         double yComparison = this.getY() - o.getY();
-        if (yComparison != 0)
+        if (yComparison != 0) {
             return (int) yComparison;
-        else
+        } else {
             return (int) (this.getX() - o.getX());
+        }
     }
 
     public void bindMovement (Scene scene) {
