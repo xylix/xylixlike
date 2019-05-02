@@ -21,7 +21,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
     private Direction previousMove;
 
     public Organism (Prototype prototype) {
-        super(prototype.coordinates, defaultWidth, defaultHeight);
+        super(prototype.coordinates.toPixels(), defaultWidth, defaultHeight);
         this.name = prototype.name;
         this.kind = prototype.kind;
         URL spriteUrl = ClassLoader.getSystemClassLoader().getResource("sprites/" + this.kind + ".jpg");
@@ -49,7 +49,7 @@ public class Organism extends Entity implements Comparable<Organism>  {
         EventLog.log(Event.Type.MOVEMENT, this.toString() );
     }
 
-    public void undoMove() {
+    void undoMove() {
         this.transform(previousMove.getReverse().toVector());
     }
 
@@ -69,14 +69,15 @@ public class Organism extends Entity implements Comparable<Organism>  {
 
     public void bindMovement (Scene scene) {
         scene.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.LEFT)
+            if (event.getCode() == KeyCode.LEFT) {
                 this.move(Direction.LEFT);
-            else if (event.getCode() == KeyCode.RIGHT)
-                this.move(Direction.RIGHT);
-            else if (event.getCode() == KeyCode.UP)
-                this.move(Direction.UP);
-            else if (event.getCode() == KeyCode.DOWN)
-                this.move(Direction.DOWN);
+            } else if (event.getCode() == KeyCode.RIGHT) {
+                    this.move(Direction.RIGHT);
+            } else if (event.getCode() == KeyCode.UP) {
+                    this.move(Direction.UP);
+            } else if (event.getCode() == KeyCode.DOWN) {
+                    this.move(Direction.DOWN);
+            }
         });
     }
 }

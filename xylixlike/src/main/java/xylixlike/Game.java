@@ -48,7 +48,7 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setScene(loadLevel("level0"));
+        stage.setScene(loadLevel("level1"));
         stage.show();
     }
 
@@ -70,7 +70,4 @@ public class Game extends Application {
 
         return loadedLevel;
     }
-
-
-
 }
