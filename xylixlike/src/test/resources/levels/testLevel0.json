@@ -5,16 +5,16 @@
       "name" : "player",
       "kind" : "player",
       "coordinates" : {
-        "x": 16,
-        "y": 16
+        "x": 0,
+        "y": 0
       }
     },
     {
       "name" : "spider1",
       "kind" : "spider",
       "coordinates" : {
-        "x": 640,
-        "y": 240
+        "x": 16,
+        "y": 16
       }
     }
   ],

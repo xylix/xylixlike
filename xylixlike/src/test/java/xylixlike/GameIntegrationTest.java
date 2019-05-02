@@ -10,7 +10,7 @@ import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.*;
 import static xylixlike.Game.loadLevel;
 
-class UITest extends ApplicationTest {
+class GameIntegrationTest extends ApplicationTest {
     @Override public void start(Stage stage) {
         stage.setScene(loadLevel("testLevel0"));
         stage.show();

@@ -23,6 +23,7 @@
  */
 package xylixlike;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import xylixlike.dimensions.CollisionHandler;
 import xylixlike.dimensions.Level;
@@ -55,7 +56,8 @@ public class Game extends Application {
     public static Scene loadLevel(String levelName) {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
-        pane.setBackground(new Background(new BackgroundFill(Color.DARKRED, CornerRadii.EMPTY, Insets.EMPTY)));
+        pane.setBackground(new Background(new BackgroundImage(new Image("sprites/background.png"),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
 
         Level level = new Level(levelName);
 
