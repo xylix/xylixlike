@@ -12,7 +12,6 @@ import xylixlike.dimensions.Coordinates;
 
 import java.net.URL;
 
-
 public class Entity extends Rectangle {
     protected String kind;
 
@@ -26,19 +25,19 @@ public class Entity extends Rectangle {
         return collisionBox.getBoundsInLocal().getWidth() != -1;
     }
 
-    public void interact(Organism collider) {
-        EventLog.log(Event.Type.INTERACTION, collider.getName() + "collided with " + this.toString());
-        collider.undoMove();
+    public void interact(Organism collidee) {
+        EventLog.log(Event.Type.INTERACTION, collidee.getName() + "collided with " + this.toString());
+        collidee.undoMove();
     }
 
     void loadSprite(String filename) {
         URL spriteUrl = ClassLoader.getSystemClassLoader().getResource("sprites/" + filename);
         if (spriteUrl != null) {
             Image sprite = new Image(spriteUrl.toString());
-            this.setFill(new ImagePattern(sprite));
+            super.setFill(new ImagePattern(sprite, 0, 0, 16, 16, false));
         } else {
             Logger.error("No sprite found for: " + filename);
-            this.setFill(Color.GREEN);
+            super.setFill(Color.GREEN);
         }
     }
 }

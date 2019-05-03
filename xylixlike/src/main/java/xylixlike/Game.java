@@ -29,9 +29,7 @@ import xylixlike.dimensions.CollisionHandler;
 import xylixlike.dimensions.Level;
 import xylixlike.entities.Organism;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
