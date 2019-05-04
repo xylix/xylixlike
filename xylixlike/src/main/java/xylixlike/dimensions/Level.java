@@ -28,7 +28,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import xylixlike.entities.*;
-import javafx.scene.paint.Color;
 import org.tinylog.Logger;
 
 import java.io.File;
@@ -88,7 +87,7 @@ public class Level {
         }
     }
 
-    static private JsonObject loadJsonFile(File file) {
+    private static JsonObject loadJsonFile(File file) {
         try {
             FileReader fr = new FileReader(file);
             JsonParser parser = new JsonParser();
@@ -99,7 +98,7 @@ public class Level {
         }
     }
 
-    static private LevelData parseLevelJson(JsonObject levelJson) {
+    private static LevelData parseLevelJson(JsonObject levelJson) {
         Gson gson = new Gson();
         Type prototypeCollection = new TypeToken<HashSet<Prototype>>() {}.getType();
         Type blueprintCollection = new TypeToken<HashSet<Blueprint>>() {}.getType();

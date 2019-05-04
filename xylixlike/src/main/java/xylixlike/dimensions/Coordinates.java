@@ -34,20 +34,20 @@ public class Coordinates {
         this.y = y;
     }
 
-    public int getX() {
+    public final int getX() {
         return x;
     }
 
-    public int getY() {
+    public final int getY() {
         return y;
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return "x: " + this.x + ", y: ," + this.y;
     }
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
@@ -57,7 +57,7 @@ public class Coordinates {
         return this.toString().equals(obj.toString());
     }
 
-    public Coordinates toPixels() {
+    public final Coordinates toPixels() {
         return new Coordinates(this.x * 16, this.y *16);
     }
 }

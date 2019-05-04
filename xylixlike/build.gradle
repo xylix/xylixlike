@@ -4,6 +4,8 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.7'
     id 'jacoco'
     id 'com.github.kt3k.coveralls'  version '2.8.2'
+    id 'se.bjurr.violations.violations-gradle-plugin' version '1.26'
+    id 'com.github.spotbugs' version '1.7.1'
 }
 
 sourceCompatibility = 11
@@ -19,7 +21,15 @@ javafx {
 jacoco {
   toolVersion = "0.8.2"
 }
-
+spotbugs {
+    ignoreFailures = true
+}
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
 
 dependencies {
     // These dependencies are used internally, and not exposed to consumers on their own compile classpath.

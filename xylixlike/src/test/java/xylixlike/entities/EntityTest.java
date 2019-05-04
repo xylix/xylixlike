@@ -1,7 +1,6 @@
 package xylixlike.entities;
 
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
