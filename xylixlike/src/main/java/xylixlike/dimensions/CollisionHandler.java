@@ -22,11 +22,10 @@ public class CollisionHandler extends AnimationTimer {
         }
 
         for (Organism collided : level.getOrganisms().values()) {
-            if (!organism.equals(collided)) {
-                if (organism.collide(collided)) {
+            if (!organism.equals(collided) && organism.collide(collided)) {
                     collided.interact(organism);
-                }
             }
         }
     }
 }
+

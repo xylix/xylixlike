@@ -23,7 +23,7 @@ class EntityTest extends ApplicationTest {
         assertEquals(organism.getFill(), Color.GREEN);
         organism.loadSprite("player.jpg");
         // Ensure sprite loaded by checking that it isn't fallback color now
-        assertNotEquals(organism.getFill(), Color.GREEN);
+        assertNotEquals(Color.GREEN, organism.getFill());
     }
 
     @Test

@@ -5,14 +5,17 @@ import java.util.Deque;
 
 public final class EventLog {
 
+    private EventLog() {
+        throw new IllegalStateException("Utility class");
+    }
 
-    private static Deque<Event> eventLog = new ArrayDeque<>();
+    private static Deque<Event> eventDeque = new ArrayDeque<>();
 
     public static void log(Event.Type eventType, String message) {
-        eventLog.add(new Event(eventType, message));
+        eventDeque.add(new Event(eventType, message));
     }
 
     public static Event getLastEvent() {
-        return eventLog.peekLast();
+        return eventDeque.peekLast();
     }
 }

@@ -9,12 +9,12 @@ import xylixlike.dimensions.Direction;
 
 public class Organism extends Entity implements Comparable<Organism>  {
     private final String name;
-    static private final int defaultWidth = 16;
-    static private final int defaultHeight = 16;
+    private static final int WIDTH = 16;
+    private static final int HEIGHT = 16;
     private Direction previousMove;
 
     public Organism (Prototype prototype) {
-        super(prototype.kind, prototype.coordinates.toPixels(), defaultWidth, defaultHeight);
+        super(prototype.kind, prototype.coordinates.toPixels(), WIDTH, HEIGHT);
         this.name = prototype.name;
         loadSprite(this.kind + ".jpg");
     }

@@ -92,7 +92,7 @@ public class Level {
             JsonParser parser = new JsonParser();
             return parser.parse(fr).getAsJsonObject();
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.error(e);
             return new JsonObject();
         }
     }
