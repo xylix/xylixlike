@@ -20,7 +20,7 @@ class EntityTest extends ApplicationTest {
         Coordinates location = new Coordinates(0, 0);
         Organism organism = new Organism(new Prototype("spider", "spider", location));
         organism.setFill(Color.GREEN);
-        assertEquals(organism.getFill(), Color.GREEN);
+        assertEquals(Color.GREEN, organism.getFill());
         organism.loadSprite("player.jpg");
         // Ensure sprite loaded by checking that it isn't fallback color now
         assertNotEquals(Color.GREEN, organism.getFill());
@@ -31,9 +31,9 @@ class EntityTest extends ApplicationTest {
         Coordinates location = new Coordinates(0, 0);
         Structure structure = new Structure(new Blueprint("room", location, 2, 2));
         structure.setFill(Color.GREEN);
-        assertEquals(structure.getFill(), Color.GREEN);
+        assertEquals(Color.GREEN, structure.getFill());
         structure.loadSprite("floor.png");
         // Ensure sprite loaded by checking that it isn't fallback color now
-        assertNotEquals(structure.getFill(), Color.GREEN);
+        assertNotEquals(Color.GREEN, structure.getFill());
     }
 }

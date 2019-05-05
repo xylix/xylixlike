@@ -47,25 +47,25 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage.setScene(loadLevel("level1"));
-        stage.show();
-    }
-
-    public static Scene loadLevel(String levelName) {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
         pane.setBackground(new Background(new BackgroundImage(new Image("sprites/background.png"),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
+            BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
 
+        stage.setScene(loadLevel(pane, "level1"));
+        stage.show();
+    }
+
+    public static Scene loadLevel(Pane display, String levelName) {
         Level level = new Level(levelName);
 
-        pane.getChildren().addAll(level.getStructures());
-        pane.getChildren().addAll(level.getOrganisms().values());
+        display.getChildren().addAll(level.getStructures());
+        display.getChildren().addAll(level.getOrganisms().values());
 
         Organism player = level.getPlayer();
         new CollisionHandler(player, level).start();
 
-        Scene loadedLevel = new Scene(pane);
+        Scene loadedLevel = new Scene(display);
         player.bindMovement(loadedLevel);
 
         return loadedLevel;

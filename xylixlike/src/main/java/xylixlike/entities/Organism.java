@@ -27,29 +27,17 @@ public class Organism extends Entity implements Comparable<Organism>  {
         this.setTranslateX(this.getTranslateX() + transformVector.getX());
         this.setTranslateY(this.getTranslateY() + transformVector.getY());
     }
-
     private void move(Direction direction) {
         this.previousMove = direction;
         this.transform(direction.toVector());
         EventLog.log(Event.Type.MOVEMENT, this.toString() );
     }
-
     void undoMove() {
         this.transform(previousMove.getReverse().toVector());
     }
 
     public Coordinates getLocation() {
         return new Coordinates((int) (this.getTranslateX() + this.getX()), (int)(this.getTranslateY() + this.getY()));
-    }
-
-    @Override
-    public int compareTo(Organism o) {
-        double yComparison = this.getY() - o.getY();
-        if (yComparison != 0) {
-            return (int) yComparison;
-        } else {
-            return (int) (this.getX() - o.getX());
-        }
     }
 
     public void bindMovement (Scene scene) {
@@ -64,5 +52,17 @@ public class Organism extends Entity implements Comparable<Organism>  {
                     this.move(Direction.DOWN);
             }
         });
+    }
+
+    // Note: this class has a natural ordering that is inconsistent with equals.
+    // Organisms are ordered according to their coordinates.
+    @Override
+    public int compareTo(Organism o) {
+        double yComparison = this.getY() - o.getY();
+        if (yComparison == 0) {
+            return (int) (this.getX() - o.getX());
+        } else {
+            return (int) yComparison;
+        }
     }
 }

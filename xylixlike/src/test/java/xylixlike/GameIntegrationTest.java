@@ -1,5 +1,6 @@
 package xylixlike;
 
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,9 @@ import static xylixlike.Game.loadLevel;
 
 class GameIntegrationTest extends ApplicationTest {
     @Override public void start(Stage stage) {
-        stage.setScene(loadLevel("testLevel0"));
+        Pane pane = new Pane();
+        pane.setPrefSize(720, 480);
+        stage.setScene(loadLevel(pane, "testLevel0"));
         stage.show();
     }
     @Test
@@ -29,13 +32,23 @@ class GameIntegrationTest extends ApplicationTest {
     }
 
     @Test
-    void testCollision() {
+    void testCollisionToStructure() {
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
         push(KeyCode.DOWN);
         push(KeyCode.RIGHT);
         push(KeyCode.RIGHT);
         push(KeyCode.RIGHT);
+        assertEquals(Event.Type.INTERACTION, EventLog.getLastEvent().type);
+    }
+
+    @Test
+    void testCollisionToOrganism() {
+        push(KeyCode.DOWN);
+        push(KeyCode.DOWN);
+        push(KeyCode.DOWN);
+        push(KeyCode.DOWN);
+        push(KeyCode.DOWN);
         assertEquals(Event.Type.INTERACTION, EventLog.getLastEvent().type);
     }
 }
