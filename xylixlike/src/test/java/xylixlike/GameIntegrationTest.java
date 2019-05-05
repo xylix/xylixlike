@@ -16,7 +16,8 @@ class GameIntegrationTest extends ApplicationTest {
         Pane pane = new Pane();
         pane.setPrefSize(720, 480);
         stage.setScene(loadLevel(pane, "testLevel0"));
-        stage.show();
+        // Enable to see the tests visually
+        // stage.show();
     }
     @Test
     void testMovementProcessing() {

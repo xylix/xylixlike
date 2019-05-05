@@ -46,8 +46,8 @@ public class Level {
     private final LevelData data;
 
     public Level(String fileName) {
-        String levelPath = ClassLoader.getSystemClassLoader().getResource("levels/" + fileName + ".json").getPath();
-        File levelFile = new File(levelPath);
+        File levelFile = new File(ClassLoader.getSystemClassLoader()
+                .getResource("levels/" + fileName + ".json").getPath());
         this.data = parseLevelJson(loadJsonFile(levelFile));
 
         for (Blueprint blueprint : data.getBlueprints()) {
