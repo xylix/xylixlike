@@ -25,6 +25,9 @@
  */
 
 package xylixlike.dimensions;
+
+import java.util.Objects;
+
 public class Coordinates {
     private final int x;
     private final int y;
@@ -44,7 +47,7 @@ public class Coordinates {
 
     @Override
     public final String toString() {
-        return "x: " + this.x + ", y: ," + this.y;
+        return "x: " + this.x + ", y: " + this.y;
     }
     @Override
     public final boolean equals(Object obj) {
@@ -55,6 +58,10 @@ public class Coordinates {
             return false;
         }
         return this.toString().equals(obj.toString());
+    }
+    @Override
+    public final int hashCode() {
+        return Objects.hash(x, y);
     }
 
     public final Coordinates toPixels() {
