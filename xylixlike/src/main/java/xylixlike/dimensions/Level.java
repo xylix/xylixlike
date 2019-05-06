@@ -57,7 +57,6 @@ public class Level {
         for (Prototype prototype : data.getPrototypes()) {
             spawnOrganism(new Organism(prototype));
         }
-
     }
 
     public Collection<Structure> getStructures() {
